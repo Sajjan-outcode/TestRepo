@@ -10,7 +10,6 @@
 		A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2312853EE9C00636378 /* QuestionsScore.swift */; };
 		A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C234285424EB00636378 /* SurveyTableViewCell.swift */; };
 		A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C238285427C600636378 /* PatientProfileViewController.swift */; };
-		A200C23B28553EBC00636378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C23A28553EBC00636378 /* MainView.swift */; };
 		A213C40E289B39DA00CD1102 /* SendMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A213C40D289B39DA00CD1102 /* SendMail.swift */; };
 		A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A225B8612880CC0C0074FFC4 /* Settings.swift */; };
 		A22CA438284A9C35003CFF7D /* CreateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22CA437284A9C35003CFF7D /* CreateProvider.swift */; };
@@ -99,7 +98,6 @@
 		A200C2312853EE9C00636378 /* QuestionsScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScore.swift; sourceTree = "<group>"; };
 		A200C234285424EB00636378 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
 		A200C238285427C600636378 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
-		A200C23A28553EBC00636378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A213C40D289B39DA00CD1102 /* SendMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMail.swift; sourceTree = "<group>"; };
 		A225B8612880CC0C0074FFC4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A22CA437284A9C35003CFF7D /* CreateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProvider.swift; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 				A2B5EA8F284EC4EB00F8ADCB /* LoginView.swift */,
 				A245F9E62800CFAE002EBE23 /* ViewController.swift */,
 				A294CCEF27EBC8B400E46414 /* MainViewController.swift */,
-				A200C23A28553EBC00636378 /* MainView.swift */,
 				A26B2EA227C6BF9E00938DB1 /* Main.storyboard */,
 				A2B63EF42880844B003BA799 /* LinkUILabel.swift */,
 				A26B2EA727C6BF9F00938DB1 /* LaunchScreen.storyboard */,
@@ -561,7 +558,6 @@
 				A28BA348287F46B900E291B6 /* NSAttributedString.swift in Sources */,
 				A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */,
 				A22CA438284A9C35003CFF7D /* CreateProvider.swift in Sources */,
-				A200C23B28553EBC00636378 /* MainView.swift in Sources */,
 				A213C40E289B39DA00CD1102 /* SendMail.swift in Sources */,
 				A2B6CC2F27CEE055001F9012 /* RoundImageView.swift in Sources */,
 				A2B4711A289C802600608CFD /* scanHistoryTableViewCell.swift in Sources */,

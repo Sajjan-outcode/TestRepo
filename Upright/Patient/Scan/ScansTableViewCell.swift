@@ -14,7 +14,7 @@ class ScansTableViewCell: UITableViewCell {
     
     func setScans(scans: PatientScan) {
         Scans.text = scans.time_stamp
-        print("this is a time stamp" + scans.time_stamp!)
+     //   print("this is a time stamp" + scans.time_stamp!)
     }
 
 }

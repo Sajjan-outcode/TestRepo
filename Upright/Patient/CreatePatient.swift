@@ -23,15 +23,16 @@ class CreatePatient: UIViewController {
     @IBOutlet weak var Email: UITextField!
     
     @IBAction func Cancel(_ sender: Any) {
-        
+        present(mainView!, animated: false)
         mainView!.setView(currentView: (patientSearchView?.view)!)
         
     }
     
     @IBAction func Create(_ sender: Any) {
-        
         submitData()
         getPatient()
+        setPatientInfo(firstName: First_Name.text!, lastName: Last_Name.text!, dob: CreatePatientDatePicker.date, emailAddress: Email.text!)
+        
         if(linkTheScan == true){
             scanController?.linkScanToPatient(patient_Id: Patient.id!, scan_Id: scanId!)
         }
@@ -52,7 +53,7 @@ class CreatePatient: UIViewController {
     func submitData() {
         let database: db = db()
         defer {database.connection?.close()}
-        let text = "INSERT INTO patient (provider_id, first_name, last_name, date_of_birth, email_address) VALUES (\(Organization.id!),'\(First_Name.text!)','\(Last_Name.text!)','\(CreatePatientDatePicker.date)','\(Email.text!)')"
+        let text = "INSERT INTO patient (provider_id, first_name, last_name, email_address) VALUES (\(Organization.id!),'\(First_Name.text!)','\(Last_Name.text!)','\(Email.text!)')"
         let result = database.execute(text: text)
 
             print(result)
@@ -63,7 +64,7 @@ class CreatePatient: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT patient.id, provider_id, first_name, last_name, email_address, CAST(date_of_birth AS VARCHAR) FROM patient WHERE provider_id = 1 AND last_name = '\(Last_Name.text!)' AND first_name = '\(First_Name.text!)'"
+            let text = "SELECT id FROM patient WHERE provider_id = \(Organization.id!) AND last_name = '\(Last_Name.text!)' AND first_name = '\(First_Name.text!)'"
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -73,31 +74,25 @@ class CreatePatient: UIViewController {
             for (row) in cursor {
                 let columns = try row.get().columns
                 let id = try columns[0].int()
-                let provider_id = try columns[1].int()
-                let first_name = try columns[2].string()
-                let last_name = try columns[3].string()
-                let dob = try columns[5].string()
-                let email = (try? columns[4].string()) ?? "aa"
-                let address = "NA"
-                let city = "NA"
-                let state = "NA"
-                let zip = "NA"
-                let phone_number = "NA"
+                
                 
                 Patient.id = id
-                Patient.first_name = first_name
-                Patient.last_name = last_name
-                Patient.date_of_birth = dob
-                Patient.email = email
-                Patient.address = address
-                Patient.city = city
-                Patient.state = state
-                Patient.zip = zip
-                Patient.phone_number = phone_number
+               
             }
         } catch {
             print(error)
         }
+    }
+    
+    func setPatientInfo(firstName: String, lastName: String, dob: Date, emailAddress: String){
+        
+        let dateFormatter = DateFormatter()
+        
+        Patient.first_name = firstName
+        Patient.last_name = lastName
+        Patient.date_of_birth = dateFormatter.string(from: dob)
+        Patient.email = emailAddress
+
     }
     
 }

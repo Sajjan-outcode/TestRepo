@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeview = HomeView()
-        //getClinicScores()
+        getClinicScores()
         
     }
     

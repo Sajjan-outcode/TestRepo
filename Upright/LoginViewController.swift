@@ -6,21 +6,20 @@
 //
 
 import UIKit
-// import PostgresClientKit
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var password_field: UITextField!
     @IBOutlet weak var userName: UITextField!
     
-    //var userPassword : String?
-    //var rows : [PostgresValue]?
+    var mainView: MainViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         password_field?.borderStyle = UITextField.BorderStyle.roundedRect
         userName?.borderStyle = UITextField.BorderStyle.roundedRect
-      
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        mainView = storyboard.instantiateViewController(withIdentifier:"MainViewController") as? MainViewController
     }
     
     override var shouldAutorotate: Bool {
@@ -36,9 +35,9 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainView = storyboard.instantiateViewController(withIdentifier:"MainViewController")
-        present(mainView, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let mainView = storyboard.instantiateViewController(withIdentifier:"MainViewController")
+        present(mainView!, animated: true, completion: nil)
     
     }
     

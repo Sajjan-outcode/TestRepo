@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class PatientScan {
-    
+     var first_name: String?
+     var last_name: String?
      var id: Int?
      var time_stamp: String?
      var prop_C: Double?
@@ -20,7 +21,9 @@ class PatientScan {
      var dl_L: Double?
      var lean: Double?
     
-    init(id: Int, time_stamp: String, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, lean: Double) {
+    init(first_name: String, last_name: String, id: Int, time_stamp: String, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, lean: Double) {
+        self.first_name = first_name
+        self.last_name = last_name
         self.id = id
         self.time_stamp = time_stamp
         self.prop_C = prop_C

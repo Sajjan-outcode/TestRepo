@@ -17,7 +17,7 @@ class CreateProvider: CreateProviderView {
         
             let result = database.execute(text: value)
             
-            print(result)
+          //  print(result)
         
     }
 }

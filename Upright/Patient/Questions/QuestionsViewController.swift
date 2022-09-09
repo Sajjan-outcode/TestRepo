@@ -9,6 +9,8 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
+    var mainView:MainViewController?
+    var patientView: PatientProfileViewController?
     
     @IBAction func button1(_ sender: Any) {
         questionsEngine(answer: 1)
@@ -44,13 +46,20 @@ class QuestionsViewController: UIViewController {
     @IBAction func rightarrow(_ sender: Any) {
         
         questionsPosition += 1
+       // print(questionsPosition)
     }
+ 
     @IBAction func leftarrow(_ sender: Any) {
         questionsPosition -= 1
+       // print(questionsPosition)
     }
     
-    @IBOutlet weak var leftarrow: UIButton!
-    @IBOutlet weak var rightarrow: UIButton!
+ 
+   
+    @IBOutlet weak var left_arrow: UIButton!
+    
+    @IBOutlet weak var right_arrow: UIButton!
+    
     
     
     @IBOutlet weak var Question: UILabel!
@@ -61,9 +70,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var Results_View: RoundImageView!
     @IBAction func Survey_Submit(_ sender: Any){
         submit()
-        let patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
-        //navigationController?.pushViewController(patientView!, animated: true)
-        let mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        
         present(mainView!, animated: false, completion: nil)
         mainView?.setView(currentView: patientView!.view)
     }
@@ -90,25 +97,21 @@ class QuestionsViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        left_arrow.isHidden = true
+        right_arrow.isHidden = true
         
-        leftarrow.isEnabled = false
-        rightarrow.isEnabled = false
+        patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
+        //navigationController?.pushViewController(patientView!, animated: true)
+        mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        
     }
     
     func questionsEngine(answer: Int){
         questions[questionsPosition].answer = answer
         
-        if(questionsPosition >= 1){
-            leftarrow.isEnabled = true
-            rightarrow.isEnabled = true
-        }
-        else {
-            leftarrow.isEnabled = false
-            rightarrow.isEnabled = false
-        }
-        if(questionsPosition == 9){
-            rightarrow.isEnabled = false
-        }
+     //  print(questionsPosition)
+        
+       
         
         questionTotal += answer
         if(questionsPosition < 9){
@@ -119,10 +122,20 @@ class QuestionsViewController: UIViewController {
         } else {
             Results_View.isHidden = false
         }
-       
         
+        if(questionsPosition >= 1){
+            left_arrow.isHidden = false
+            right_arrow.isHidden = false
+        }
+        else {
+            left_arrow.isHidden = true
+            right_arrow.isHidden = true
+        }
+        if(questionsPosition == 9){
+            right_arrow.isHidden = true
+        }
         Score.text = String(questionTotal)
-        print(questionsPosition)
+        // print(questionsPosition)
     }
     
     func createArray() {

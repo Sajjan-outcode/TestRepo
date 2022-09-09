@@ -25,9 +25,11 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     let scanYUUID = CBUUID(string: "ff07")
     let scanHeightUUID = CBUUID(string: "ff08")
     let probeTypeUUID = CBUUID(string: "ff09")
-    let deviceHeightUUID = CBUUID(string: "ff0a")
-    let scanSpeedUUID = CBUUID(string: "ff0b")
-    let scanPressureUUID = CBUUID(string: "ff0c")
+    let deviceHeightMSBUUID = CBUUID(string: "ff0a")
+    let deviceHeightLSBUUID = CBUUID(string: "ff0b")
+    let scanSpeedUUID = CBUUID(string: "ff0c")
+    let scanPressureUUID = CBUUID(string: "ff0d")
+    let scanResolutionUUID = CBUUID(string: "ff0e")
     
     //let commHome            = 1
     //let commInit            = 2
@@ -43,6 +45,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
                                                              (4, "Scan"),
                                                              (5, "Stop"),
                                                              (6, "Resume"),
+                                                             (7, "Setup"),
                                                              (127, "Kill")]
     /*let commands: [CommandTextPair] = [ CommandTextPair(command: 1, commandStr: "Home"),
                                         CommandTextPair(command: 2, commandStr: "Initialize"),
@@ -94,9 +97,11 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     private var scanYChar : CBCharacteristic?
     private var scanHeightChar : CBCharacteristic?
     private var probeTypeChar : CBCharacteristic?
-    private var deviceHeightChar : CBCharacteristic?
+    private var deviceHeightMSBChar : CBCharacteristic?
+    private var deviceHeightLSBChar : CBCharacteristic?
     private var scanSpeedChar : CBCharacteristic?
     private var scanPressureChar : CBCharacteristic?
+    private var scanResolutionChar : CBCharacteristic?
     
     @Published private var isSupported = true
     @Published private var isAllowed = true
@@ -110,10 +115,13 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     @Published private var vsiX: UInt32 = 0
     @Published private var vsiY: UInt32 = 0
     @Published private var vsiHeight: UInt32 = 0
+    @Published private var vsiHeightMSB: UInt8 = 0
+    @Published private var vsiHeightLSB: UInt8 = 0
     @Published private var vsiProbeType: UInt8 = 0
     @Published private var vsiDeviceHeight: UInt32 = 0
     @Published private var vsiScanSpeed: UInt8 = 0
     @Published private var vsiScanPressure: UInt8 = 0
+    @Published private var vsiScanResolution: UInt8 = 0
     
     private var X_array:Array<Int>? = []
     private var Y_array:Array<Int>? = []
@@ -232,6 +240,22 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     }
     
     
+    /*!
+     *  @method centralManager:didDisconnectPeripheral:
+     *
+     *  @param central      The central manager providing this information.
+     *  @param peripheral   The <code>CBPeripheral</code> that has connected.
+     *
+     *  @discussion         This method is invoked when a connection initiated by {@link connectPeripheral:options:} has succeeded.
+     *
+     */
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        connected = false
+        myCentral.scanForPeripherals(withServices: [vsiServiceUUID], options: nil)
+        print("Disconnected")
+    }
+    
+    
     
     /*!
      *  @method peripheral:didDiscoverServices:
@@ -247,7 +271,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         guard let services = peripheral.services else { return }
         
         for service in services {
-            print(service)
+           // print(service)
             self.peripheral.discoverCharacteristics(nil, for: service)
         }
     }
@@ -303,9 +327,13 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
                 probeTypeChar = characteristic
                 self.peripheral.setNotifyValue(true, for: probeTypeChar!)
                 self.peripheral.readValue(for: characteristic)
-            case deviceHeightUUID:
-                deviceHeightChar = characteristic
-                self.peripheral.setNotifyValue(true, for: deviceHeightChar!)
+            case deviceHeightMSBUUID:
+                deviceHeightMSBChar = characteristic
+                self.peripheral.setNotifyValue(true, for: deviceHeightMSBChar!)
+                self.peripheral.readValue(for: characteristic)
+            case deviceHeightLSBUUID:
+                deviceHeightLSBChar = characteristic
+                self.peripheral.setNotifyValue(true, for: deviceHeightLSBChar!)
                 self.peripheral.readValue(for: characteristic)
             case scanSpeedUUID:
                 scanSpeedChar = characteristic
@@ -314,6 +342,10 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
             case scanPressureUUID:
                 scanPressureChar = characteristic
                 self.peripheral.setNotifyValue(true, for: scanPressureChar!)
+                self.peripheral.readValue(for: characteristic)
+            case scanResolutionUUID:
+                scanResolutionChar = characteristic
+                self.peripheral.setNotifyValue(true, for: scanResolutionChar!)
                 self.peripheral.readValue(for: characteristic)
             default: break
             }
@@ -366,7 +398,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         case scanXUUID:
             guard let xCountBytes = scanXChar?.value?.count else {break}
             if (xCountBytes != 4) {
-                print(xCountBytes)
+               // print(xCountBytes)
                 break
             }
             vsiX = 0
@@ -380,7 +412,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         case scanYUUID:
             guard let yCountBytes = scanYChar?.value?.count else {break}
             if (yCountBytes != 4) {
-                print(yCountBytes)
+               // print(yCountBytes)
                 break
             }
             vsiY = 0
@@ -394,7 +426,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         case scanHeightUUID:
             guard let heightCountBytes = scanHeightChar?.value?.count else {break}
             if (heightCountBytes != 4) {
-                print(heightCountBytes)
+               // print(heightCountBytes)
                 break
             }
             vsiHeight = 0
@@ -407,25 +439,20 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         case probeTypeUUID:
             vsiProbeType = characteristic.value?.first ?? 0
             
-        case deviceHeightUUID:
-            guard let deviceHeightCountBytes = deviceHeightChar?.value?.count else {break}
-            if (deviceHeightCountBytes != 4) {
-                print(deviceHeightCountBytes)
-                break
-            }
-            vsiDeviceHeight = 0
-            var shift = 24
-            deviceHeightChar?.value?.forEach { byte in
-                vsiDeviceHeight += UInt32(byte) << shift
-                shift -= 8
-            }
+        case deviceHeightMSBUUID:
+            vsiHeightMSB = characteristic.value?.first ?? 0
+            
+        case deviceHeightLSBUUID:
+            vsiHeightLSB = characteristic.value?.first ?? 0
             
         case scanSpeedUUID:
             vsiScanSpeed = characteristic.value?.first ?? 0
-            print(vsiScanSpeed)
         
         case scanPressureUUID:
-            vsiScanSpeed = characteristic.value?.first ?? 0
+            vsiScanPressure = characteristic.value?.first ?? 0
+            
+        case scanResolutionUUID:
+            vsiScanResolution = characteristic.value?.first ?? 0
             
         default:
             print("Unhandled Characteristic UUID: \(characteristic.uuid)")
@@ -627,10 +654,35 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
      *  @param newDeviceHeight      The VSI device height, measured from the floor to the bottom of the device in mm
      *  @discussion                 Sends the device height to the VSI
      */
-    func sendDeviceHeight (newDeviceHeight: UInt32) {
-        let deviceHeight = NSData(bytes: [newDeviceHeight], length: 1)
-        peripheral.writeValue(deviceHeight as Data, for: deviceHeightChar!, type: CBCharacteristicWriteType.withResponse)
+    func sendDeviceHeightMSB (newDeviceHeightMSB: UInt8) {
+        let newDeviceHeightData = Data(bytes: [newDeviceHeightMSB], count: 1)
+            peripheral.writeValue(newDeviceHeightData, for: deviceHeightMSBChar!, type: CBCharacteristicWriteType.withResponse)
     }
+    
+    
+    /*!
+    *  @method sendDeviceHeight
+    *
+    *  @param newDeviceHeight      The VSI device height, measured from the floor to the bottom of the device in mm
+    *  @discussion                 Sends the device height to the VSI
+    */
+   func sendDeviceHeightLSB (newDeviceHeightLSB: UInt8) {
+       let newDeviceHeightData = Data(bytes: [newDeviceHeightLSB], count: 1)
+           peripheral.writeValue(newDeviceHeightData, for: deviceHeightLSBChar!, type: CBCharacteristicWriteType.withResponse)
+   }
+    
+    
+    /*!
+    *  @method sendDeviceHeight
+    *
+    *  @param newDeviceHeight      The VSI device height, measured from the floor to the bottom of the device in mm
+    *  @discussion                 Sends the device height to the VSI
+    */
+   func sendDeviceHeight (newDeviceHeight: UInt32) {
+       
+       sendDeviceHeightMSB(newDeviceHeightMSB: UInt8(newDeviceHeight >> 8))
+       sendDeviceHeightLSB(newDeviceHeightLSB: UInt8(newDeviceHeight))
+   }
     
     /*!
     *  @method getDeviceHeight
@@ -638,6 +690,9 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     *  @discussion                 Returns the VSI device mounting height in mm.
     */
    func getDeviceHeight() -> UInt32 {
+       vsiDeviceHeight = 0
+       vsiDeviceHeight += UInt32(vsiHeightMSB) << 8
+       vsiDeviceHeight += UInt32(vsiHeightLSB)
        return vsiDeviceHeight
    }
     
@@ -650,7 +705,6 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
      */
     func sendScanSpeed (newScanSpeed: UInt8) {
         let scanSpeed = NSData(bytes: [newScanSpeed] as [UInt8], length: 1)
-        print(scanSpeed)
         peripheral.writeValue(scanSpeed as Data, for: scanSpeedChar!, type: CBCharacteristicWriteType.withResponse)
     }
     
@@ -686,6 +740,26 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
        return vsiScanPressure
    }
     
+    /*!
+    *  @method sendResolution
+    *
+    *  @param newResolution          The VSI scanning resolution (1-255 {millimeters} 1 is the weakest)
+    *  @discussion                 Sends the scanning resolution to the VSI
+    */
+   func sendResolution (newResolution: UInt8) {
+       let scanResolution = NSData(bytes: [newResolution] as [UInt8], length: 1)
+       peripheral.writeValue(scanResolution as Data, for: scanResolutionChar!, type: CBCharacteristicWriteType.withResponse)
+   }
+   
+   
+   /*!
+   *  @method getScanResolution
+   *
+   *  @discussion                 Returns the VSI scanning resolution.
+   */
+  func getScanResolution() -> UInt8 {
+      return vsiScanResolution
+  }
     
     /*!
      *  @method getStateString
@@ -716,6 +790,8 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
             return "Indeterminate"
         case stateUserNotDetect:
             return "User Not Detected"
+        case stateSetup:
+            return "Setup Mode"
         case stateSystemFault:
             return "SYSTEM FAULT!"
         default:
@@ -744,4 +820,3 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
         Y_array = []
     }
 }
-

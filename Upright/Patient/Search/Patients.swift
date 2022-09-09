@@ -21,7 +21,7 @@ class Patients {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT patient.id, provider_id, first_name, last_name, email_address, CAST(date_of_birth AS VARCHAR) FROM patient WHERE provider_id = 1"
+            let text = "SELECT patient.id, provider_id, first_name, last_name, email_address, to_char(date_of_birth, 'dd-mm-yyyy') FROM patient WHERE provider_id = \(Organization.id!) ORDER BY last_name ASC"
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)

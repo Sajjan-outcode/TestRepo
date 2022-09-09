@@ -13,7 +13,7 @@ import PostgresClientKit
    
 
 class db {
-    let host: String = "52.90.36.209"
+    let host: String = "50.16.61.116"
     let database: String = "myproject"
     let user: String = "myprojectuser"
     let ssl: Bool = false

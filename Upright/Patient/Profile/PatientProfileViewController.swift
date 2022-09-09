@@ -11,6 +11,8 @@ import SwiftUI
 
 class PatientProfileViewController: UIViewController {
     
+    let submitEmail = false
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var surveyTableView: UITableView!
     
@@ -31,10 +33,29 @@ class PatientProfileViewController: UIViewController {
     @IBOutlet weak var thoracic: UILabel!
     @IBOutlet weak var lumbar: UILabel!
     @IBOutlet weak var spin_pic: UIImageView!
+    @IBOutlet weak var EmailView: RoundImageView!
+    @IBOutlet weak var EmailViewInput: UITextField!
+    @IBOutlet weak var normalityCervical: UILabel!
+    @IBOutlet weak var normalityThoracic: UILabel!
+    @IBOutlet weak var normalityLumbar: UILabel!
+    @IBOutlet weak var Height: UILabel!
+    
     
     
     @IBAction func ReferPatient(_ sender: Any) {
-       
+        if let url = NSURL(string: "https://www.uprightspine.com/booking-calendar/virtual-consultation-free?referral=service_list_widget"){
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
+    
+    @IBAction func EmailViewOkButton(_ sender: Any) {
+        
+        if(submitEmail == false){
+            
+        }else{
+            
+        }
+        EmailView.isHidden = true
     }
     
     @IBAction func New_Scan(_ sender: Any) {
@@ -66,9 +87,9 @@ class PatientProfileViewController: UIViewController {
         name.text = Patient.first_name! + " " + Patient.last_name!
         dob.text = Patient.date_of_birth as! String
         email.text = Patient.email
-        Address.text = Patient.address
-        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
-        Phone_Number.text = Patient.phone_number
+//        Address.text = Patient.address
+//        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
+//        Phone_Number.text = Patient.phone_number
         self.patient_id = Patient.id!
         
 //        ReferPatientButton.configuration?.titleAlignment = .center
@@ -82,11 +103,25 @@ class PatientProfileViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let indexPath = IndexPath(row: 0, section: 0)
+        if(!scanslist.isEmpty){
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+        tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+        }
+        if(!surveylist.isEmpty){
+        surveyTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+        surveyTableView.delegate?.tableView?(surveyTableView, didSelectRowAt: indexPath)
+        }
+        
+    }
+    
     func getScansList(){
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT * FROM scans WHERE patient_id = \(Patient.id!) ORDER BY id DESC"
+            let text = "SELECT * FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -106,7 +141,7 @@ class PatientProfileViewController: UIViewController {
                 let time_stamp = try columns[8].string()
                 var lean = try columns[9].double()
                 scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean)
-                print(id)
+               // print(id)
             }
            
         } catch {
@@ -138,7 +173,7 @@ class PatientProfileViewController: UIViewController {
     
     func createArray(id: Int, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, time_stamp: String, lean: Double) -> [PatientScan] {
         var tempList: [PatientScan] = []
-        let list = PatientScan(id: id, time_stamp: time_stamp, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, lean: lean)
+        let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, lean: lean)
         tempList.append(list)
 
         return tempList
@@ -191,8 +226,13 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             cervical.text = format.string(for: (selectedScan.prop_C! * 100))! + "%"
             thoracic.text = format.string(for: (selectedScan.prop_T! * 100))! + "%"
             lumbar.text = format.string(for: (selectedScan.prop_L! * 100))! + "%"
+            normalityCervical.text = format.string(for: (selectedScan.dl_C! * 100))! + "%"
+            normalityThoracic.text = format.string(for: (selectedScan.dl_T! * 100))! + "%"
+            normalityLumbar.text = format.string(for: (selectedScan.dl_L! * 100))! + "%"
             lean.text =  format.string(for: selectedScan.lean)
-            spin_pic.loadFrom(URLAddress: "http://52.90.36.209:8000/media/\(selectedScan.id).png")
+            //Height.text = selectedScan.height
+            spin_pic.loadFrom(URLAddress: "http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
+            // print("http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
         } else {
             let selectedSurvey = surveylist[indexPath.row]
             survey_score.text = String(selectedSurvey.score)

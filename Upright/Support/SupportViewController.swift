@@ -14,6 +14,18 @@ class SupportViewController: UIViewController {
     @IBOutlet weak var faqLink: UILabel!
     @IBOutlet weak var spportLink: LinkUILabel!
     
+    @IBAction func MessageSupportButton(_ sender: Any) {
+        if let url = NSURL(string: "http://www.uprightspine.com/contact"){
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
+    @IBAction func FAQButton(_ sender: Any) {
+        if let url = NSURL(string: "http://www.uprightspine.com/help-center"){
+            UIApplication.shared.openURL(url as URL)
+        }
+        
+    }
+    
     var supportVideos: [Support] = []
     
     override func viewDidLoad() {
@@ -21,8 +33,8 @@ class SupportViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         createSupportArray()
-        createHyperLink()
-        createSupportLink()
+      //  createHyperLink()
+      //  createSupportLink()
         
         tableView.delegate = self
         tableView.dataSource = self

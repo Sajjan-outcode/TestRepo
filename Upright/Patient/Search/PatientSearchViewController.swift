@@ -22,7 +22,7 @@ class PatientSearchViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // getPatients()
+        getPatients()
         filteredData = patientlist
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,34 +35,37 @@ class PatientSearchViewController: UIViewController {
     }
     
     func getPatients(){
-        do {
-            let db:db = db.init()
-            defer {db.connection?.close()}
-            let text = "SELECT patient.id, provider_id, first_name, last_name, email_address, CAST(date_of_birth AS VARCHAR) FROM patient WHERE provider_id = 1"
-            defer {db.statment?.close()}
-            
-            let cursor = db.execute(text: text)
-            
-            defer {cursor.close()}
-            
-            for (row) in cursor {
-                let columns = try row.get().columns
-                let id = try columns[0].int()
-                let provider_id = try columns[1].int()
-                let first_name = try columns[2].string()
-                let last_name = try columns[3].string()
-                let dob = try columns[5].string()
-                let email = (try? columns[4].string()) ?? "aa"
-                let address = "NA"
-                let city = "NA"
-                let state = "NA"
-                let zip = "NA"
-                let phone_number = "NA"
-                patientlist += createArray(id: id, provider_id: provider_id, first_name: first_name, last_name: last_name, dob: dob, email: email, address: address, city: city, state: state, zip: zip, phone_number: phone_number)
-            }
-        } catch {
-            print(error)
-        }
+//        do {
+//            let db:db = db.init()
+//            defer {db.connection?.close()}
+//            let text = "SELECT patient.id, provider_id, first_name, last_name, email_address, to_char(date_of_birth, 'mm-dd-yyyy') FROM patient WHERE provider_id = 1"
+//            defer {db.statment?.close()}
+//
+//            let cursor = db.execute(text: text)
+//
+//            defer {cursor.close()}
+//
+//            for (row) in cursor {
+//                let columns = try row.get().columns
+//                let id = try columns[0].int()
+//                let provider_id = try columns[1].int()
+//                let first_name = try columns[2].string()
+//                let last_name = try columns[3].string()
+//                let dob = try columns[5].string()
+//                let email = (try? columns[4].string()) ?? "aa"
+//                let address = "NA"
+//                let city = "NA"
+//                let state = "NA"
+//                let zip = "NA"
+//                let phone_number = "NA"
+//                patientlist += createArray(id: id, provider_id: provider_id, first_name: first_name, last_name: last_name, dob: dob, email: email, address: address, city: city, state: state, zip: zip, phone_number: phone_number)
+//            }
+//        } catch {
+//            print(error)
+//        }
+        let patients = Patients(organization: Organization.id!)
+        patientlist = patients.getPatients()
+        
     }
     
     func createArray(id: Int, provider_id: Int, first_name: String, last_name: String, dob: String, email: String, address: String, city: String, state: String, zip: String, phone_number: String) -> [PatientSearch]{

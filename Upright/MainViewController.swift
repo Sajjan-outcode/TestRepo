@@ -55,25 +55,29 @@ class MainViewController: UIViewController, ObservableObject {
     override func viewDidLoad() {
         super.viewDidLoad()
         bleManager =  BLEManager.init()
-      
-        let dataBase = db.init()
-        defer {dataBase.connection?.close()}
-        let cursor = dataBase.execute(text: sqlStatment)
-        defer {dataBase.statment?.close()}
-        defer {cursor.close()}
-        do {
-            for row in cursor {
-                let columns = try row.get().columns
-                let name = (try? columns[1].string()) ?? "UprightSpine"
-                let address = (try? columns[2].string()) ?? "1471 W 1250 S"
-                let city = (try? columns[3].string()) ?? "Orem"
-                let state = (try? columns[4].string()) ?? "Utah"
-                let zip = try columns[5].int()
-                setProviderInfo(name: name, address: address, city: city, state: state, zip: zip)
-            }
-            } catch {
-             print(error)
-            }
+        UIApplicationMain(
+            CommandLine.argc, CommandLine.unsafeArgv,
+            NSStringFromClass(CustomApplication.self),
+            NSStringFromClass(AppDelegate.self)
+        )
+//        let dataBase = db.init()
+//        defer {dataBase.connection?.close()}
+//        let cursor = dataBase.execute(text: sqlStatment)
+//        defer {dataBase.statment?.close()}
+//        defer {cursor.close()}
+//        do {
+//            for row in cursor {
+//                let columns = try row.get().columns
+//                let name = (try? columns[1].string()) ?? "UprightSpine"
+//                let address = (try? columns[2].string()) ?? "1471 W 1250 S"
+//                let city = (try? columns[3].string()) ?? "Orem"
+//                let state = (try? columns[4].string()) ?? "Utah"
+//                let zip = try columns[5].int()
+        setProviderInfo(name: Organization.name!, address: Organization.address!, city: Organization.city!, state: Organization.state!, zip: Organization.zip!)
+//            }
+//            } catch {
+//             print(error)
+//            }
         
          
         
@@ -94,7 +98,7 @@ class MainViewController: UIViewController, ObservableObject {
       
     }
     
-    func setProviderInfo(name: String, address: String, city: String, state: String, zip: Int){
+    func setProviderInfo(name: String, address: String, city: String, state: String, zip: String){
         providerInfo?.text = "\(name)"
         providerdetails?.text = "\(address) \n \(city) \(state) \(zip)"
     }
@@ -162,3 +166,5 @@ class MainViewController: UIViewController, ObservableObject {
     }
     
 }
+
+
