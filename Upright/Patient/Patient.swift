@@ -23,4 +23,22 @@ struct Patient {
     static var state: String?
     static var zip: String?
     
+    func updateEmailAddress(email: String){
+        
+        do {
+            let db:db = db.init()
+            defer {db.connection?.close()}
+            let text = "UPDATE patient SET email_address = '\(email)' WHERE id = \(Patient.id!)"
+            defer {db.statment?.close()}
+            
+            let cursor = db.execute(text: text)
+            
+            defer {cursor.close()}
+           
+        } catch {
+            print(error)
+        }
+        
+    }
+
 }

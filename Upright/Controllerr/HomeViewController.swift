@@ -15,16 +15,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var patientCount: UILabel!
     @IBOutlet weak var scanCount: UILabel!
     
-    
+    private var calc: Calculations!
     static let homeViewController = "HomeVC"
-    var homeview: HomeView?
+    var mainView:BaseViewController!
+    //var homeview: HomeView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeview = HomeView()
+      //  homeview = HomeView()
+       
+        mainView = BaseViewController()
+        calc = Calculations(patient_id: 0, prop_c: 0, prop_t: 0, prop_l: 0, norm_c: 0, norm_t: 0, norm_l: 0, lean: 0)
         getClinicScores()
-        
     }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        mainView.hideContentController(content: self)
+//    }
     
     func getPatients(){
         
@@ -56,6 +63,7 @@ class HomeViewController: UIViewController {
     func setData(scans: Int, patients: Int){
         patientCount.text = String(patients)
         scanCount.text = String(scans)
+        //patient_delta.text = String(calc.getTotalAvgDelta())
     }
     
     

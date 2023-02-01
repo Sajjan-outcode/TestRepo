@@ -7,6 +7,7 @@
 
 import UIKit
 @IBDesignable
+
 class RoundImageView: UIImageView {
     private var _round = false
     private var _borderColor = UIColor.clear

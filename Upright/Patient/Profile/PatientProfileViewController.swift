@@ -39,7 +39,13 @@ class PatientProfileViewController: UIViewController {
     @IBOutlet weak var normalityThoracic: UILabel!
     @IBOutlet weak var normalityLumbar: UILabel!
     @IBOutlet weak var Height: UILabel!
+    @IBOutlet weak var ConfirmEmailTxt: UILabel!
+    @IBOutlet weak var EmailConfirmTitle: UILabel!
+    @IBOutlet weak var resultsId: UILabel!
     
+    var pic_date:String!
+    
+    @IBOutlet weak var EmailConfirmInputBox: UITextField!
     
     
     @IBAction func ReferPatient(_ sender: Any) {
@@ -48,44 +54,68 @@ class PatientProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func ReferralEmailBtn(_ sender: Any) {
+        EmailView.isHidden = false
+        ConfirmEmailTxt.text = Patient.email
+    }
+    
     @IBAction func EmailViewOkButton(_ sender: Any) {
-        
-        if(submitEmail == false){
-            
+        let email: String
+        print(EmailConfirmInputBox.text)
+        if(EmailConfirmInputBox.text != ""){
+            email = EmailConfirmInputBox.text!
+            self.patient.updateEmailAddress(email: email)
+            self.email.text = email
         }else{
-            
+            email = Patient.email!
         }
+        callHttp(email: email)
         EmailView.isHidden = true
     }
     
+    @IBAction func EditEmailBtn(_ sender: Any) {
+        editEmail()
+    }
+    
+    
     @IBAction func New_Scan(_ sender: Any) {
         present(mainView!, animated: false, completion: nil)
-        mainView?.setView(currentView: scanView!.view)
+        mainView.displayContentController(content: scanView!)
     }
     @IBAction func New_Survey(_ sender: Any) {
         present(mainView!, animated: false, completion: nil)
-        mainView?.setView(currentView: questionView!.view)
+        mainView.displayContentController(content: questionView!)
     }
+    
+    @IBAction func ReferralEmailCancel(_ sender: Any) {
+        EmailView.isHidden = true
+    }
+    
     
     var patient_id:Int?
     var scanslist: [PatientScan] = []
     var surveylist: [QuestionsScore] = []
     
-    var mainView: MainViewController?
+    var mainView: BaseViewController!
     var scanView: ScanControllsViewController?
     var questionView: QuestionsViewController?
+    var scans: ScanController!
+    var patient: Patient!
+    var calc: Calculations!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         surveyTableView.delegate = self
         surveyTableView.dataSource = self
         
+        patient = Patient()
+        
+        self.scans = ScanController()
         name.text = Patient.first_name! + " " + Patient.last_name!
-        dob.text = Patient.date_of_birth as! String
+//        dob.text = Patient.date_of_birth as! String
         email.text = Patient.email
 //        Address.text = Patient.address
 //        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
@@ -94,7 +124,7 @@ class PatientProfileViewController: UIViewController {
         
 //        ReferPatientButton.configuration?.titleAlignment = .center
         
-        mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         scanView = storyboard?.instantiateViewController(withIdentifier: "ScanControllsViewController") as? ScanControllsViewController
         questionView = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController
         
@@ -121,13 +151,13 @@ class PatientProfileViewController: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT * FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
+            let text = "SELECT *, to_char(date_stamp, 'mm-dd-yyyy') as scan_date FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
             
             defer {cursor.close()}
-            
+            print(cursor)
             for (row) in cursor {
                 let columns = try row.get().columns
                 var prop_C = try columns[2].double()
@@ -138,9 +168,12 @@ class PatientProfileViewController: UIViewController {
                 var dl_L = try columns[7].double()
                 let id = try columns[0].int()
                 let patient_id = try columns[1].int()
-                let time_stamp = try columns[8].string()
+                let time_stamp = try columns[14].string()
                 var lean = try columns[9].double()
-                scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean)
+                let height = try columns[13].double()
+                let pic_date = try columns[8].string()
+                
+                scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean, height: height, pic_date: pic_date)
                // print(id)
             }
            
@@ -153,7 +186,7 @@ class PatientProfileViewController: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT * FROM survey WHERE patient_id = \(Patient.id!) ORDER BY id DESC"
+            let text = "SELECT score, to_char(time_stamp, 'mm-dd-yyyy') FROM survey WHERE patient_id = \(Patient.id!) ORDER BY id DESC"
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -162,8 +195,8 @@ class PatientProfileViewController: UIViewController {
             
             for (row) in cursor {
                 let columns = try row.get().columns
-                let score = try columns[2].int()
-                let time_stamp = try columns[3].string()
+                let score = try columns[0].int()
+                let time_stamp = try columns[1].string()
                 surveylist += createSurveyArray(score: score, time_stamp: time_stamp)
             }
         } catch {
@@ -171,9 +204,9 @@ class PatientProfileViewController: UIViewController {
         }
         }
     
-    func createArray(id: Int, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, time_stamp: String, lean: Double) -> [PatientScan] {
+    func createArray(id: Int, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, time_stamp: String, lean: Double, height: Double, pic_date: String) -> [PatientScan] {
         var tempList: [PatientScan] = []
-        let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, lean: lean)
+        let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, lean: lean, height: height, pic_date: pic_date)
         tempList.append(list)
 
         return tempList
@@ -188,6 +221,52 @@ class PatientProfileViewController: UIViewController {
         return tempList
     }
     
+    func editEmail(){
+        EmailConfirmTitle.text = "Please Re-enter Email Address"
+        ConfirmEmailTxt.isHidden = true
+        EmailConfirmInputBox.isHidden = false
+    }
+    
+    func callHttp(email: String) {
+        
+        
+        // Create URL
+        let url = URL(string: "http://\(db.host!):8000?type=sendemail&email=\(email)")
+        var scanArray: [ScanController.ScanResults]
+        guard let requestUrl = url else { fatalError() }
+
+        // Create URL Request
+        var request = URLRequest(url: requestUrl)
+
+        // Specify HTTP Method to use
+        request.httpMethod = "GET"
+
+        // Send HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                
+               
+                
+            }
+         
+        }
+
+        task.resume()
+        
+    }
     
 }
 
@@ -223,16 +302,33 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             format.minimumFractionDigits = 2
             format.maximumFractionDigits = 2
             
-            cervical.text = format.string(for: (selectedScan.prop_C! * 100))! + "%"
-            thoracic.text = format.string(for: (selectedScan.prop_T! * 100))! + "%"
-            lumbar.text = format.string(for: (selectedScan.prop_L! * 100))! + "%"
-            normalityCervical.text = format.string(for: (selectedScan.dl_C! * 100))! + "%"
-            normalityThoracic.text = format.string(for: (selectedScan.dl_T! * 100))! + "%"
-            normalityLumbar.text = format.string(for: (selectedScan.dl_L! * 100))! + "%"
-            lean.text =  format.string(for: selectedScan.lean)
-            //Height.text = selectedScan.height
-            spin_pic.loadFrom(URLAddress: "http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
+            resultsId.text = String(selectedScan.id)
+            cervical.text = scans.formatString(number: selectedScan.prop_C!) + "%"
+            thoracic.text = scans.formatString(number: selectedScan.prop_T!) + "%"
+            lumbar.text = scans.formatString(number: selectedScan.prop_L!) + "%"
+            normalityCervical.text = scans.formatString(number: selectedScan.dl_C!) + "%"
+            normalityThoracic.text = scans.formatString(number: selectedScan.dl_T!) + "%"
+            normalityLumbar.text = scans.formatString(number: selectedScan.dl_L!) + "%"
+            lean.text =  scans.formatLean(lean: selectedScan.lean!) + "º"
+            Height.text = scans.getHeight(height: selectedScan.height)
+            spin_pic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(selectedScan.id!)-\(selectedScan.pic_date!).png")
             // print("http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
+            self.segittal_index.text = "Loading..."
+            self.uprightly_score.text = "Loading..."
+            self.delta_score.text = "Loading..."
+            DispatchQueue.global(qos: .userInitiated).async {
+               
+                self.calc = Calculations(patient_id: Patient.id!, prop_c: selectedScan.prop_C, prop_t: selectedScan.prop_T, prop_l: selectedScan.prop_L, norm_c: selectedScan.dl_C, norm_t: selectedScan.dl_T, norm_l: selectedScan.dl_L, lean: selectedScan.lean)
+                
+                
+                DispatchQueue.main.async {
+                
+                self.segittal_index.text = String(self.calc.getVsiScore())
+                self.uprightly_score.text = String(self.calc.getUprightlyScore())
+                self.delta_score.text = String(self.calc.getDeltaScore())
+                }
+            }
+            
         } else {
             let selectedSurvey = surveylist[indexPath.row]
             survey_score.text = String(selectedSurvey.score)

@@ -13,16 +13,19 @@ import PostgresClientKit
    
 
 class db {
-    let host: String = "50.16.61.116"
+    
+    
+    static var host: String!
+    static var dev: Bool!
     let database: String = "myproject"
     let user: String = "myprojectuser"
     let ssl: Bool = false
-    let credential: Credential = .scramSHA256(password: "crI4viaf")
-    
+    // var credential: Credential =
     var configuration: ConnectionConfiguration = ConnectionConfiguration()
     var connection: Connection?
     var statment: Statement?
     var cursor : Cursor?
+    
     
     var value : Cursor?
     var test : String?
@@ -35,11 +38,11 @@ class db {
     func connect(){
         do{
         configuration = PostgresClientKit.ConnectionConfiguration()
-        configuration.host = host
+            configuration.host = db.host!
         configuration.database = database
         configuration.user = user
         configuration.ssl = ssl
-        configuration.credential = credential
+        configuration.credential = !db.dev! ? .scramSHA256(password: "crI4viaf") : .scramSHA256(password: "t3stus3r")
         connection = try PostgresClientKit.Connection(configuration: configuration)
     
         // defer {connection!.close()}

@@ -251,7 +251,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
      */
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         connected = false
-        myCentral.scanForPeripherals(withServices: [vsiServiceUUID], options: nil)
+        // myCentral.scanForPeripherals(withServices: [vsiServiceUUID], options: nil)
         print("Disconnected")
     }
     

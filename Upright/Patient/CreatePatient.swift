@@ -11,10 +11,10 @@ import UIKit
 class CreatePatient: UIViewController {
     
    // var AppViewController: AppViewController?
-    var mainView:MainViewController?
-    var patientView: PatientProfileViewController?
-    var scanController: ScanControllsViewController?
-    var patientSearchView: PatientSearchViewController?
+    var mainView:BaseViewController!
+    var patientView: PatientProfileViewController!
+    var scanController: ScanControllsViewController!
+    var patientSearchView: PatientSearchViewController!
     
     @IBOutlet weak var First_Name: UITextField!
     @IBOutlet weak var Last_Name: UITextField!
@@ -24,7 +24,8 @@ class CreatePatient: UIViewController {
     
     @IBAction func Cancel(_ sender: Any) {
         present(mainView!, animated: false)
-        mainView!.setView(currentView: (patientSearchView?.view)!)
+        //mainView!.setView(currentView: (patientSearchView?.view)!)
+        mainView.displayContentController(content: patientSearchView)
         
     }
     
@@ -38,13 +39,14 @@ class CreatePatient: UIViewController {
         }
         
         present(mainView!, animated: false)
-        mainView!.setView(currentView: patientView!.view)
+        //mainView!.setView(currentView: patientView!.view)
+        mainView.displayContentController(content: patientView)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         patientSearchView = storyboard?.instantiateViewController(withIdentifier: "PatientSearchViewController") as? PatientSearchViewController
         scanController = ScanControllsViewController()

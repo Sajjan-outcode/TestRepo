@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Scans {
     
@@ -20,7 +21,7 @@ class Scans {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT s.id, p.first_name, p.last_name, s.proportion_c, s.proportion_t, s.proportion_l, s.dl_c, s.dl_t, s.dl_l, to_char(date_stamp, 'yyyy-mm-dd'), s.lean FROM patient p RIGHT JOIN scans s ON p.id = s.patient_id WHERE s.organization_id = \(Organization.id!) AND s.lean IS NOT NULL AND date_stamp >= CURRENT_DATE -30 ORDER BY s.id DESC"
+            let text = "SELECT s.id, p.first_name, p.last_name, s.proportion_c, s.proportion_t, s.proportion_l, s.dl_c, s.dl_t, s.dl_l, to_char(date_stamp, 'yyyy-mm-dd'), s.lean, s.height FROM patient p RIGHT JOIN scans s ON p.id = s.patient_id WHERE s.organization_id = \(Organization.id!) AND s.lean IS NOT NULL AND date_stamp >= CURRENT_DATE -30 ORDER BY s.id DESC"
             defer {db.statment?.close()}
 
             let cursor = db.execute(text: text)
@@ -40,8 +41,9 @@ class Scans {
                 let dl_l = try columns[8].double()
                 let time_stamp = try columns[9].string()
                 let lean = try columns[10].double()
+                let height = try columns[11].double()
 
-                unlinkedScans.append(PatientScan(first_name: first_name, last_name: last_name, id: id, time_stamp: time_stamp, prop_C: proportion_c, prop_T: proportion_t, prop_L: proportion_l, dl_C: dl_c, dl_T: dl_t, dl_L: dl_l, lean: lean))
+                unlinkedScans.append(PatientScan(first_name: first_name, last_name: last_name, id: id, time_stamp: time_stamp, prop_C: proportion_c, prop_T: proportion_t, prop_L: proportion_l, dl_C: dl_c, dl_T: dl_t, dl_L: dl_l, lean: lean, height: height, pic_date: time_stamp))
             }
         } catch {
             print(error)

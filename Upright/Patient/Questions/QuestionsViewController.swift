@@ -9,8 +9,8 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
-    var mainView:MainViewController?
-    var patientView: PatientProfileViewController?
+    var mainView:BaseViewController!
+    var patientView: PatientProfileViewController!
     
     @IBAction func button1(_ sender: Any) {
         questionsEngine(answer: 1)
@@ -72,7 +72,8 @@ class QuestionsViewController: UIViewController {
         submit()
         
         present(mainView!, animated: false, completion: nil)
-        mainView?.setView(currentView: patientView!.view)
+        //mainView?.setView(currentView: patientView!.view)
+        mainView.displayContentController(content: patientView)
     }
     
     var questions:[Questions] = []
@@ -102,7 +103,7 @@ class QuestionsViewController: UIViewController {
         
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         //navigationController?.pushViewController(patientView!, animated: true)
-        mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         
     }
     
@@ -152,16 +153,17 @@ class QuestionsViewController: UIViewController {
         let q9 = Questions(question: "How successful were you at relaxing without back or neck pain?", answer: 0, time_stamp: "")
         let q10 = Questions(question: "How successful were you at going to bed without back or neck pain?", answer: 0, time_stamp: "")
         
-        tempList.append(q1)
-        tempList.append(q2)
-        tempList.append(q3)
-        tempList.append(q4)
-        tempList.append(q5)
-        tempList.append(q6)
-        tempList.append(q7)
-        tempList.append(q8)
-        tempList.append(q9)
-        tempList.append(q10)
+        tempList += [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10]
+        
+//        tempList.append(q2)
+//        tempList.append(q3)
+//        tempList.append(q4)
+//        tempList.append(q5)
+//        tempList.append(q6)
+//        tempList.append(q7)
+//        tempList.append(q8)
+//        tempList.append(q9)
+//        tempList.append(q10)
         
         questions = tempList
         

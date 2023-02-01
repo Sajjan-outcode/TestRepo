@@ -15,7 +15,7 @@ class PatientSearchViewController: UIViewController {
     
     var patientlist: [PatientSearch] = []
     
-    var mainView:MainViewController?
+    var mainView:BaseViewController!
     var patientView: PatientProfileViewController?
     var filteredData:[PatientSearch]!
     
@@ -28,7 +28,7 @@ class PatientSearchViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
         
-         mainView = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+         mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
          patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         
         // Do any additional setup after loading the view.
@@ -70,7 +70,7 @@ class PatientSearchViewController: UIViewController {
     
     func createArray(id: Int, provider_id: Int, first_name: String, last_name: String, dob: String, email: String, address: String, city: String, state: String, zip: String, phone_number: String) -> [PatientSearch]{
     var tempList: [PatientSearch] = []
-        let list = PatientSearch(id: id, provider_id: provider_id, first_name: first_name, last_name: last_name, dob: dob, email: email, address: address, city: city, state: state, zip: zip, phone_number: phone_number)
+        let list = PatientSearch(id: id, provider_id: provider_id, first_name: first_name, last_name: last_name, email: email, address: address, city: city, state: state, zip: zip, phone_number: phone_number)
         
         tempList.append(list)
   
@@ -108,7 +108,7 @@ extension PatientSearchViewController: UITableViewDataSource, UITableViewDelegat
         Patient.provider_id = selectedPatient.provider_id
         Patient.first_name = selectedPatient.first_name
         Patient.last_name = selectedPatient.last_name
-        Patient.date_of_birth = selectedPatient.dob 
+        // Patient.date_of_birth = selectedPatient.dob 
         Patient.email = selectedPatient.email
         Patient.address = selectedPatient.address
         Patient.city = selectedPatient.city
@@ -119,8 +119,10 @@ extension PatientSearchViewController: UITableViewDataSource, UITableViewDelegat
         
         
         //mainView?.CurrentView.addSubview(patientView!.view)
-        present(mainView!, animated: false)
-        mainView!.setView(currentView: patientView!.view)
+        //mainView.displayContentController(content: patientView!)
+        present(mainView!, animated: false, completion: nil)
+       // mainView!.setView(currentView: patientView!.view)
+        mainView.displayContentController(content: patientView!)
         
     }
     

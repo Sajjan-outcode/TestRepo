@@ -16,7 +16,7 @@ struct ViewController {
     static let questionsView: String = "QuestionsViewController"
     static let patientProfileView: String = "PatientProfileViewController"
     static let supportView: String = "SupportViewController"
-    static let mainView: String = "MainViewController"
+    static let mainView: String = "BaseViewController"
     
 
     /*

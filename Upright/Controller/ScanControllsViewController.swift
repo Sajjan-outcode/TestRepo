@@ -12,12 +12,12 @@ import CoreBluetooth
 
 var linkTheScan = false
 var scanId:Int?
-
+let bleManager: BLEManager = BLEManager()
 
 
 class ScanControllsViewController: UIViewController {
     
-    var mainView: MainViewController?
+    var mainView: BaseViewController!
     
     var get_status: String = "Status!"
     var x_y_String: String? = ""
@@ -26,27 +26,27 @@ class ScanControllsViewController: UIViewController {
     var oneMinTimer = Timer()
     var oneSecTimer = Timer()
     var scans: ScanController!
-
-
-    var bleManager: BLEManager = BLEManager()
     
     var results:[String] = []
     var scanResults: [ScanController.ScanResults] = [] as! [ScanController.ScanResults]
     var current_index = 1
     var scanTotal: Int = 0
-    var mainViewController: MainViewController!
+    // var BaseViewController: BaseViewController!
     var displayError: Bool? = false
     let defualts = UserDefaults.standard
     var settings: Settings?
     private var patientlist: [PatientSearch] = []
     var filteredData:[PatientSearch]!
+    var filteredScanHistory:[PatientScan]!
     var session = URLSession.shared
     var scanHistory: [PatientScan] = []
     var patientHeight: Double?
     var sendIndexComplete: Bool = false
     
    
-    var patientView: PatientProfileViewController?
+    var patientView: PatientProfileViewController!
+    
+    
     
     @IBOutlet weak var ScanHistoryTable: UITableView!
     @IBOutlet weak var tableView: UITableView!
@@ -56,6 +56,8 @@ class ScanControllsViewController: UIViewController {
     @IBOutlet weak var connect_B: UIButton!
     
     @IBOutlet weak var scan_id: UILabel!
+    
+    @IBOutlet weak var scanInfoMainView: UIView!
     
     @IBOutlet weak var height: UILabel!
     @IBOutlet weak var lean_value: UILabel!
@@ -82,6 +84,7 @@ class ScanControllsViewController: UIViewController {
     @IBOutlet weak var sagittal_score: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var scanHisSearchBar: UISearchBar!
     
     @IBOutlet weak var LinkScanView: RoundImageView!
     
@@ -140,10 +143,10 @@ class ScanControllsViewController: UIViewController {
         stop_b.isHidden = true
 
         if bleManager.isConnected() {
-            self.bleManager.sendCommand(newCommand: 2)
+            bleManager.sendCommand(newCommand: 2)
         }
         
-        if(!self.bleManager.isConnected()){
+        if(!bleManager.isConnected()){
             self.connect_B.isEnabled = true
         }
     }
@@ -158,30 +161,29 @@ class ScanControllsViewController: UIViewController {
     }
     
     @IBAction func Detect_Patient(_ sender: Any) {
-        self.bleManager.sendCommand(newCommand: 3)
-        // self.scanResults = []
-//        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-//
-//        })
-        
+        bleManager.sendCommand(newCommand: 3)
     }
     
+  
+    @IBOutlet weak var HomeVsi: UIButton!
+    
     @IBAction func Start_Scan(_ sender: Any) {
-        self.bleManager.sendCommand(newCommand: 4)
+        bleManager.sendCommand(newCommand: 4)
         start_b.isHidden = true
         stop_b.isHidden = false
     }
     
     @IBAction func Stop_Scan(_ sender: Any) {
-        self.bleManager.sendCommand(newCommand: 5)
+        bleManager.sendCommand(newCommand: 5)
         start_b.isHidden = false
         stop_b.isHidden = true
         
     }
     
     @IBAction func Connect(_ sender: Any) {
-        self.bleManager.connect()
+        bleManager.connect()
         //print(bleManager.isConnected())
+        print(bleManager.isConnected())
     }
     
 
@@ -192,8 +194,10 @@ class ScanControllsViewController: UIViewController {
     
     @IBAction func linkScan(_ sender: Any) {
        // linkScan()
+        if(qScan == false){
         LinkScanView.isHidden = false
         linkTheScan = true
+        }
     }
     
     @IBAction func LinkScanOkButton(_ sender: Any) {
@@ -201,15 +205,11 @@ class ScanControllsViewController: UIViewController {
         
     }
     
-    @IBAction func LinkScanCreatePatientButton(_ sender: Any) {
-        
-    }
     
     @IBOutlet weak var previous_B: UIButton!
     
     @IBAction func previous_Scan(_ sender: Any) {
         moveScanResultsIndex(move_index: "plus")
-     
     }
     
     @IBAction func ScanHistory(_ sender: Any) {
@@ -224,9 +224,11 @@ class ScanControllsViewController: UIViewController {
     
     @IBOutlet weak var profileText: UILabel!
     @IBOutlet weak var clearProfileButton: UIButton!
+    
     @IBAction func clearProfile(_ sender: Any) {
       clearProfileId()
     }
+    
     @IBOutlet weak var profileName: UILabel!
     
     
@@ -238,9 +240,13 @@ class ScanControllsViewController: UIViewController {
         setProfileName()
         checkBlueConnectionStatus()
         filteredData = patientlist
+        filteredScanHistory = scanHistory
         searchBar.delegate = self
+        scanHisSearchBar.delegate = self
+        if(qScan == false){
         tableView.delegate = self
         tableView.dataSource = self
+        }
         ScanHistoryTable.delegate = self
         ScanHistoryTable.dataSource = self
         
@@ -248,9 +254,9 @@ class ScanControllsViewController: UIViewController {
         // refreshScan(refresh: true)
  
         self.scans = ScanController()
-        mainViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        // BaseViewController = storyboard!.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         
-        mainView = (storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController)!
+        mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         
         
@@ -271,6 +277,9 @@ class ScanControllsViewController: UIViewController {
 //
 //            setDefualtSettings(pressure: pressure!, type: type!, height: height!, speed: speed!)
         }
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
+        self.HomeVsi.addGestureRecognizer(longPress)
         
     }
     
@@ -301,16 +310,22 @@ class ScanControllsViewController: UIViewController {
         
     }
     
+    @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizer.State.began {
+            bleManager.sendCommand(newCommand: 1)
+        }
+    }
+    
     func checkBlueConnectionStatus(){
         
         
         oneMinTimer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true, block: { _ in
-            if(self.bleManager.isConnected()){
+            if(bleManager.isConnected()){
                 self.connect_B.isEnabled = false
                 self.connect_B.setTitle("Connected", for: .normal)
                 
             }else{
-                self.bleManager.connect()
+                bleManager.connect()
                 self.connect_B.isEnabled = true
                 self.connect_B.setTitle("Connect", for: .normal)
             }
@@ -374,7 +389,7 @@ class ScanControllsViewController: UIViewController {
         // clear scanresults
         self.scanResults = []
         // Create URL
-        let url = URL(string: "http://50.16.61.116:8000?id=\(Organization.id!)")
+        let url = URL(string: "http://\(db.host!):8000?id=\(Organization.id!)")
         var scanArray: [ScanController.ScanResults]
         guard let requestUrl = url else { fatalError() }
 
@@ -435,18 +450,18 @@ class ScanControllsViewController: UIViewController {
         if(refresh){
             oneSecTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
-                var x_array = self.bleManager.getX_array().count
-                var vsiArrayCount = self.bleManager.getLength()
+                var x_array = bleManager.getX_array().count
+                var vsiArrayCount = bleManager.getLength()
 
                 if(!self.displayError!){
                     switch (process) {
                     case "bluetooth":
-                        if(self.bleManager.isConnected()){
+                        if(bleManager.isConnected()){
                             self.connect_B.isEnabled = false
                             self.connect_B.setTitle("Connected", for: .normal)
                             self.refreshScan(refresh: false, process: "")
                         }else{
-                            self.bleManager.connect()
+                            bleManager.connect()
                             self.connect_B.isEnabled = true
                             self.connect_B.setTitle("Connect", for: .normal)
                         }
@@ -455,8 +470,8 @@ class ScanControllsViewController: UIViewController {
                             print(x_array)
                             print(vsiArrayCount)
                             
-                            let X_s = self.bleManager.getX_array()
-                            let Y_s = self.bleManager.getY_array()
+                            let X_s = bleManager.getX_array()
+                            let Y_s = bleManager.getY_array()
                             //print(X_s.count)
                             //print("second" + String(self.bleManager.getX_array().count))
                             for x in 0...x_array - 1{
@@ -512,14 +527,14 @@ class ScanControllsViewController: UIViewController {
     }
     
     func getX_Y() {
-        self.showSpinner(onView: self.view)
+        self.showSpinner(onView: scanInfoMainView)
         self.X_YArray = []
         bleManager.clearArray()
         let get_length = bleManager.getLength()
 
         for x in 0...get_length - 1 {
 
-            self.bleManager.sendScanIndex(newIndex: x)
+            bleManager.sendScanIndex(newIndex: x)
             if(x == get_length - 1){
                 sendIndexComplete = true
  //               print(get_length - 1)
@@ -558,7 +573,7 @@ class ScanControllsViewController: UIViewController {
     func getHeight(){
        // if(bleManager.getStateString() == "Detected"){
             let mm = Double(bleManager.getHeight())
-        let toFeet = mm * 0.0032808
+            let toFeet = mm * 0.0032808
             let feet = toFeet.splitAtDecimal()
             let inch = feet.1 * 12
             setHeight(text: "\(String(feet.0))` \(String(inch.roundTo1f()))\"")
@@ -571,7 +586,10 @@ class ScanControllsViewController: UIViewController {
     }
     
     func setScanHistoryValues(scanHistory: PatientScan) {
+        
         var sdsrisk = ""
+        var pt = 0.0
+        var pl = 0.0
         t_c.text = "20%"
         t_t.text = "50%"
         t_l.text = "30%"
@@ -579,8 +597,26 @@ class ScanControllsViewController: UIViewController {
         nt_t.text = "12%"
         nt_l.text = "12%"
         
-        let absPC = abs(0.20 - scanHistory.prop_C!) * 100
+        let absPC = abs(0.25 - scanHistory.prop_C!) * 100
+        print("C " + String(absPC))
         let absPT = abs(0.50 - scanHistory.prop_T!) * 100
+        
+        if((scanHistory.prop_T! * 100) >= 45){
+            pt = (scanHistory.prop_T! * 100)
+        }else {
+            pt = 45
+        }
+        let scorePT = pt - 45
+    print("t " + String(scorePT))
+        if((scanHistory.prop_L! * 100) <= 30){
+            pl = (scanHistory.prop_L! * 100)
+        }else{
+            pl = 30
+        }
+        
+        let scorePL = 30 - pl
+        print(pl)
+        print("l " + String(scorePL))
         let absPL = abs(0.30 - scanHistory.prop_L!) * 100
         let sumP = absPC + absPT + absPL
         
@@ -596,9 +632,9 @@ class ScanControllsViewController: UIViewController {
         }
         
         let partTwo = abs(8 - (scanHistory.dl_L! * 100))
-    
-
-        let s_i_Score = (scanHistory.lean! * scanHistory.lean!) + sumP + sumD
+    print(sumD)
+        print("lean " + String(scanHistory.lean!))
+        let s_i_Score = absPC + scorePT + scorePL + sumD + scanHistory.lean!
         let sdsScore = scanHistory.lean! + (partOne) + (partTwo)
         
         if(sdsScore < 15){
@@ -607,6 +643,7 @@ class ScanControllsViewController: UIViewController {
             sdsrisk = "High"
         }
         
+        scanId = scanHistory.id
         self.scan_id.text = scanHistory.id.flatMap(String.init)
         self.p_c.text = "\(scans.formatString(number: scanHistory.prop_C!))%"
         self.p_t.text = "\(scans.formatString(number: scanHistory.prop_T!))%"
@@ -615,14 +652,14 @@ class ScanControllsViewController: UIViewController {
         self.n_t.text = "\(scans.formatString(number: scanHistory.dl_T!))%"
         self.n_l.text = "\(scans.formatString(number: scanHistory.dl_L!))%"
         
-        self.lean_value.text = String(scanHistory.lean!)
+        self.lean_value.text = scans.formatLean(lean: scanHistory.lean!)  + "º"
         
         self.sagittal_score.text = sdsrisk
-        self.sdsScore.text = String(s_i_Score)
+        self.sdsScore.text = String(Int(s_i_Score))
         
         
         
-        spinePic.loadFrom(URLAddress:"http://50.16.61.116:8000/media/\(scanHistory.id!)-\(scanHistory.time_stamp!).png")
+        spinePic.loadFrom(URLAddress:"http://\(db.host!):8000/media/\(scanHistory.id!)-\(scanHistory.time_stamp!).png")
         
         
         
@@ -632,6 +669,8 @@ class ScanControllsViewController: UIViewController {
         self.removeSpinner()
             
             var sdsrisk = ""
+        var pt = 0.0
+        var pl = 0.0
             t_c.text = "20%"
             t_t.text = "50%"
             t_l.text = "30%"
@@ -639,8 +678,24 @@ class ScanControllsViewController: UIViewController {
             nt_t.text = "12%"
             nt_l.text = "12%"
             
-            let absPC = abs(0.20 - self.scanResults[index].p_t) * 100
-            let absPT = abs(0.50 - self.scanResults[index].p_t) * 100
+            let absPC = abs(0.25 - self.scanResults[index].p_c) * 100
+        print("abs " + String(absPC))
+             let absPT = abs(0.45 - self.scanResults[index].p_t) * 100
+            if((self.scanResults[index].p_t * 100) >= 45){
+                pt = (self.scanResults[index].p_t * 100)
+            }else {
+                pt = 45
+            }
+            let scorePT = pt - 45
+        print("scorePT " + String(scorePT))
+            if((self.scanResults[index].p_l * 100) <= 30){
+                pl = (self.scanResults[index].p_l * 100)
+            }else{
+                pl = 30
+            }
+            
+            let scorePL = 30 - pl
+        print("scorepl " + String(scorePL))
             let absPL = abs(0.30 - self.scanResults[index].p_l) * 100
             let sumP = absPC + absPT + absPL
             // print(sumP)
@@ -649,7 +704,7 @@ class ScanControllsViewController: UIViewController {
             let absNT = abs(0.12 - self.scanResults[index].d_t) * 100
             let absNL = abs(0.12 - self.scanResults[index].d_l) * 100
             let sumD = absNC + absNT + absNL
-            
+            print("sumd " + String(sumD))
             var partOne: Double = 0
         
             if((self.scanResults[index].p_l * 100) < 30){
@@ -657,12 +712,8 @@ class ScanControllsViewController: UIViewController {
             }
         
             let partTwo = abs(8 - (self.scanResults[index].d_l * 100))
-        
-//            print(partOne)
-//            print(partTwo)
-            
        
-            let s_i_Score = (self.scanResults[index].lean * self.scanResults[index].lean) + sumP + sumD
+            let s_i_Score = absPC + scorePT + scorePL + sumD + self.scanResults[index].lean  //(self.scanResults[index].lean * self.scanResults[index].lean) + sumP + sumD
             let sdsScore = self.scanResults[index].lean + (partOne) + (partTwo)
         
         if(sdsScore < 15){
@@ -681,13 +732,13 @@ class ScanControllsViewController: UIViewController {
             self.n_t.text = "\(scans.formatString(number: self.scanResults[index].d_t))%"
             self.n_l.text = "\(scans.formatString(number: self.scanResults[index].d_l))%"
             
-            self.lean_value.text = String(self.scanResults[index].lean)
+        self.lean_value.text = scans.formatLean(lean: self.scanResults[index].lean) + "º"
             
             self.sagittal_score.text = sdsrisk
-            self.sdsScore.text = String(s_i_Score)
+            self.sdsScore.text = String(Int(s_i_Score))
             
             
-            spinePic.loadFrom(URLAddress: "http://50.16.61.116:8000/media/\(self.scanResults[index].id).png")
+        spinePic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(self.scanResults[index].id).png")
             
             self.refreshScan(refresh: false, process: "")
             
@@ -773,7 +824,7 @@ extension ScanControllsViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return tableView == self.tableView ? filteredData.count:scanHistory.count
+        return tableView == self.tableView ? filteredData.count:filteredScanHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -785,7 +836,7 @@ extension ScanControllsViewController: UITableViewDataSource, UITableViewDelegat
         cell.setCellLabels(name: patient.first_name + " " + patient.last_name, dob: patient.email as! String)
         returnCell = cell
         } else {
-            let scan = scanHistory[indexPath.row]
+            let scan = filteredScanHistory[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScanHistoryCell") as! scanHistoryTableViewCell
             let splitDateandTime = scan.time_stamp?.components(separatedBy: " ")
             let date = splitDateandTime![0]
@@ -808,22 +859,22 @@ extension ScanControllsViewController: UITableViewDataSource, UITableViewDelegat
             Patient.provider_id = selectedPatient.provider_id
             Patient.first_name = selectedPatient.first_name
             Patient.last_name = selectedPatient.last_name
-            Patient.date_of_birth = selectedPatient.dob
+            // Patient.date_of_birth = selectedPatient.dob
             Patient.email = selectedPatient.email
             Patient.address = selectedPatient.address
             Patient.city = selectedPatient.city
             Patient.state = selectedPatient.state
             Patient.zip = selectedPatient.zip
             Patient.phone_number = selectedPatient.phone_number
-
         if(scanId != nil){
             linkScanToPatient(patient_Id: Patient.id!, scan_Id: scanId!)
         }
         // mainView?.CurrentView.addSubview(patientView!.view)
         present(mainView!, animated: false)
         mainView!.setView(currentView: patientView!.view)
+            mainView.displayContentController(content: patientView)
         } else {
-            let scanHistory = scanHistory[indexPath.row]
+            let scanHistory = filteredScanHistory[indexPath.row]
             setScanHistoryValues(scanHistory: scanHistory)
             ScanHistoryView.isHidden = true
         }
@@ -831,7 +882,14 @@ extension ScanControllsViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.tag == 1 {
+        filteredScanHistory = []
+        }else if searchBar.tag == 2{
         filteredData = []
+        }
+        
+        if searchBar.tag == 1 {
+            
         if searchText == "" {
             filteredData = patientlist
         } else {
@@ -840,9 +898,34 @@ extension ScanControllsViewController: UITableViewDataSource, UITableViewDelegat
                     filteredData.append(patient)
                 }
             }
+            
         }
-        self.tableView.reloadData()
+            
+        }else if searchBar.tag == 2 {
+            if searchText == "" {
+                filteredScanHistory = scanHistory
+            } else {
+                for scan in scanHistory {
+                    if String(scan.id).uppercased().contains(searchText.uppercased()){
+                   // if patient.first_name.uppercased().contains(searchText.uppercased()) {
+                       // filteredData.append(patient)
+                  //  }
+                    filteredScanHistory.append(scan)
+                    }
+                }
+            }
+            
+            
+        }
+        if searchBar.tag == 1{
+            self.tableView.reloadData()
+        
+        }else if searchBar.tag == 2{
+            self.ScanHistoryTable.reloadData()
+        }
+        
     }
+    
     
 }
 

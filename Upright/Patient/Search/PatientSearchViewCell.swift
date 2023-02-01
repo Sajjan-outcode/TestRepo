@@ -14,8 +14,8 @@ class PatientSearchViewCell: UITableViewCell {
     @IBOutlet weak var dob: UILabel!
     
     func setPatient(patient: PatientSearch){
-        name.text! = patient.last_name + " " + patient.first_name
-        dob.text! = patient.dob
+        name.text! = patient.last_name + ", " + patient.first_name
+        dob.text! = patient.email
         
     }
     

@@ -25,7 +25,7 @@ class ScanController {
     private var scan:[ScanResults] = [] as! [ScanResults]
     private var scans:[PatientScan] = [] as! [PatientScan]
     var scanViewController: ScanControllsViewController
-    var bleManager: BLEManager = BLEManager()
+    // var bleManager: BLEManager = BLEManager()
     
     init(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -47,7 +47,7 @@ class ScanController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT proportion_c, proportion_t, proportion_l, dl_c, dl_t, dl_l, to_char(date_stamp, 'yyyy-mm-dd'), lean, id FROM scans WHERE date_stamp = current_date AND organization_id = \(Organization.id!) ORDER BY id DESC LIMIT 5"
+            let text = "SELECT proportion_c, proportion_t, proportion_l, dl_c, dl_t, dl_l, to_char(date_stamp, 'yyyy-mm-dd'), lean, id, height FROM scans WHERE date_stamp = current_date AND organization_id = \(Organization.id!) ORDER BY id DESC LIMIT 5"
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -63,9 +63,11 @@ class ScanController {
                 let dl_t = try columns[4].double()
                 let dl_l = try columns[5].double()
                 let id = try columns[8].int()
+                let height = try columns[9].double()
                 let time_stamp = try columns[6].string()
                 let lean = try columns[7].double()
-                scans += createScanArray(id: id, p_c: p_c, p_t: p_t, p_l: p_l, dl_c: dl_c, dl_t: dl_t, dl_l: dl_l, time_stamp: time_stamp, lean: lean)
+                //let pic_date = try columns[10].string()
+                scans += createScanArray(id: id, p_c: p_c, p_t: p_t, p_l: p_l, dl_c: dl_c, dl_t: dl_t, dl_l: dl_l, time_stamp: time_stamp, lean: lean, height: height, pic_date: time_stamp)
             }
             
         } catch {
@@ -73,9 +75,9 @@ class ScanController {
         }
     }
     
-    private func createScanArray(id: Int, p_c: Double, p_t: Double, p_l: Double, dl_c: Double, dl_t: Double, dl_l: Double, time_stamp: String, lean: Double) -> [PatientScan]{
+    private func createScanArray(id: Int, p_c: Double, p_t: Double, p_l: Double, dl_c: Double, dl_t: Double, dl_l: Double, time_stamp: String, lean: Double, height: Double, pic_date: String) -> [PatientScan]{
         var tempList: [PatientScan] = []
-        let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: p_c, prop_T: p_t, prop_L: p_l, dl_C: dl_c, dl_T: dl_t, dl_L: dl_l, lean: lean)
+        let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: p_c, prop_T: p_t, prop_L: p_l, dl_C: dl_c, dl_T: dl_t, dl_L: dl_l, lean: lean, height: height, pic_date: pic_date)
         tempList.append(list)
 
         return tempList
@@ -96,15 +98,27 @@ class ScanController {
 //    }
     
     func isConnected(){
-        bleManager.isConnected()
+       // bleManager.isConnected()
     }
     
     func reset() {
-        bleManager.clearArray()
+      //  bleManager.clearArray()
+    }
+    
+    func getHeight(height: Double) -> String{
+        let mm = Double(height)
+        let toFeet = mm * 0.0032808
+        let feet = toFeet.splitAtDecimal()
+        let inch = feet.1 * 12
+        return "\(String(feet.0))` \(String(inch.roundTo1f()))\""
     }
     
     func formatString(number: Double)-> String{
         return String((number * 100).roundTo0f())
+    }
+    
+    func formatLean(lean: Double)-> String{
+        return String(lean.roundTo0f())
     }
     
     func getScanResults() -> [ScanResults]{
