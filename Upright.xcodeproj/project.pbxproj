@@ -63,6 +63,7 @@
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
 		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
 		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
+		A844DB822990269200133360 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB812990269200133360 /* RoundUIView.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
 		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
@@ -160,6 +161,7 @@
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A844DB812990269200133360 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				A26B2ECC27C6DAFB00938DB1 /* GradientView.swift */,
 				A2FF08A927E53EFB00E12F06 /* DropShadow.swift */,
 				A2B6CC2E27CEE055001F9012 /* RoundImageView.swift */,
+				A844DB812990269200133360 /* RoundUIView.swift */,
 			);
 			path = DesignUI;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
+				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,
 				A280897C27D27E4000C79920 /* CreatePatient.swift in Sources */,

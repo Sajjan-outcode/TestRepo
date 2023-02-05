@@ -13,7 +13,7 @@ protocol AddSupportVideoViewControllerDelegate: AnyObject {
 
 class AddSupportVideoViewController : UIViewController {
     
-    weak private var delegate: AddSupportVideoViewControllerDelegate!
+    weak var delegate: AddSupportVideoViewControllerDelegate?
     
     @IBOutlet weak var titleTextField: UITextField!
    
@@ -42,8 +42,7 @@ class AddSupportVideoViewController : UIViewController {
        guard let vTitle = self.titleTextField.text ,
               let vDescription = self.descriptionTextViewField.text,
               let vlink = self.linkTextField.text else {return}
-        
-        self.delegate.didAddSupportVideoInDatabase(with: vTitle, description:vDescription, link: vlink )
+         self.delegate?.didAddSupportVideoInDatabase(with: vTitle, description:vDescription, link: vlink )
         self.dismiss(animated: false)
     }
     

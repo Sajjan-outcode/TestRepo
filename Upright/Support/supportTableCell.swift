@@ -18,16 +18,20 @@ class youTubeViewCell: UITableViewCell {
     @IBOutlet weak var youTubeDescription: UILabel!
     
     
-    func setLabel(label:String){
-        youTubeLabel.text =  label
+    func setLabel(label:String?){
+        guard let titleLable = label else {return}
+        youTubeLabel.text =  titleLable
     }
     
-    func setVideo(url: URL){
-        youTubeVideo.loadRequest(URLRequest(url: url))
+    func setVideo(url: URL?){
+      guard let vUrl = url else {return}
+            youTubeVideo.loadRequest(URLRequest(url: vUrl))
+        
     }
     
-    func setDescription(description: String){
-        youTubeDescription.text = description
+    func setDescription(description: String?){
+        guard let vDescription = description else {return}
+        youTubeDescription.text = vDescription
     }
     
     

@@ -44,8 +44,7 @@ class SupportViewController: UIViewController {
         super.viewDidLoad()
         supportVideos = SupportVideosWrapper.getVideos()
         setUpTableView()
-      initAddVideoVideoController()
-        self.delegate = self
+       self.delegate = self
     }
     
     private func setUpTableView() {
@@ -66,6 +65,7 @@ class SupportViewController: UIViewController {
                 presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
             }
             
+        addSupportVideoController.delegate = self
             self.present(addSupportVideoController, animated: true)
   }
     
@@ -93,9 +93,10 @@ class SupportViewController: UIViewController {
         spportLink.textColor = textColor
     }
     
-    func getVideo(videoCode:String) -> URL{
-        let url = URL(string: "https://www.youtube.com/embed/\(videoCode)")
-        return url!
+    func getVideo(videoCode:String) -> URL?{
+        guard let url = URL(string: "https://www.youtube.com/embed/\(videoCode)") else { return nil}
+        return url
+        
     }
    
 }
