@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
             
             let cursor = db.execute(text: text)
             
+            
             defer {cursor.close()}
             
             for (row) in cursor {

@@ -23,7 +23,7 @@ class ScanController {
     }
     
     private var scan:[ScanResults] = [] as! [ScanResults]
-    private var scans:[PatientScan] = [] as! [PatientScan]
+    private var patientScans:[PatientScan] = [] as! [PatientScan]
     var scanViewController: ScanControllsViewController
     // var bleManager: BLEManager = BLEManager()
     
@@ -67,7 +67,8 @@ class ScanController {
                 let time_stamp = try columns[6].string()
                 let lean = try columns[7].double()
                 //let pic_date = try columns[10].string()
-                scans += createScanArray(id: id, p_c: p_c, p_t: p_t, p_l: p_l, dl_c: dl_c, dl_t: dl_t, dl_l: dl_l, time_stamp: time_stamp, lean: lean, height: height, pic_date: time_stamp)
+                patientScans += createScanArray(id: id, p_c: p_c, p_t: p_t, p_l: p_l, dl_c: dl_c, dl_t: dl_t, dl_l: dl_l, time_stamp: time_stamp, lean: lean, height: height, pic_date: time_stamp)
+                print(patientScans[7])
             }
             
         } catch {

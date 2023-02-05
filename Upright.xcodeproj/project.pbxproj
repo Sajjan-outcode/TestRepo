@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D29C7298CFD2800295600 /* DatabaseManager.swift */; };
+		530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D29C9298D054600295600 /* UIViewControllerExtension.swift */; };
 		A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2312853EE9C00636378 /* QuestionsScore.swift */; };
 		A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C234285424EB00636378 /* SurveyTableViewCell.swift */; };
 		A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C238285427C600636378 /* PatientProfileViewController.swift */; };
@@ -59,8 +61,12 @@
 		A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */; };
 		A2E318C32830272700D9DEE5 /* scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E318C22830272700D9DEE5 /* scan.swift */; };
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
+		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
+		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
+		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
+		A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		530D29C7298CFD2800295600 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		530D29C9298D054600295600 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A200C2312853EE9C00636378 /* QuestionsScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScore.swift; sourceTree = "<group>"; };
 		A200C234285424EB00636378 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
 		A200C238285427C600636378 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
@@ -150,8 +158,12 @@
 		A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantIds.swift; sourceTree = "<group>"; };
 		A2E318C22830272700D9DEE5 /* scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scan.swift; sourceTree = "<group>"; };
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
+		A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSupportVideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				A25706C727CFDDD400C4A319 /* db.swift */,
+				530D29C7298CFD2800295600 /* DatabaseManager.swift */,
 			);
 			path = Postgresql;
 			sourceTree = "<group>";
@@ -294,6 +307,8 @@
 		A26B2E9B27C6BF9E00938DB1 /* Upright */ = {
 			isa = PBXGroup;
 			children = (
+				A844DB7D298FC1D700133360 /* Utillities */,
+				A844DB79298FC13D00133360 /* Helpers */,
 				A28BA342287DED9900E291B6 /* Support */,
 				A26E1FFD287A2C7F007AAD07 /* Controllerr */,
 				A26E1FFB287A2C4A007AAD07 /* Model */,
@@ -319,6 +334,7 @@
 				A26B2EAA27C6BF9F00938DB1 /* Info.plist */,
 				A28BA347287F46B900E291B6 /* NSAttributedString.swift */,
 				A2679E982908717500E686B4 /* Calculations.swift */,
+				530D29C9298D054600295600 /* UIViewControllerExtension.swift */,
 			);
 			path = Upright;
 			sourceTree = "<group>";
@@ -373,6 +389,7 @@
 		A28BA342287DED9900E291B6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A8D53E5A298F9A9800692E2F /* AddSupportVideo */,
 				A23792762825706300C3A58B /* SupportViewController.swift */,
 				A28BA345287E1C4600E291B6 /* Support.swift */,
 				A28BA343287E03AA00E291B6 /* supportTableCell.swift */,
@@ -394,6 +411,47 @@
 				A2BB2D6F27FE45A9002F847E /* BLEManager.swift */,
 			);
 			path = BlueTooth;
+			sourceTree = "<group>";
+		};
+		A844DB79298FC13D00133360 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A844DB7A298FC16000133360 /* Constants */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A844DB7A298FC16000133360 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A844DB7B298FC19C00133360 /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A844DB7D298FC1D700133360 /* Utillities */ = {
+			isa = PBXGroup;
+			children = (
+				A844DB7E298FC20800133360 /* Extension */,
+			);
+			path = Utillities;
+			sourceTree = "<group>";
+		};
+		A844DB7E298FC20800133360 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A844DB7F298FC23900133360 /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A8D53E5A298F9A9800692E2F /* AddSupportVideo */ = {
+			isa = PBXGroup;
+			children = (
+				A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */,
+				A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */,
+			);
+			path = AddSupportVideo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */,
 				A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */,
 				A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */,
 				A26B2EA627C6BF9F00938DB1 /* Assets.xcassets in Resources */,
@@ -540,6 +599,8 @@
 				A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */,
 				A26B2EA127C6BF9E00938DB1 /* LoginViewController.swift in Sources */,
 				A2B5EA93284EFB8C00F8ADCB /* Organization.swift in Sources */,
+				530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */,
+				A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */,
 				A240768C281DC4C100BBAE66 /* PatientScan.swift in Sources */,
 				A2ADE32A288873520050BCBB /* ControllerTableViewCell.swift in Sources */,
 				A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */,
@@ -567,8 +628,10 @@
 				A280898427D6B31400C79920 /* PatientSearchViewCell.swift in Sources */,
 				A2B47116289C2DE100608CFD /* Scans.swift in Sources */,
 				A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */,
+				530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
+				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,
 				A280897C27D27E4000C79920 /* CreatePatient.swift in Sources */,
 				A2E318C32830272700D9DEE5 /* scan.swift in Sources */,
@@ -582,6 +645,7 @@
 				A2B5EA90284EC4EB00F8ADCB /* LoginView.swift in Sources */,
 				A24F0EEA27DC1478004FD6B3 /* QuestionsViewController.swift in Sources */,
 				A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */,
+				A844DB80298FC23900133360 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +827,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2LDR58DF8X;
+				DEVELOPMENT_TEAM = 66BZ3G3YL2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
@@ -796,7 +860,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2LDR58DF8X;
+				DEVELOPMENT_TEAM = 66BZ3G3YL2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";

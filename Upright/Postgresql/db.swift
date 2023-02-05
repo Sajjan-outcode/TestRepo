@@ -8,9 +8,9 @@
 import Foundation
 import PostgresClientKit
 
-
-
-   
+enum SQLError: Error {
+    case apiError(apiMessage: String, code: String)
+}
 
 class db {
     
@@ -52,20 +52,31 @@ class db {
     }
         
     func execute(text: String)-> Cursor {
-        
-            do {
-                    
-                statment = try connection!.prepareStatement(text: text)
-              
-                cursor = try statment!.execute()
-                
-            }catch{
-                print(error)
-            }
-       
-
-        return cursor!
+        do {
+            statment = try connection!.prepareStatement(text: text)
+            cursor = try statment!.execute()
+        } catch{
+            print(error)
         }
+       return cursor!
+    }
+    
+    func executeQuery(text: String, completion: @escaping ((Cursor?, SQLError?) -> Void)) {
+        guard let connection = connection else {
+            completion(nil, SQLError.apiError(apiMessage: "connection not available", code: ""))
+            return
+        }
+        do {
+            statment = try connection.prepareStatement(text: text)
+            guard let cursor = try statment?.execute() else {
+                completion(nil, SQLError.apiError(apiMessage: "Error executing command", code: ""))
+                return
+            }
+            completion(cursor, nil)
+        } catch {
+            completion(nil, SQLError.apiError(apiMessage: error.localizedDescription, code: ""))
+        }
+    }
     
 }
     

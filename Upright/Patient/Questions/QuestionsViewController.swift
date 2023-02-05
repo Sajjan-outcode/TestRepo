@@ -44,14 +44,21 @@ class QuestionsViewController: UIViewController {
     }
     
     @IBAction func rightarrow(_ sender: Any) {
-        
-        questionsPosition += 1
-       // print(questionsPosition)
+        if questionsPosition < 9 {
+            questionsPosition += 1
+            Question.text = questions[questionsPosition].question
+            questionPosition.text = "\(questionsPosition + 1)|10"
+        }
+       
     }
  
     @IBAction func leftarrow(_ sender: Any) {
-        questionsPosition -= 1
-       // print(questionsPosition)
+        if questionsPosition > 0 {
+            questionsPosition -= 1
+            Question.text = questions[questionsPosition].question
+            questionPosition.text = "\(questionsPosition + 1)|10"
+        }
+        
     }
     
  
@@ -65,7 +72,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var Question: UILabel!
     
     @IBOutlet weak var questionPosition: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak var Score: UILabel!
     @IBOutlet weak var Results_View: RoundImageView!
     @IBAction func Survey_Submit(_ sender: Any){
@@ -98,8 +105,8 @@ class QuestionsViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
-        left_arrow.isHidden = true
-        right_arrow.isHidden = true
+        left_arrow.isHidden = false
+        right_arrow.isHidden = false
         
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         //navigationController?.pushViewController(patientView!, animated: true)
@@ -109,10 +116,6 @@ class QuestionsViewController: UIViewController {
     
     func questionsEngine(answer: Int){
         questions[questionsPosition].answer = answer
-        
-     //  print(questionsPosition)
-        
-       
         
         questionTotal += answer
         if(questionsPosition < 9){
@@ -124,17 +127,17 @@ class QuestionsViewController: UIViewController {
             Results_View.isHidden = false
         }
         
-        if(questionsPosition >= 1){
-            left_arrow.isHidden = false
-            right_arrow.isHidden = false
-        }
-        else {
-            left_arrow.isHidden = true
-            right_arrow.isHidden = true
-        }
-        if(questionsPosition == 9){
-            right_arrow.isHidden = true
-        }
+//        if(questionsPosition >= 1){
+//            left_arrow.isHidden = false
+//            right_arrow.isHidden = false
+//        }
+//        else {
+//            left_arrow.isHidden = true
+//            right_arrow.isHidden = true
+//        }
+//        if(questionsPosition == 9){
+//            right_arrow.isHidden = true
+//        }
         Score.text = String(questionTotal)
         // print(questionsPosition)
     }
@@ -154,16 +157,6 @@ class QuestionsViewController: UIViewController {
         let q10 = Questions(question: "How successful were you at going to bed without back or neck pain?", answer: 0, time_stamp: "")
         
         tempList += [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10]
-        
-//        tempList.append(q2)
-//        tempList.append(q3)
-//        tempList.append(q4)
-//        tempList.append(q5)
-//        tempList.append(q6)
-//        tempList.append(q7)
-//        tempList.append(q8)
-//        tempList.append(q9)
-//        tempList.append(q10)
         
         questions = tempList
         

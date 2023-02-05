@@ -309,7 +309,7 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             normalityCervical.text = scans.formatString(number: selectedScan.dl_C!) + "%"
             normalityThoracic.text = scans.formatString(number: selectedScan.dl_T!) + "%"
             normalityLumbar.text = scans.formatString(number: selectedScan.dl_L!) + "%"
-            lean.text =  scans.formatLean(lean: selectedScan.lean!) + "º"
+            lean.text =  scans.formatLean(lean: abs(selectedScan.lean!)) + "º"
             Height.text = scans.getHeight(height: selectedScan.height)
             spin_pic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(selectedScan.id!)-\(selectedScan.pic_date!).png")
             // print("http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")

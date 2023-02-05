@@ -33,18 +33,32 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         password_field?.borderStyle = UITextField.BorderStyle.roundedRect
         userName?.borderStyle = UITextField.BorderStyle.roundedRect
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        mainView = storyboard.instantiateViewController(withIdentifier:"BaseViewController") as? BaseViewController
+        setUpBaseViewController()
+        autoLoginIfPossible()
+        
+    }
+    
+    private func autoLoginIfPossible() {
+        if defualts.value(forKey: "orgId") != nil {
+            transitionToHome()
+        }
     }
     
     override var shouldAutorotate: Bool {
         return false
     }
     
+    private func setUpBaseViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        mainView = storyboard.instantiateViewController(withIdentifier:"BaseViewController") as? BaseViewController
+    }
+    
     @IBAction func login(_ sender: Any) {
         qScan = false
         BaseViewController.firstLogin = true
         setDbConnections()
+        
+        
         let login = LoginView()
         login.getUserInfo(userName: userName.text!)
         if(login.validateUser(password: password_field.text!)){

@@ -26,22 +26,17 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var CurrentView: UIView!
     
     @IBAction func Home_View(_ sender: Any) {
-        //setView(currentView: homeViewController.view)
-        //BaseViewController.childView = "HomeViewController"
         displayContentController(content: homeViewController)
             
     }
     @IBAction func Patient_View(_ sender: Any) {
-        //setView(currentView: patientSearchViewController.view)
         displayContentController(content: patientSearchViewController)
        
     }
     @IBAction func Scans_View(_ sender: Any) {
-        //setView(currentView: scanControllsViewController.view)
         displayContentController(content: scanControllsViewController)
     }
     @IBAction func Surveys_View(_ sender: Any) {
-        //setView(currentView: supportViewController.view)
         displayContentController(content: supportViewController)
     }
    
@@ -80,9 +75,6 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var Support: UIButton!
     
     var timer = Timer()
-    
-    
-    
     
     private var screenSize: CGRect = UIScreen.main.bounds
     
@@ -137,22 +129,7 @@ class BaseViewController: UIViewController {
             qScanLoginB.isHidden = false
             displayContentController(content: scanControllsViewController)
         }
-        //}
         
-//        switch BaseViewController.childView {
-//        case "HomeViewController":
-//            settest(view: BaseViewController.childView)
-//        case "PatientSearchViewController":
-//            settest(view: BaseViewController.childView)
-//        case "QuestionsViewController":
-//            settest(view: BaseViewController.childView)
-//        case "PatientProfileViewController":
-//            settest(view: BaseViewController.childView)
-//        case "SupportViewController":
-//            settest(view: BaseViewController.childView)
-//        default:
-//            ""
-//        }
       
     }
     
@@ -177,12 +154,13 @@ class BaseViewController: UIViewController {
     func displayContentController(content: UIViewController) {
         if(BaseViewController.child != content){
             BaseViewController.child = content
-        addChild(content)
-        CurrentView.addSubview(content.view)
-        content.didMove(toParent: self)
+            self.addChild(content)
+            content.view.frame = CurrentView.bounds
+            CurrentView.addSubview(content.view)
+            
             if(BaseViewController.prevChild != nil){
                 hideContentController(content: BaseViewController.prevChild)
-        }
+            }
         }
     }
     
@@ -213,37 +191,6 @@ class BaseViewController: UIViewController {
         self.CurrentView.addSubview(currentView)
     }
     
-    func settest(view:String){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewClass:Any
-        
-        if(ViewController.viewer != nil){
-        ViewController.viewer.removeFromSuperview()
-            BaseViewController().removeFromParent()
-        }
-        
-        switch view {
-        case "ScanControllsViewController":
-            viewClass = ScanControllsViewController()
-        case "HomeViewController":
-            viewClass = HomeViewController()
-        case "PatientSearchViewController":
-            viewClass = PatientSearchViewController()
-        case "QuestionsViewController":
-            viewClass = QuestionsViewController()
-        case "PatientProfileViewController":
-            viewClass = PatientProfileViewController()
-        case "SupportViewController":
-            viewClass = SupportViewController()
-        default:
-            viewClass = HomeViewController()
-        }
-        
-        let setView = storyboard.instantiateViewController(withIdentifier: view)
-        ViewController.viewer = setView.view
-        
-        self.CurrentView.addSubview(setView.view)
-    }
     
 }
 
