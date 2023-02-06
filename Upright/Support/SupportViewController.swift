@@ -96,7 +96,6 @@ class SupportViewController: UIViewController {
     func getVideo(videoCode:String) -> URL?{
         guard let url = URL(string: "https://www.youtube.com/embed/\(videoCode)") else { return nil}
         return url
-        
     }
    
 }

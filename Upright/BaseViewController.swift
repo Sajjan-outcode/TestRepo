@@ -118,6 +118,7 @@ class BaseViewController: UIViewController {
             qScanLoginB.isHidden = true
             BaseViewController.firstLogin = false
             }
+        
         else if(qScan == true) {
             Home.isEnabled = false
             Patient.isEnabled = false

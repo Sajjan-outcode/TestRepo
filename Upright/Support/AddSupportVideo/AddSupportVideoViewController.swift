@@ -25,16 +25,19 @@ class AddSupportVideoViewController : UIViewController {
         super.viewDidLoad()
         setUpView()
         
-
     }
-    
     
     private func setUpView() {
         
-        self.descriptionTextViewField.layer.borderWidth = 1
+        self.descriptionTextViewField.layer.borderWidth = 0.5
         self.descriptionTextViewField.layer.borderColor = Colors.blackColor.cgColor
         self.descriptionTextViewField.tintColor = Colors.grayTextColor
         
+        self.titleTextField.layer.borderWidth = 0.5
+        self.titleTextField.layer.borderColor = Colors.blackColor.cgColor
+        
+        self.linkTextField.layer.borderWidth = 0.5
+        self.linkTextField.layer.borderColor = Colors.blackColor.cgColor
         
     }
     
