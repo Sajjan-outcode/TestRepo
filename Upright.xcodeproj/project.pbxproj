@@ -61,13 +61,18 @@
 		A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */; };
 		A2E318C32830272700D9DEE5 /* scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E318C22830272700D9DEE5 /* scan.swift */; };
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
+		A80F18692991041B004DD0F9 /* VSIReportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */; };
 		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
 		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
 		A844DB822990269200133360 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB812990269200133360 /* RoundUIView.swift */; };
+		A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85FFF832991220700739548 /* VSIReportViewController.swift */; };
+		A898F324299248E3002FE82D /* VSIReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898F323299248E3002FE82D /* VSIReportModel.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
 		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
 		A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */; };
+		A8FFC3222992397A003D741D /* VSIHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */; };
+		A8FFC3242992398D003D741D /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFC3232992398D003D741D /* DataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,13 +164,18 @@
 		A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantIds.swift; sourceTree = "<group>"; };
 		A2E318C22830272700D9DEE5 /* scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scan.swift; sourceTree = "<group>"; };
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VSIReportViewController.storyboard; sourceTree = "<group>"; };
 		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A844DB812990269200133360 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
+		A85FFF832991220700739548 /* VSIReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportViewController.swift; sourceTree = "<group>"; };
+		A898F323299248E3002FE82D /* VSIReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportModel.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
 		A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSupportVideoViewController.swift; sourceTree = "<group>"; };
+		A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A8FFC3232992398D003D741D /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +324,7 @@
 				A844DB79298FC13D00133360 /* Helpers */,
 				A28BA342287DED9900E291B6 /* Support */,
 				A26E1FFD287A2C7F007AAD07 /* Controllerr */,
+				A80F186629910249004DD0F9 /* VSIScoreReport */,
 				A26E1FFB287A2C4A007AAD07 /* Model */,
 				A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */,
 				A2B5EA91284EFB4A00F8ADCB /* Organization */,
@@ -363,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				A28BA340287CA32F00E291B6 /* HomeViewModel.swift */,
+				A898F323299248E3002FE82D /* VSIReportModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +428,24 @@
 			path = BlueTooth;
 			sourceTree = "<group>";
 		};
+		A80F186629910249004DD0F9 /* VSIScoreReport */ = {
+			isa = PBXGroup;
+			children = (
+				A80F1867299103F3004DD0F9 /* VsiReportViewContoller */,
+			);
+			path = VSIScoreReport;
+			sourceTree = "<group>";
+		};
+		A80F1867299103F3004DD0F9 /* VsiReportViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				A8FFC32029923953003D741D /* Cell */,
+				A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */,
+				A85FFF832991220700739548 /* VSIReportViewController.swift */,
+			);
+			path = VsiReportViewContoller;
+			sourceTree = "<group>";
+		};
 		A844DB79298FC13D00133360 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +485,15 @@
 				A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */,
 			);
 			path = AddSupportVideo;
+			sourceTree = "<group>";
+		};
+		A8FFC32029923953003D741D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */,
+				A8FFC3232992398D003D741D /* DataTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */,
+				A80F18692991041B004DD0F9 /* VSIReportViewController.storyboard in Resources */,
 				A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */,
 				A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */,
 				A26B2EA627C6BF9F00938DB1 /* Assets.xcassets in Resources */,
@@ -605,6 +645,7 @@
 				530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */,
 				A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */,
 				A240768C281DC4C100BBAE66 /* PatientScan.swift in Sources */,
+				A8FFC3222992397A003D741D /* VSIHeaderTableViewCell.swift in Sources */,
 				A2ADE32A288873520050BCBB /* ControllerTableViewCell.swift in Sources */,
 				A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */,
 				A294CCF427ECCA8C00E46414 /* ScanControllsViewController.swift in Sources */,
@@ -621,6 +662,7 @@
 				A245F9E72800CFAE002EBE23 /* ViewController.swift in Sources */,
 				A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */,
 				A246C7E927DA9068003D4D69 /* PatientProfile.swift in Sources */,
+				A898F324299248E3002FE82D /* VSIReportModel.swift in Sources */,
 				A2679E992908717500E686B4 /* Calculations.swift in Sources */,
 				A26B2ECD27C6DAFB00938DB1 /* GradientView.swift in Sources */,
 				A2B0C7EA27D1324F0020C14D /* Provider.swift in Sources */,
@@ -643,11 +685,13 @@
 				A27E5DE027CEAE28004C790D /* HomeViewController.swift in Sources */,
 				A2407691281DCC5500BBAE66 /* ScansTableViewCell.swift in Sources */,
 				A2DAC7BD2847F8FF00938CC3 /* CreateProviderView.swift in Sources */,
+				A8FFC3242992398D003D741D /* DataTableViewCell.swift in Sources */,
 				A280898227D6B28A00C79920 /* PatientSearchViewController.swift in Sources */,
 				A28BA341287CA32F00E291B6 /* HomeViewModel.swift in Sources */,
 				A25706C827CFDDD400C4A319 /* db.swift in Sources */,
 				A2B5EA90284EC4EB00F8ADCB /* LoginView.swift in Sources */,
 				A24F0EEA27DC1478004FD6B3 /* QuestionsViewController.swift in Sources */,
+				A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */,
 				A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */,
 				A844DB80298FC23900133360 /* ColorExtension.swift in Sources */,
 			);

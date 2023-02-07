@@ -653,7 +653,7 @@ class ScanControllsViewController: UIViewController {
         self.n_c.text = "\(scans.formatString(number: scanHistory.dl_C!))%"
         self.n_t.text = "\(scans.formatString(number: scanHistory.dl_T!))%"
         self.n_l.text = "\(scans.formatString(number: scanHistory.dl_L!))%"
-        self.lean_value.text = scans.formatLean(lean: abs(leanValue))  + "º"
+        self.lean_value.text = scans.formatLean(lean: leanValue)  + "º"
         self.sagittal_score.text = sdsrisk
         self.sdsScore.text = String(Int(s_i_Score))
         
@@ -715,7 +715,7 @@ class ScanControllsViewController: UIViewController {
             let partTwo = abs(8 - (self.scanResults[index].d_l * 100))
        
             let s_i_Score = absPC + scorePT + scorePL + sumD + abs(self.scanResults[index].lean)  //(self.scanResults[index].lean * self.scanResults[index].lean) + sumP + sumD
-            let sdsScore = self.scanResults[index].lean + (partOne) + (partTwo)
+            let sdsScore = abs(self.scanResults[index].lean) + (partOne) + (partTwo)
         
         if(sdsScore < 15){
             sdsrisk = "Low/Moderate"
@@ -733,7 +733,7 @@ class ScanControllsViewController: UIViewController {
             self.n_t.text = "\(scans.formatString(number: self.scanResults[index].d_t))%"
             self.n_l.text = "\(scans.formatString(number: self.scanResults[index].d_l))%"
             
-            self.lean_value.text = scans.formatLean(lean: abs(self.scanResults[index].lean)) + "º"
+            self.lean_value.text = scans.formatLean(lean: self.scanResults[index].lean) + "º"
             
             self.sagittal_score.text = sdsrisk
             self.sdsScore.text = String(Int(s_i_Score))

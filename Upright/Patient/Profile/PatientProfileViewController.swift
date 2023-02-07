@@ -44,6 +44,7 @@ class PatientProfileViewController: UIViewController {
     @IBOutlet weak var resultsId: UILabel!
     
     var pic_date:String!
+    var vsiReportViewController: VSIReportViewController!
     
     @IBOutlet weak var EmailConfirmInputBox: UITextField!
     
@@ -61,8 +62,7 @@ class PatientProfileViewController: UIViewController {
     
     @IBAction func EmailViewOkButton(_ sender: Any) {
         let email: String
-        print(EmailConfirmInputBox.text)
-        if(EmailConfirmInputBox.text != ""){
+       if(EmailConfirmInputBox.text != ""){
             email = EmailConfirmInputBox.text!
             self.patient.updateEmailAddress(email: email)
             self.email.text = email
@@ -77,6 +77,9 @@ class PatientProfileViewController: UIViewController {
         editEmail()
     }
     
+    @IBAction func viewReport(_ sender: Any) {
+         initVSIReportViewcontroller()
+    }
     
     @IBAction func New_Scan(_ sender: Any) {
         present(mainView!, animated: false, completion: nil)
@@ -146,6 +149,20 @@ class PatientProfileViewController: UIViewController {
         }
         
     }
+    
+    func initVSIReportViewcontroller() {
+        let storyboard  = UIStoryboard(name: "VSIReportViewController", bundle: nil)
+        vsiReportViewController = storyboard.instantiateViewController(withIdentifier: "VSIReportViewController") as? VSIReportViewController
+        vsiReportViewController.patientScanslist = self.scanslist
+        if let presentationController = vsiReportViewController.presentationController as? UISheetPresentationController {
+                presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
+            }
+            
+            self.present(vsiReportViewController, animated: true)
+        
+    }
+    
+    
     
     func getScansList(){
         do {

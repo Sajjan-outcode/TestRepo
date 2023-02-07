@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         password_field?.borderStyle = UITextField.BorderStyle.roundedRect
         userName?.borderStyle = UITextField.BorderStyle.roundedRect
         setUpBaseViewController()
-        autoLoginIfPossible()
+       // autoLoginIfPossible()
         
     }
     
