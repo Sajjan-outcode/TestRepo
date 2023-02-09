@@ -8,7 +8,9 @@
 import Foundation
 
 struct VSIReportModel {
-    
+    var reportGeneratDate: String
+    var patientEmail: String
+    var patientName: String
     var dateValue: String
     var statureValue: String
     var leanValue: String
@@ -20,8 +22,13 @@ struct VSIReportModel {
     var normalityThoracicValue: String
     var normalityLumbarValue: String
     var vsiScoreValue: String
+    var clinicModel: ClinicModel?
+    var calculation: Calculations?
     
-    init(dateValue: String, statureValue: String, leanValue: String, sXfXValue: String, proportionCervicalValue: String, proportionThoracicValue: String, proportionLumbarValue: String, normalityCervicalValue: String, normalityThoracicValue: String, normalityLumbarValue: String, vsiScoreValue: String) {
+    init(reportGeneratDate: String, patientEmail: String, patientName: String, dateValue: String, statureValue: String, leanValue: String, sXfXValue: String, proportionCervicalValue: String, proportionThoracicValue: String, proportionLumbarValue: String, normalityCervicalValue: String, normalityThoracicValue: String, normalityLumbarValue: String, vsiScoreValue: String, clinicModel: ClinicModel? = nil, calculation: Calculations? = nil) {
+        self.reportGeneratDate = reportGeneratDate
+        self.patientEmail = patientEmail
+        self.patientName = patientName
         self.dateValue = dateValue
         self.statureValue = statureValue
         self.leanValue = leanValue
@@ -33,6 +40,8 @@ struct VSIReportModel {
         self.normalityThoracicValue = normalityThoracicValue
         self.normalityLumbarValue = normalityLumbarValue
         self.vsiScoreValue = vsiScoreValue
+        self.clinicModel = clinicModel
+        self.calculation = calculation
     }
     
 }

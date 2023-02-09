@@ -62,10 +62,15 @@
 		A2E318C32830272700D9DEE5 /* scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E318C22830272700D9DEE5 /* scan.swift */; };
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
 		A80F18692991041B004DD0F9 /* VSIReportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */; };
+		A8289C3A2992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */; };
 		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
 		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
 		A844DB822990269200133360 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB812990269200133360 /* RoundUIView.swift */; };
 		A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85FFF832991220700739548 /* VSIReportViewController.swift */; };
+		A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882714E2993701C0059EF36 /* ImageViewExtension.swift */; };
+		A882715229937E720059EF36 /* VSIReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882715129937E720059EF36 /* VSIReportViewModel.swift */; };
+		A8827154299386FE0059EF36 /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8827153299386FE0059EF36 /* ClinicModel.swift */; };
+		A88271562993FBA80059EF36 /* DeltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */; };
 		A898F324299248E3002FE82D /* VSIReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898F323299248E3002FE82D /* VSIReportModel.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
@@ -165,10 +170,15 @@
 		A2E318C22830272700D9DEE5 /* scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scan.swift; sourceTree = "<group>"; };
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VSIReportViewController.storyboard; sourceTree = "<group>"; };
+		A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A844DB812990269200133360 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
 		A85FFF832991220700739548 /* VSIReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportViewController.swift; sourceTree = "<group>"; };
+		A882714E2993701C0059EF36 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		A882715129937E720059EF36 /* VSIReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportViewModel.swift; sourceTree = "<group>"; };
+		A8827153299386FE0059EF36 /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
+		A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltaTableViewCell.swift; sourceTree = "<group>"; };
 		A898F323299248E3002FE82D /* VSIReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportModel.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -374,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				A28BA340287CA32F00E291B6 /* HomeViewModel.swift */,
-				A898F323299248E3002FE82D /* VSIReportModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +440,7 @@
 		A80F186629910249004DD0F9 /* VSIScoreReport */ = {
 			isa = PBXGroup;
 			children = (
+				A882715029937DA70059EF36 /* model */,
 				A80F1867299103F3004DD0F9 /* VsiReportViewContoller */,
 			);
 			path = VSIScoreReport;
@@ -444,6 +454,24 @@
 				A85FFF832991220700739548 /* VSIReportViewController.swift */,
 			);
 			path = VsiReportViewContoller;
+			sourceTree = "<group>";
+		};
+		A8289C372992A2CF0057F6AC /* VSIReportTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */,
+				A8FFC3232992398D003D741D /* DataTableViewCell.swift */,
+				A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */,
+			);
+			path = VSIReportTableViewCell;
+			sourceTree = "<group>";
+		};
+		A8289C382992A2EC0057F6AC /* VSIReportCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */,
+			);
+			path = VSIReportCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		A844DB79298FC13D00133360 /* Helpers */ = {
@@ -474,8 +502,19 @@
 			isa = PBXGroup;
 			children = (
 				A844DB7F298FC23900133360 /* ColorExtension.swift */,
+				A882714E2993701C0059EF36 /* ImageViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A882715029937DA70059EF36 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A8827153299386FE0059EF36 /* ClinicModel.swift */,
+				A898F323299248E3002FE82D /* VSIReportModel.swift */,
+				A882715129937E720059EF36 /* VSIReportViewModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A8D53E5A298F9A9800692E2F /* AddSupportVideo */ = {
@@ -490,8 +529,8 @@
 		A8FFC32029923953003D741D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */,
-				A8FFC3232992398D003D741D /* DataTableViewCell.swift */,
+				A8289C382992A2EC0057F6AC /* VSIReportCollectionViewCell */,
+				A8289C372992A2CF0057F6AC /* VSIReportTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -673,9 +712,13 @@
 				A280898427D6B31400C79920 /* PatientSearchViewCell.swift in Sources */,
 				A2B47116289C2DE100608CFD /* Scans.swift in Sources */,
 				A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */,
+				A88271562993FBA80059EF36 /* DeltaTableViewCell.swift in Sources */,
 				530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */,
+				A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
+				A8827154299386FE0059EF36 /* ClinicModel.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
+				A8289C3A2992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,
@@ -692,6 +735,7 @@
 				A2B5EA90284EC4EB00F8ADCB /* LoginView.swift in Sources */,
 				A24F0EEA27DC1478004FD6B3 /* QuestionsViewController.swift in Sources */,
 				A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */,
+				A882715229937E720059EF36 /* VSIReportViewModel.swift in Sources */,
 				A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */,
 				A844DB80298FC23900133360 /* ColorExtension.swift in Sources */,
 			);

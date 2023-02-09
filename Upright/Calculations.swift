@@ -83,7 +83,7 @@ class Calculations {
     }
     
     private func siScore(lean: Double, sumProportion: Double, sumNormality: Double ) -> Double {
-        return (lean * lean) + sumProportion + sumNormality
+        return (abs(lean * lean)) + sumProportion + sumNormality
     }
     
     private func absoluteProportion(p_c: Double, p_t: Double, p_l: Double) -> Double{

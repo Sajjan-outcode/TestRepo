@@ -33,24 +33,22 @@ class DataTableViewCell : UITableViewCell {
     @IBOutlet weak var vsiScoreValue: UILabel!
     
     
-    func bindData(data: PatientScan){
+    
+    func bindData(data: VSIReportViewModel){
         
-        dateValue.text = data.pic_date
-        statureValue.text = "\(data.height ?? 0.0)"
-        leanValue.text = "\(data.lean ?? 0.0)"
-        sXfXValue.text = data.time_stamp
-        proportionCervicalValue.text = "\(data.prop_C ?? 0)"
-        proportionThoracicValue.text = "\(data.prop_T ?? 0)"
-        proportionLumbarValue.text =   "\(data.prop_L ?? 0)"
-        normalityCervicalValue.text =  "\(data.dl_C ?? 0.0)"
-        normalityThoracicValue.text = "\(data.dl_T ?? 0.0)"
-        normalityLumbarValue.text =  "\(data.dl_L ?? 0.0)"
-        vsiScoreValue.text = data.first_name
+        dateValue.text = data.dateValue
+        statureValue.text = data.statureValue
+        leanValue.text = data.leanValue
+        sXfXValue.text = data.sXfXValue
+        proportionCervicalValue.text = data.proportionCervicalValue
+        proportionThoracicValue.text = data.proportionThoracicValue
+        proportionLumbarValue.text = data.proportionLumbarValue
+        normalityCervicalValue.text = data.normalityCervicalValue
+        normalityThoracicValue.text = data.normalityThoracicValue
+        normalityLumbarValue.text = data.normalityLumbarValue
+        vsiScoreValue.text = data.vsiScoreValue
         
     }
     
-    
-    
-    
-    
 }
+

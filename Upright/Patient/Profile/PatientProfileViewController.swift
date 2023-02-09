@@ -45,6 +45,7 @@ class PatientProfileViewController: UIViewController {
     
     var pic_date:String!
     var vsiReportViewController: VSIReportViewController!
+    var vsiReportViewmodel: VSIReportViewModel!
     
     @IBOutlet weak var EmailConfirmInputBox: UITextField!
     
@@ -104,7 +105,7 @@ class PatientProfileViewController: UIViewController {
     var questionView: QuestionsViewController?
     var scans: ScanController!
     var patient: Patient!
-    var calc: Calculations!
+    var calc: Calculations?
     
     
     override func viewDidLoad() {
@@ -154,6 +155,9 @@ class PatientProfileViewController: UIViewController {
         let storyboard  = UIStoryboard(name: "VSIReportViewController", bundle: nil)
         vsiReportViewController = storyboard.instantiateViewController(withIdentifier: "VSIReportViewController") as? VSIReportViewController
         vsiReportViewController.patientScanslist = self.scanslist
+//        guard let calulatevalue = self.calc else {return}
+//        let viewData = VSIReportViewModel(patientScan: scanslist[0], scanController: self.scans, generateDate: "2023/08/7", calculation: calulatevalue )
+//        vsiReportViewController.viewModel = viewData
         if let presentationController = vsiReportViewController.presentationController as? UISheetPresentationController {
                 presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
             }
@@ -189,6 +193,7 @@ class PatientProfileViewController: UIViewController {
                 var lean = try columns[9].double()
                 let height = try columns[13].double()
                 let pic_date = try columns[8].string()
+                
                 
                 scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean, height: height, pic_date: pic_date)
                // print(id)
@@ -329,22 +334,25 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             lean.text =  scans.formatLean(lean: abs(selectedScan.lean!)) + "º"
             Height.text = scans.getHeight(height: selectedScan.height)
             spin_pic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(selectedScan.id!)-\(selectedScan.pic_date!).png")
+        
             // print("http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
             self.segittal_index.text = "Loading..."
             self.uprightly_score.text = "Loading..."
             self.delta_score.text = "Loading..."
+            guard let calcValue = self.calc else {return}
             DispatchQueue.global(qos: .userInitiated).async {
                
                 self.calc = Calculations(patient_id: Patient.id!, prop_c: selectedScan.prop_C, prop_t: selectedScan.prop_T, prop_l: selectedScan.prop_L, norm_c: selectedScan.dl_C, norm_t: selectedScan.dl_T, norm_l: selectedScan.dl_L, lean: selectedScan.lean)
-                
-                
-                DispatchQueue.main.async {
-                
-                self.segittal_index.text = String(self.calc.getVsiScore())
-                self.uprightly_score.text = String(self.calc.getUprightlyScore())
-                self.delta_score.text = String(self.calc.getDeltaScore())
+                guard let calcValue = self.calc else {return}
+            DispatchQueue.main.async {
+               
+                self.segittal_index.text = String(calcValue.getVsiScore())
+                self.uprightly_score.text = String(calcValue.getUprightlyScore())
+                self.delta_score.text = String(calcValue.getDeltaScore())
                 }
             }
+            let viewData = VSIReportViewModel(patientScan: scanslist[indexPath.row], scanController: self.scans, generateDate: "2023/08/7", calculation: calcValue )
+            vsiReportViewController.viewModel = viewData
             
         } else {
             let selectedSurvey = surveylist[indexPath.row]
@@ -354,21 +362,5 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
     
 }
 
-extension UIImageView {
-    
-    func loadFrom(URLAddress: String) {
-            guard let url = URL(string: URLAddress) else {
-                return
-            }
-            
-            DispatchQueue.main.async { [weak self] in
-                if let imageData = try? Data(contentsOf: url) {
-                    if let loadedImage = UIImage(data: imageData) {
-                            self?.image = loadedImage
-                    }
-                }
-            }
-        }
-    
-}
+
 

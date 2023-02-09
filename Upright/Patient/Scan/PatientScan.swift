@@ -21,7 +21,7 @@ class PatientScan {
      var dl_L: Double!
      var lean: Double!
      var height: Double!
-    var pic_date: String!
+     var pic_date: String!
     
     init(first_name: String, last_name: String, id: Int, time_stamp: String, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, lean: Double, height: Double, pic_date: String) {
         self.first_name = first_name

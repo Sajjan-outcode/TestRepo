@@ -105,8 +105,8 @@ class QuestionsViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
-        left_arrow.isHidden = false
-        right_arrow.isHidden = false
+        left_arrow.isHidden = true
+        right_arrow.isHidden = true
         
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         //navigationController?.pushViewController(patientView!, animated: true)
@@ -122,7 +122,7 @@ class QuestionsViewController: UIViewController {
             questionsPosition += 1
             Question.text = questions[questionsPosition].question
             questionPosition.text = "\(questionsPosition + 1)|10"
-            
+            self.left_arrow.isHidden = false
         } else {
             Results_View.isHidden = false
         }
