@@ -7,9 +7,10 @@
 
 import UIKit
 
-class VSIHeaderTableViewCell : UITableViewCell{
+class VSIReportHeaderView : UITableViewHeaderFooterView {
     
     
     
-    
+     
+     
 }

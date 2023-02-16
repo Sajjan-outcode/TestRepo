@@ -39,6 +39,4 @@ class PatientScan {
         self.pic_date = pic_date
     }
     
-   
-    
 }

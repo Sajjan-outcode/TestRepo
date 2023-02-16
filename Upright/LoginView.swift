@@ -16,7 +16,7 @@ class LoginView {
     func getUserInfo(userName: String){
         let db: db = db.init()
         defer {db.connection?.close()}
-        let text = "SELECT organization.id, name, address, city, state, zip, password, email FROM organization WHERE email = '\(userName)'"
+        let text = "SELECT organization.id, name, address, city, state, zip, password, email ,is_admin FROM organization WHERE email = '\(userName)'"
         let cursor = db.execute(text: text)
         defer {db.statment?.close()}
         defer {cursor.close()}
@@ -30,6 +30,7 @@ class LoginView {
                 Organization.state = try columns[4].string()
                 Organization.zip = try columns[5].string()
                 Organization.email = try columns[7].string()
+                Organization.isAdmin = try columns[8].bool()
                 self.password = try columns[6].string()
             }
             } catch {

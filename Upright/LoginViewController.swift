@@ -83,10 +83,11 @@ class LoginViewController: UIViewController {
     
     func setDbConnections(){
         if(userName.text! == "upright"){
-            db.host = "44.211.192.6"
-            db.dev = true
+            db.host = "50.16.61.116" //"44.211.192.6" -> live host
+           // db.host =
+            db.dev = false // true
         }else{
-            db.host = "50.16.61.116"
+            db.host = "50.16.61.116" // test host
             db.dev = false
         }
     }

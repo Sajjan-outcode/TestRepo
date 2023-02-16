@@ -621,6 +621,7 @@
                     </view>
                     <size key="freeformSize" width="715" height="860"/>
                     <connections>
+                        <outlet property="addVideoBtnOutlet" destination="8d3-kP-fyv" id="4of-9J-JUB"/>
                         <outlet property="tableView" destination="JQe-rd-qeZ" id="KPr-ic-y6L"/>
                     </connections>
                 </viewController>
@@ -1350,6 +1351,7 @@
                         <outlet property="tableView" destination="Xuj-zn-4eU" id="MMe-gh-H8L"/>
                         <outlet property="thoracic" destination="zJ6-Oo-nHZ" id="POt-m0-95Z"/>
                         <outlet property="uprightly_score" destination="T0a-7x-9a5" id="Mfa-Ab-dlF"/>
+                        <outlet property="vsiReportBtn" destination="f5Q-FG-XBb" id="hqK-p2-zYZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8o-7h-Q8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2753,7 +2755,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Uprightly Logo Main White-05 copy" translatesAutoresizingMaskIntoConstraints="NO" id="cFh-Wd-QDV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UprightlyLogoMain " translatesAutoresizingMaskIntoConstraints="NO" id="cFh-Wd-QDV">
                                 <rect key="frame" x="281.5" y="24" width="247" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="Ngg-aC-fTw"/>
@@ -3056,7 +3058,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Uprightly Logo Main White-05 copy" translatesAutoresizingMaskIntoConstraints="NO" id="V0d-JS-kWP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UprightlyLogoMain " translatesAutoresizingMaskIntoConstraints="NO" id="V0d-JS-kWP">
                                 <rect key="frame" x="214" y="74" width="382" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="382" id="bLS-8K-MgZ"/>
@@ -3212,11 +3214,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951.85185185185173" y="-1107.2222222222222"/>
+            <point key="canvasLocation" x="890" y="-1264"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MXf-L8-j04"/>
+        <segue reference="AQt-fd-kl6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Home Icon" width="50" height="40"/>
@@ -3230,7 +3232,8 @@
         <image name="Scan History" width="1036" height="292"/>
         <image name="Scan Icon" width="37" height="40"/>
         <image name="Support Icon" width="40" height="40"/>
-        <image name="Uprightly Logo Main White-05 copy" width="1848.5" height="468.5"/>
+        <image name="Uprightly Logo Main White-05 copy" width="3697" height="937"/>
+        <image name="UprightlyLogoMain " width="3697" height="937"/>
         <image name="arrow_left" width="235" height="421"/>
         <image name="arrow_right" width="229" height="418"/>
         <image name="qbutton" width="57" height="88"/>

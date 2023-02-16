@@ -13,9 +13,9 @@ class SupportViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var faqLink: UILabel!
     @IBOutlet weak var spportLink: LinkUILabel!
-    var addSupportVideoController: AddSupportVideoViewController!
     weak private var delegate: AddSupportVideoViewControllerDelegate!
     
+    @IBOutlet weak var addVideoBtnOutlet: UIButton!
     @IBAction func MessageSupportButton(_ sender: Any) {
         if let url = URL(string: "http://www.uprightspine.com/contact"){
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -42,31 +42,41 @@ class SupportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        supportVideos = SupportVideosWrapper.getVideos()
+        setAddBtnUpView()
         setUpTableView()
-       self.delegate = self
+        fetchSupportVideos()
+        self.delegate = self
     }
     
-    private func setUpTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 225
-        
+    fileprivate func fetchSupportVideos() {
+        supportVideos = SupportVideosWrapper.getVideos()
         DatabaseManager.shared.getSupportVideos { [weak self] videos in
             guard let strongSelf = self else { return }
             strongSelf.supportVideos = videos
             strongSelf.tableView.reloadData()
         }
     }
-    func initAddVideoVideoController() {
-        let storyboard  = UIStoryboard(name: "AddSuportVideoViewController", bundle: nil)
-        addSupportVideoController = storyboard.instantiateViewController(withIdentifier: "AddSupportVideoViewController") as? AddSupportVideoViewController
-        if let presentationController = addSupportVideoController.presentationController as? UISheetPresentationController {
+    
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 225
+   }
+    
+    private func setAddBtnUpView() {
+        addVideoBtnOutlet.isHidden = Organization.isOrganizationAdmin.isFalse
+    }
+    
+    private func initAddVideoVideoController() {
+        
+            let storyboard  = UIStoryboard(name: "AddSuportVideoViewController", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "AddSupportVideoViewController") as? AddSupportVideoViewController else {return}
+            if let presentationController = vc.presentationController as? UISheetPresentationController {
                 presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
             }
             
-        addSupportVideoController.delegate = self
-            self.present(addSupportVideoController, animated: true)
+            vc.delegate = self
+            self.present(vc, animated: true)
   }
     
     

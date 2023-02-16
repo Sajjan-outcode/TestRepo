@@ -63,7 +63,7 @@ class PatientProfileViewController: UIViewController {
     
     @IBAction func EmailViewOkButton(_ sender: Any) {
         let email: String
-       if(EmailConfirmInputBox.text != ""){
+        if(EmailConfirmInputBox.text != ""){
             email = EmailConfirmInputBox.text!
             self.patient.updateEmailAddress(email: email)
             self.email.text = email
@@ -79,7 +79,7 @@ class PatientProfileViewController: UIViewController {
     }
     
     @IBAction func viewReport(_ sender: Any) {
-         initVSIReportViewcontroller()
+        initVSIReportViewcontroller()
     }
     
     @IBAction func New_Scan(_ sender: Any) {
@@ -107,6 +107,7 @@ class PatientProfileViewController: UIViewController {
     var patient: Patient!
     var calc: Calculations?
     
+    @IBOutlet weak var vsiReportBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,21 +120,21 @@ class PatientProfileViewController: UIViewController {
         
         self.scans = ScanController()
         name.text = Patient.first_name! + " " + Patient.last_name!
-//        dob.text = Patient.date_of_birth as! String
+        //        dob.text = Patient.date_of_birth as! String
         email.text = Patient.email
-//        Address.text = Patient.address
-//        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
-//        Phone_Number.text = Patient.phone_number
+        //        Address.text = Patient.address
+        //        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
+        //        Phone_Number.text = Patient.phone_number
         self.patient_id = Patient.id!
         
-//        ReferPatientButton.configuration?.titleAlignment = .center
-        
+        //        ReferPatientButton.configuration?.titleAlignment = .center
         mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         scanView = storyboard?.instantiateViewController(withIdentifier: "ScanControllsViewController") as? ScanControllsViewController
         questionView = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController
         
         getScansList()
         getSurveyList()
+        self.vsiReportBtn.isHidden = false
         
     }
     
@@ -141,12 +142,12 @@ class PatientProfileViewController: UIViewController {
         super.viewDidAppear(animated)
         let indexPath = IndexPath(row: 0, section: 0)
         if(!scanslist.isEmpty){
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+            tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
         }
         if(!surveylist.isEmpty){
-        surveyTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-        surveyTableView.delegate?.tableView?(surveyTableView, didSelectRowAt: indexPath)
+            surveyTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+            surveyTableView.delegate?.tableView?(surveyTableView, didSelectRowAt: indexPath)
         }
         
     }
@@ -154,15 +155,20 @@ class PatientProfileViewController: UIViewController {
     func initVSIReportViewcontroller() {
         let storyboard  = UIStoryboard(name: "VSIReportViewController", bundle: nil)
         vsiReportViewController = storyboard.instantiateViewController(withIdentifier: "VSIReportViewController") as? VSIReportViewController
-        vsiReportViewController.patientScanslist = self.scanslist
-//        guard let calulatevalue = self.calc else {return}
-//        let viewData = VSIReportViewModel(patientScan: scanslist[0], scanController: self.scans, generateDate: "2023/08/7", calculation: calulatevalue )
-//        vsiReportViewController.viewModel = viewData
+        
+        
+        let vsiReportViewModel = VSIReportViewModel(patientId: Patient.id!,
+                                                    vsiReportInfoModel: VSIReportInfoModel.getNewVSIReportInfoModel(),
+                                                    patientScanList: scanslist,
+                                                    surveyList: surveylist)
+        vsiReportViewModel.delegate = vsiReportViewController
+        vsiReportViewController.viewModel = vsiReportViewModel
+        
         if let presentationController = vsiReportViewController.presentationController as? UISheetPresentationController {
-                presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
-            }
-            
-            self.present(vsiReportViewController, animated: true)
+            presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
+        }
+        
+        self.present(vsiReportViewController, animated: true)
         
     }
     
@@ -196,9 +202,9 @@ class PatientProfileViewController: UIViewController {
                 
                 
                 scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean, height: height, pic_date: pic_date)
-               // print(id)
+                // print(id)
             }
-           
+            
         } catch {
             print(error)
         }
@@ -224,13 +230,13 @@ class PatientProfileViewController: UIViewController {
         } catch {
             print(error)
         }
-        }
+    }
     
     func createArray(id: Int, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, time_stamp: String, lean: Double, height: Double, pic_date: String) -> [PatientScan] {
         var tempList: [PatientScan] = []
         let list = PatientScan(first_name: Patient.first_name!, last_name: Patient.last_name!, id: id, time_stamp: time_stamp, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, lean: lean, height: height, pic_date: pic_date)
         tempList.append(list)
-
+        
         return tempList
         
     }
@@ -256,13 +262,13 @@ class PatientProfileViewController: UIViewController {
         let url = URL(string: "http://\(db.host!):8000?type=sendemail&email=\(email)")
         var scanArray: [ScanController.ScanResults]
         guard let requestUrl = url else { fatalError() }
-
+        
         // Create URL Request
         var request = URLRequest(url: requestUrl)
-
+        
         // Specify HTTP Method to use
         request.httpMethod = "GET"
-
+        
         // Send HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -280,12 +286,12 @@ class PatientProfileViewController: UIViewController {
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 
-               
+                
                 
             }
-         
+            
         }
-
+        
         task.resume()
         
     }
@@ -296,7 +302,7 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableView == self.tableView ? scanslist.count:surveylist.count
-
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -334,25 +340,24 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             lean.text =  scans.formatLean(lean: abs(selectedScan.lean!)) + "º"
             Height.text = scans.getHeight(height: selectedScan.height)
             spin_pic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(selectedScan.id!)-\(selectedScan.pic_date!).png")
-        
+            
             // print("http://50.16.61.116:8000/media/\(selectedScan.id!)-\(selectedScan.time_stamp!).png")
             self.segittal_index.text = "Loading..."
             self.uprightly_score.text = "Loading..."
             self.delta_score.text = "Loading..."
-            guard let calcValue = self.calc else {return}
+            
             DispatchQueue.global(qos: .userInitiated).async {
-               
+                
                 self.calc = Calculations(patient_id: Patient.id!, prop_c: selectedScan.prop_C, prop_t: selectedScan.prop_T, prop_l: selectedScan.prop_L, norm_c: selectedScan.dl_C, norm_t: selectedScan.dl_T, norm_l: selectedScan.dl_L, lean: selectedScan.lean)
                 guard let calcValue = self.calc else {return}
-            DispatchQueue.main.async {
-               
-                self.segittal_index.text = String(calcValue.getVsiScore())
-                self.uprightly_score.text = String(calcValue.getUprightlyScore())
-                self.delta_score.text = String(calcValue.getDeltaScore())
+                DispatchQueue.main.async {
+                    
+                    self.segittal_index.text = String(calcValue.getVsiScore())
+                    self.uprightly_score.text = String(calcValue.getUprightlyScore())
+                    self.delta_score.text = String(calcValue.getDeltaScore())
                 }
             }
-            let viewData = VSIReportViewModel(patientScan: scanslist[indexPath.row], scanController: self.scans, generateDate: "2023/08/7", calculation: calcValue )
-            vsiReportViewController.viewModel = viewData
+            
             
         } else {
             let selectedSurvey = surveylist[indexPath.row]

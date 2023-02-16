@@ -61,23 +61,30 @@
 		A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */; };
 		A2E318C32830272700D9DEE5 /* scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E318C22830272700D9DEE5 /* scan.swift */; };
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
-		A80F18692991041B004DD0F9 /* VSIReportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */; };
-		A8289C3A2992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */; };
 		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
 		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
 		A844DB822990269200133360 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB812990269200133360 /* RoundUIView.swift */; };
-		A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85FFF832991220700739548 /* VSIReportViewController.swift */; };
+		A880FAA0299E006300D23F6E /* VSIReportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */; };
+		A880FAA1299E006300D23F6E /* VSIReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA8B299E006300D23F6E /* VSIReportViewController.swift */; };
+		A880FAA2299E006300D23F6E /* VSIReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */; };
+		A880FAA3299E006300D23F6E /* VSIReportHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */; };
+		A880FAA4299E006300D23F6E /* VSIReportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */; };
+		A880FAA5299E006300D23F6E /* DeltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */; };
+		A880FAA6299E006300D23F6E /* DeviationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */; };
+		A880FAA7299E006300D23F6E /* VSIReportFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */; };
+		A880FAA8299E006300D23F6E /* VSIReportFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */; };
+		A880FAA9299E006300D23F6E /* VSIReportTopHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */; };
+		A880FAAA299E006300D23F6E /* VSIReportTopHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */; };
+		A880FAAB299E006300D23F6E /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9A299E006300D23F6E /* DataTableViewCell.swift */; };
+		A880FAAC299E006300D23F6E /* VSIReportViewModel.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */; };
+		A880FAAD299E006300D23F6E /* VSIReportInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */; };
+		A880FAAE299E006300D23F6E /* VSIReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9E299E006300D23F6E /* VSIReportModel.swift */; };
+		A880FAAF299E006300D23F6E /* VSIReportCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */; };
 		A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882714E2993701C0059EF36 /* ImageViewExtension.swift */; };
-		A882715229937E720059EF36 /* VSIReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882715129937E720059EF36 /* VSIReportViewModel.swift */; };
-		A8827154299386FE0059EF36 /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8827153299386FE0059EF36 /* ClinicModel.swift */; };
-		A88271562993FBA80059EF36 /* DeltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */; };
-		A898F324299248E3002FE82D /* VSIReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A898F323299248E3002FE82D /* VSIReportModel.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
 		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
 		A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */; };
-		A8FFC3222992397A003D741D /* VSIHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */; };
-		A8FFC3242992398D003D741D /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFC3232992398D003D741D /* DataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,23 +176,30 @@
 		A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantIds.swift; sourceTree = "<group>"; };
 		A2E318C22830272700D9DEE5 /* scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scan.swift; sourceTree = "<group>"; };
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
-		A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VSIReportViewController.storyboard; sourceTree = "<group>"; };
-		A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A844DB812990269200133360 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
-		A85FFF832991220700739548 /* VSIReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportViewController.swift; sourceTree = "<group>"; };
+		A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VSIReportViewController.storyboard; sourceTree = "<group>"; };
+		A880FA8B299E006300D23F6E /* VSIReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportViewController.swift; sourceTree = "<group>"; };
+		A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportHeaderView.xib; sourceTree = "<group>"; };
+		A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportHeaderView.swift; sourceTree = "<group>"; };
+		A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeltaTableViewCell.swift; sourceTree = "<group>"; };
+		A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviationTableViewCell.swift; sourceTree = "<group>"; };
+		A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportFooterCell.swift; sourceTree = "<group>"; };
+		A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportFooterCell.xib; sourceTree = "<group>"; };
+		A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportTopHeaderViewCell.xib; sourceTree = "<group>"; };
+		A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportTopHeaderViewCell.swift; sourceTree = "<group>"; };
+		A880FA9A299E006300D23F6E /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportViewModel.swift.swift; sourceTree = "<group>"; };
+		A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportInfoModel.swift; sourceTree = "<group>"; };
+		A880FA9E299E006300D23F6E /* VSIReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportModel.swift; sourceTree = "<group>"; };
+		A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportCellModel.swift; sourceTree = "<group>"; };
 		A882714E2993701C0059EF36 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
-		A882715129937E720059EF36 /* VSIReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportViewModel.swift; sourceTree = "<group>"; };
-		A8827153299386FE0059EF36 /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
-		A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltaTableViewCell.swift; sourceTree = "<group>"; };
-		A898F323299248E3002FE82D /* VSIReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportModel.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
 		A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSupportVideoViewController.swift; sourceTree = "<group>"; };
-		A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		A8FFC3232992398D003D741D /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,7 +348,7 @@
 				A844DB79298FC13D00133360 /* Helpers */,
 				A28BA342287DED9900E291B6 /* Support */,
 				A26E1FFD287A2C7F007AAD07 /* Controllerr */,
-				A80F186629910249004DD0F9 /* VSIScoreReport */,
+				A880FA88299E006300D23F6E /* VSIScoreReport */,
 				A26E1FFB287A2C4A007AAD07 /* Model */,
 				A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */,
 				A2B5EA91284EFB4A00F8ADCB /* Organization */,
@@ -437,43 +451,6 @@
 			path = BlueTooth;
 			sourceTree = "<group>";
 		};
-		A80F186629910249004DD0F9 /* VSIScoreReport */ = {
-			isa = PBXGroup;
-			children = (
-				A882715029937DA70059EF36 /* model */,
-				A80F1867299103F3004DD0F9 /* VsiReportViewContoller */,
-			);
-			path = VSIScoreReport;
-			sourceTree = "<group>";
-		};
-		A80F1867299103F3004DD0F9 /* VsiReportViewContoller */ = {
-			isa = PBXGroup;
-			children = (
-				A8FFC32029923953003D741D /* Cell */,
-				A80F18682991041B004DD0F9 /* VSIReportViewController.storyboard */,
-				A85FFF832991220700739548 /* VSIReportViewController.swift */,
-			);
-			path = VsiReportViewContoller;
-			sourceTree = "<group>";
-		};
-		A8289C372992A2CF0057F6AC /* VSIReportTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				A8FFC3212992397A003D741D /* VSIHeaderTableViewCell.swift */,
-				A8FFC3232992398D003D741D /* DataTableViewCell.swift */,
-				A88271552993FBA80059EF36 /* DeltaTableViewCell.swift */,
-			);
-			path = VSIReportTableViewCell;
-			sourceTree = "<group>";
-		};
-		A8289C382992A2EC0057F6AC /* VSIReportCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				A8289C392992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift */,
-			);
-			path = VSIReportCollectionViewCell;
-			sourceTree = "<group>";
-		};
 		A844DB79298FC13D00133360 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,12 +484,81 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		A882715029937DA70059EF36 /* model */ = {
+		A880FA88299E006300D23F6E /* VSIScoreReport */ = {
 			isa = PBXGroup;
 			children = (
-				A8827153299386FE0059EF36 /* ClinicModel.swift */,
-				A898F323299248E3002FE82D /* VSIReportModel.swift */,
-				A882715129937E720059EF36 /* VSIReportViewModel.swift */,
+				A880FA89299E006300D23F6E /* VsiReportViewContoller */,
+				A880FA8C299E006300D23F6E /* Cell */,
+				A880FA9B299E006300D23F6E /* model */,
+			);
+			path = VSIScoreReport;
+			sourceTree = "<group>";
+		};
+		A880FA89299E006300D23F6E /* VsiReportViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */,
+				A880FA8B299E006300D23F6E /* VSIReportViewController.swift */,
+			);
+			path = VsiReportViewContoller;
+			sourceTree = "<group>";
+		};
+		A880FA8C299E006300D23F6E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA97299E006300D23F6E /* TopHeaderViewCell */,
+				A880FA8F299E006300D23F6E /* HeaderCell */,
+				A880FA8D299E006300D23F6E /* VSIReportCollectionViewCell */,
+				A880FA94299E006300D23F6E /* FooterCell */,
+				A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */,
+				A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */,
+				A880FA9A299E006300D23F6E /* DataTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A880FA8D299E006300D23F6E /* VSIReportCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */,
+			);
+			path = VSIReportCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		A880FA8F299E006300D23F6E /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */,
+				A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		A880FA94299E006300D23F6E /* FooterCell */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */,
+				A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */,
+			);
+			path = FooterCell;
+			sourceTree = "<group>";
+		};
+		A880FA97299E006300D23F6E /* TopHeaderViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */,
+				A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */,
+			);
+			path = TopHeaderViewCell;
+			sourceTree = "<group>";
+		};
+		A880FA9B299E006300D23F6E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */,
+				A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */,
+				A880FA9E299E006300D23F6E /* VSIReportModel.swift */,
+				A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -524,15 +570,6 @@
 				A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */,
 			);
 			path = AddSupportVideo;
-			sourceTree = "<group>";
-		};
-		A8FFC32029923953003D741D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A8289C382992A2EC0057F6AC /* VSIReportCollectionViewCell */,
-				A8289C372992A2CF0057F6AC /* VSIReportTableViewCell */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -648,7 +685,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */,
-				A80F18692991041B004DD0F9 /* VSIReportViewController.storyboard in Resources */,
+				A880FAA0299E006300D23F6E /* VSIReportViewController.storyboard in Resources */,
+				A880FAA3299E006300D23F6E /* VSIReportHeaderView.xib in Resources */,
+				A880FAA8299E006300D23F6E /* VSIReportFooterCell.xib in Resources */,
+				A880FAA9299E006300D23F6E /* VSIReportTopHeaderViewCell.xib in Resources */,
 				A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */,
 				A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */,
 				A26B2EA627C6BF9F00938DB1 /* Assets.xcassets in Resources */,
@@ -677,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A294CCF027EBC8B400E46414 /* BaseViewController.swift in Sources */,
+				A880FAA2299E006300D23F6E /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A2B63EF52880844B003BA799 /* LinkUILabel.swift in Sources */,
 				A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */,
 				A26B2EA127C6BF9E00938DB1 /* LoginViewController.swift in Sources */,
@@ -684,13 +725,13 @@
 				530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */,
 				A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */,
 				A240768C281DC4C100BBAE66 /* PatientScan.swift in Sources */,
-				A8FFC3222992397A003D741D /* VSIHeaderTableViewCell.swift in Sources */,
 				A2ADE32A288873520050BCBB /* ControllerTableViewCell.swift in Sources */,
 				A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */,
 				A294CCF427ECCA8C00E46414 /* ScanControllsViewController.swift in Sources */,
 				A28BA348287F46B900E291B6 /* NSAttributedString.swift in Sources */,
 				A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */,
 				A22CA438284A9C35003CFF7D /* CreateProvider.swift in Sources */,
+				A880FAAC299E006300D23F6E /* VSIReportViewModel.swift.swift in Sources */,
 				A2B6CC2F27CEE055001F9012 /* RoundImageView.swift in Sources */,
 				A2B4711A289C802600608CFD /* scanHistoryTableViewCell.swift in Sources */,
 				A280897A27D27DBD00C79920 /* Patient.swift in Sources */,
@@ -700,44 +741,47 @@
 				A280897E27D2AE8000C79920 /* AppViewController.swift in Sources */,
 				A245F9E72800CFAE002EBE23 /* ViewController.swift in Sources */,
 				A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */,
+				A880FAA5299E006300D23F6E /* DeltaTableViewCell.swift in Sources */,
 				A246C7E927DA9068003D4D69 /* PatientProfile.swift in Sources */,
-				A898F324299248E3002FE82D /* VSIReportModel.swift in Sources */,
 				A2679E992908717500E686B4 /* Calculations.swift in Sources */,
 				A26B2ECD27C6DAFB00938DB1 /* GradientView.swift in Sources */,
 				A2B0C7EA27D1324F0020C14D /* Provider.swift in Sources */,
+				A880FAAD299E006300D23F6E /* VSIReportInfoModel.swift in Sources */,
 				A26B2E9F27C6BF9E00938DB1 /* SceneDelegate.swift in Sources */,
 				A23792772825706300C3A58B /* SupportViewController.swift in Sources */,
 				A28BA344287E03AA00E291B6 /* supportTableCell.swift in Sources */,
 				A28BA346287E1C4600E291B6 /* Support.swift in Sources */,
+				A880FAAE299E006300D23F6E /* VSIReportModel.swift in Sources */,
 				A280898427D6B31400C79920 /* PatientSearchViewCell.swift in Sources */,
 				A2B47116289C2DE100608CFD /* Scans.swift in Sources */,
 				A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */,
-				A88271562993FBA80059EF36 /* DeltaTableViewCell.swift in Sources */,
 				530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */,
+				A880FAAB299E006300D23F6E /* DataTableViewCell.swift in Sources */,
 				A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
-				A8827154299386FE0059EF36 /* ClinicModel.swift in Sources */,
+				A880FAA6299E006300D23F6E /* DeviationTableViewCell.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
-				A8289C3A2992A32F0057F6AC /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,
 				A280897C27D27E4000C79920 /* CreatePatient.swift in Sources */,
+				A880FAA7299E006300D23F6E /* VSIReportFooterCell.swift in Sources */,
+				A880FAAF299E006300D23F6E /* VSIReportCellModel.swift in Sources */,
 				A2E318C32830272700D9DEE5 /* scan.swift in Sources */,
 				A2DC1F7A2863C32700ED9027 /* ScanController.swift in Sources */,
 				A27E5DE027CEAE28004C790D /* HomeViewController.swift in Sources */,
 				A2407691281DCC5500BBAE66 /* ScansTableViewCell.swift in Sources */,
 				A2DAC7BD2847F8FF00938CC3 /* CreateProviderView.swift in Sources */,
-				A8FFC3242992398D003D741D /* DataTableViewCell.swift in Sources */,
 				A280898227D6B28A00C79920 /* PatientSearchViewController.swift in Sources */,
 				A28BA341287CA32F00E291B6 /* HomeViewModel.swift in Sources */,
 				A25706C827CFDDD400C4A319 /* db.swift in Sources */,
 				A2B5EA90284EC4EB00F8ADCB /* LoginView.swift in Sources */,
+				A880FAAA299E006300D23F6E /* VSIReportTopHeaderViewCell.swift in Sources */,
+				A880FAA4299E006300D23F6E /* VSIReportHeaderView.swift in Sources */,
 				A24F0EEA27DC1478004FD6B3 /* QuestionsViewController.swift in Sources */,
-				A85FFF842991220700739548 /* VSIReportViewController.swift in Sources */,
-				A882715229937E720059EF36 /* VSIReportViewModel.swift in Sources */,
 				A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */,
 				A844DB80298FC23900133360 /* ColorExtension.swift in Sources */,
+				A880FAA1299E006300D23F6E /* VSIReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,7 +963,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 66BZ3G3YL2;
+				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
@@ -952,7 +996,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 66BZ3G3YL2;
+				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";

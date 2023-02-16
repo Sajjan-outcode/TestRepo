@@ -2,7 +2,7 @@
 //  calculations.swift
 //  Upright
 //
-//  Created by USS - Software Dev on 10/25/22.
+//  Created by USS - Software DevDev on 10/25/22.
 //
 
 import Foundation
@@ -37,7 +37,6 @@ class Calculations {
         self.lean = lean
         self.deltaArray = []
         //self.avgDeltaArray = []
-       
         sqlQuerySurveyScore()
         sqlQueryDeltaScore()
           

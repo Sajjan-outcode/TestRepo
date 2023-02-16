@@ -34,7 +34,8 @@ struct Colors {
     static let maroonColor = UIColor(hex6String: "#B91919")
     static let emergencyRed = UIColor(hex6String: "#AA2C24")
     static let redBackgroundColor = UIColor(hex6String: "#9A0D0D")
-
+    static let fadeBlueColor = UIColor(hex6String: "#5270B2")
+     
     static let sliderGreen = UIColor(hex6String: "#3F5547")
     static let sliderRed = UIColor(hex6String: "#7D1D17")
     

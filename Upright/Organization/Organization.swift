@@ -15,4 +15,23 @@ struct Organization {
     static var state: String?
     static var zip: String?
     static var email: String?
+    static var isAdmin: Bool?
+    
+    static var isOrganizationAdmin: Bool {
+        return (Organization.isAdmin.isTrue)
+    }
+}
+
+extension Optional where Wrapped == Bool {
+    
+    var isTrue: Bool {
+        return (self ?? false)
+    }
+}
+
+extension Bool {
+    
+    var isFalse: Bool {
+        return !self
+    }
 }

@@ -7,157 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "39A406F3-B574-4CC0-BF5F-058319564091"
+            uuid = "69D3BBD9-A729-493B-A72A-B7B5EC559621"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Upright/DesignUI/RoundUIView.swift"
+            filePath = "Upright/Support/AddSupportVideo/AddSupportVideoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "RoundUIView"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - 4adb415e5ae5c976"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView._borderColor.getter : __C.UIColor"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - 6c8d8e457612d7a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView._borderColor.setter : __C.UIColor"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - 7894bbfbba8c126b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView._borderColor.modify : __C.UIColor"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - 7e34270ed33d7a7a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView._borderColor.modify : __C.UIColor with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - 2213b64fb7d83fd6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView.init(frame: __C.CGRect) -&gt; Upright.RoundUIView"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "39A406F3-B574-4CC0-BF5F-058319564091 - fab2a33cff2df812"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.RoundUIView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Upright.RoundUIView&gt;"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/DesignUI/RoundUIView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8B8E25AD-D1F5-4A72-9E3C-7278F31EB716"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Upright/VSIScoreReport/model/VSIReportViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "init(patientScan:scanController:generateDate:calculation:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "showAttentionAlert(title:message:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8B8E25AD-D1F5-4A72-9E3C-7278F31EB716 - 60972c20fe8fa3a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.VSIReportViewModel.__allocating_init(patientScan: Upright.PatientScan, scanController: Upright.ScanController, generateDate: Swift.String, calculation: Upright.Calculations) -&gt; Upright.VSIReportViewModel"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/VSIScoreReport/model/VSIReportViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "8B8E25AD-D1F5-4A72-9E3C-7278F31EB716 - 78b765144c8f97d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Upright.VSIReportViewModel.init(patientScan: Upright.PatientScan, scanController: Upright.ScanController, generateDate: Swift.String, calculation: Upright.Calculations) -&gt; Upright.VSIReportViewModel"
-                  moduleName = "Upright"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sajjan/Documents/Outcode%20Work/Projects/Upright%20/Upright/VSIScoreReport/model/VSIReportViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "180">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

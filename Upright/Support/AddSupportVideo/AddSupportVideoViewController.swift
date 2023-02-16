@@ -14,12 +14,14 @@ protocol AddSupportVideoViewControllerDelegate: AnyObject {
 class AddSupportVideoViewController : UIViewController {
     
     weak var delegate: AddSupportVideoViewControllerDelegate?
+    var showAlert: UIAlertController?
     
     @IBOutlet weak var titleTextField: UITextField!
-   
+    
     @IBOutlet weak var descriptionTextViewField: UITextView!
     
     @IBOutlet weak var linkTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +43,35 @@ class AddSupportVideoViewController : UIViewController {
         
     }
     
+    private func checkTextFieldValidity() {
+        if titleTextField.text == "" || linkTextField.text == "" || descriptionTextViewField.text == "" {
+           showAttentionAlert(title: "Alert", message: "Please fill all the form")
+        } else {
+            saveAddedVideo()
+        }
+    }
+    
+    func showAttentionAlert(title: String , message: String) {
+        
+        showAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            self.showAlert?.dismiss(animated: true)
+         })
+        showAlert?.addAction(ok)
+        self.present(showAlert!, animated: true, completion: nil)
+    }
+    
     private func saveAddedVideo() {
-       guard let vTitle = self.titleTextField.text ,
-              let vDescription = self.descriptionTextViewField.text,
-              let vlink = self.linkTextField.text else {return}
-         self.delegate?.didAddSupportVideoInDatabase(with: vTitle, description:vDescription, link: vlink )
-        self.dismiss(animated: false)
+        guard let vTitle = self.titleTextField.text ,
+               let vDescription = self.descriptionTextViewField.text,
+               let vlink = self.linkTextField.text else {return}
+          self.delegate?.didAddSupportVideoInDatabase(with: vTitle, description:vDescription, link: vlink )
+         self.dismiss(animated: false)
     }
     
     @IBAction func addVideoBtn(_ sender: Any) {
-        saveAddedVideo()
+       
+        checkTextFieldValidity()
         
     }
     
