@@ -44,17 +44,17 @@ class Calculations {
     
     init(){
 //        self.avgDeltaArray = []
-//        sqlQueryAvgDelta()
+           sqlQueryAvgDelta()
     }
     
     func getVsiScore()->Int{
         var pt = 0.0
         var pl = 0.0
-        var absPC = abs(0.25 - prop_c!) * 100
+        let absPC = abs(0.25 - prop_c!) * 100
         
         print(absPC)
         
-        if((self.prop_t! * 100) >= 45){
+        if((self.prop_t! * 100) > 45){
             pt = (self.prop_t! * 100)
         }else{
             pt = 45
@@ -64,7 +64,7 @@ class Calculations {
         
         print(scorePT)
         
-        if((self.prop_l! * 100) <= 30){
+        if((self.prop_l! * 100) < 30){
             pl = (self.prop_l! * 100)
         }else{
             pl = 30
@@ -231,6 +231,7 @@ class Calculations {
         }
         
     }
+    
     
     private func createArray(id: Int, prop_C: Double, prop_T: Double, prop_L: Double, dl_C: Double, dl_T: Double, dl_L: Double, time_stamp: String, lean: Double, height: Double, pic_date: String) -> [PatientScan] {
         var tempList: [PatientScan] = []

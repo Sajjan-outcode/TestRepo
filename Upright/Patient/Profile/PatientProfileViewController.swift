@@ -44,7 +44,6 @@ class PatientProfileViewController: UIViewController {
     @IBOutlet weak var resultsId: UILabel!
     
     var pic_date:String!
-    var vsiReportViewController: VSIReportViewController!
     var vsiReportViewmodel: VSIReportViewModel!
     
     @IBOutlet weak var EmailConfirmInputBox: UITextField!
@@ -120,14 +119,9 @@ class PatientProfileViewController: UIViewController {
         
         self.scans = ScanController()
         name.text = Patient.first_name! + " " + Patient.last_name!
-        //        dob.text = Patient.date_of_birth as! String
         email.text = Patient.email
-        //        Address.text = Patient.address
-        //        City_State_Zip.text = Patient.city! + "," + Patient.state! + " " + Patient.zip!
-        //        Phone_Number.text = Patient.phone_number
         self.patient_id = Patient.id!
         
-        //        ReferPatientButton.configuration?.titleAlignment = .center
         mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         scanView = storyboard?.instantiateViewController(withIdentifier: "ScanControllsViewController") as? ScanControllsViewController
         questionView = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController
@@ -153,22 +147,14 @@ class PatientProfileViewController: UIViewController {
     }
     
     func initVSIReportViewcontroller() {
-        let storyboard  = UIStoryboard(name: "VSIReportViewController", bundle: nil)
-        vsiReportViewController = storyboard.instantiateViewController(withIdentifier: "VSIReportViewController") as? VSIReportViewController
-        
-        
         let vsiReportViewModel = VSIReportViewModel(patientId: Patient.id!,
                                                     vsiReportInfoModel: VSIReportInfoModel.getNewVSIReportInfoModel(),
                                                     patientScanList: scanslist,
                                                     surveyList: surveylist)
-        vsiReportViewModel.delegate = vsiReportViewController
-        vsiReportViewController.viewModel = vsiReportViewModel
-        
-        if let presentationController = vsiReportViewController.presentationController as? UISheetPresentationController {
-            presentationController.detents = [.large()] /// change to [.medium(), .large()] for a half *and* full screen sheet
-        }
-        
-        self.present(vsiReportViewController, animated: true)
+        let vsiController = VSIReportController()
+        vsiController.viewModel = vsiReportViewModel
+        vsiController.modalPresentationStyle = .fullScreen
+        self.present(vsiController, animated: true)
         
     }
     
@@ -187,21 +173,26 @@ class PatientProfileViewController: UIViewController {
             print(cursor)
             for (row) in cursor {
                 let columns = try row.get().columns
-                var prop_C = try columns[2].double()
-                var prop_T = try columns[3].double()
-                var prop_L = try columns[4].double()
-                var dl_C = try columns[5].double()
-                var dl_T  = try columns[6].double()
-                var dl_L = try columns[7].double()
+                let prop_C = try columns[2].double()
+                let  prop_T = try columns[3].double()
+                let  prop_L = try columns[4].double()
+                let  dl_C = try columns[5].double()
+                let  dl_T  = try columns[6].double()
+                let  dl_L = try columns[7].double()
                 let id = try columns[0].int()
                 let patient_id = try columns[1].int()
-                let time_stamp = try columns[14].string()
-                var lean = try columns[9].double()
+                let time_stamp = try columns[12].optionalString()
+                let date_stamp = try columns[14].string()
+                let lean = try columns[9].double()
                 let height = try columns[13].double()
                 let pic_date = try columns[8].string()
                 
-                
-                scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: time_stamp, lean: lean, height: height, pic_date: pic_date)
+                var scanDate:[String] = []
+                scanDate.append(date_stamp)
+                if(time_stamp != nil) {
+                    scanDate.append(time_stamp!)
+                }
+                scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: scanDate.joined(separator: " "), lean: lean, height: height, pic_date: pic_date)
                 // print(id)
             }
             

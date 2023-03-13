@@ -118,6 +118,7 @@ class ScanController {
         return String((number * 100).roundTo0f())
     }
     
+    
     func formatLean(lean: Double)-> String{
         return String(lean.roundTo0f())
     }

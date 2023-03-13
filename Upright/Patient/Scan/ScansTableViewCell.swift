@@ -13,7 +13,7 @@ class ScansTableViewCell: UITableViewCell {
     @IBOutlet weak var Scans: UILabel!
     
     func setScans(scans: PatientScan) {
-        Scans.text = scans.time_stamp
+        Scans.text = "\(scans.time_stamp!)"
      //   print("this is a time stamp" + scans.time_stamp!)
     }
 

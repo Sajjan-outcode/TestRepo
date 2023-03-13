@@ -26,6 +26,7 @@ struct VSIReportCellModel {
     let vsiScoreValue: String
     
     
+    
     static func getModel(patientId: Int, patientScan: PatientScan,
                          surveyData: QuestionsScore?, scanController: ScanController) -> VSIReportCellModel {
         
@@ -46,6 +47,6 @@ struct VSIReportCellModel {
                                                     vsiScoreValue: String(calcuation.getVsiScore()))
         return vsiReportCellModel
     }
-     
+    
     
 }

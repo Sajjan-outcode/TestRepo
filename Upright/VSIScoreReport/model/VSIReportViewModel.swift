@@ -19,7 +19,7 @@ protocol VSIReportViewModelDelegate: AnyObject {
 class VSIReportViewModel {
     
     weak var delegate: VSIReportViewModelDelegate?
-    
+        
     private var vsiReportInfoModel: VSIReportInfoModel
     private var patientId: Int
     
@@ -38,9 +38,7 @@ class VSIReportViewModel {
             patientScanVSICellModel.append(VSIReportCellModel.getModel(patientId: patientId,
                                                                        patientScan: item, surveyData: index < surveyListLength ? surveyList[index] : surveyList.first  , scanController: scanController))
         }
-        
     }
-    
     private func downloadScanImage(forItemAt index: Int) {
         let scan = patientScanslist[index]
         guard let host = db.host,
@@ -78,6 +76,23 @@ class VSIReportViewModel {
             task.resume()
         }
         
+    }
+    
+    func getDeltaModel() -> VSIReporDeltaCellModel {
+        guard let vsiReportDeltaCellModel = VSIReporDeltaCellModel.getModel(patientId: Patient.id!, patientScanCell: patientScanVSICellModel) else {
+            return VSIReporDeltaCellModel(date: "", statureValue: "", leanValue: "", sXfXValue: "", proportionCervicalValue: "", proportionThoracicValue: "", proportionLumbarValue: "", normalityCervicalValue: "", normalityThoracicValue: "", normalityLumbarValue: "", vsiScoreValue: "")
+            
+        }
+        return vsiReportDeltaCellModel //VSIReporDeltaCellModel.getModel(patientId: Patient.id!, patientScanCell: patientScanVSICellModel)
+    }
+    
+    func getDeviationModel() -> VSIReportDeviationCellModel {
+        guard let vsiReportDeviationCellModel = VSIReportDeviationCellModel.getModel(patientId: Patient.id!, patientScanCell: patientScanVSICellModel) else {
+            return VSIReportDeviationCellModel(date: "", statureValue: "", leanValue: "", sXfXValue: "", proportionCervicalValue: "", proportionThoracicValue: "", proportionLumbarValue: "", normalityCervicalValue: "", normalityThoracicValue: "", normalityLumbarValue: "", vsiScoreValue: "")
+            
+        }
+        
+        return vsiReportDeviationCellModel
     }
     
 }

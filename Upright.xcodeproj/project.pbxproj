@@ -61,28 +61,46 @@
 		A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */; };
 		A2E318C32830272700D9DEE5 /* scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E318C22830272700D9DEE5 /* scan.swift */; };
 		A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF08A927E53EFB00E12F06 /* DropShadow.swift */; };
+		A81AF7C429AF73F90065BEA0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81AF7C329AF73F90065BEA0 /* IntExtension.swift */; };
+		A81AF7C629AF751E0065BEA0 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81AF7C529AF751E0065BEA0 /* UICollectionView.swift */; };
+		A825278A29BF3C950078F9B9 /* VSIReportSubHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A825278829BF3C950078F9B9 /* VSIReportSubHeaderCell.xib */; };
+		A825278B29BF3C950078F9B9 /* VSIReportSubHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A825278929BF3C950078F9B9 /* VSIReportSubHeaderCell.swift */; };
 		A844DB7C298FC19C00133360 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7B298FC19C00133360 /* Colors.swift */; };
 		A844DB80298FC23900133360 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB7F298FC23900133360 /* ColorExtension.swift */; };
 		A844DB822990269200133360 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A844DB812990269200133360 /* RoundUIView.swift */; };
-		A880FAA0299E006300D23F6E /* VSIReportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */; };
-		A880FAA1299E006300D23F6E /* VSIReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA8B299E006300D23F6E /* VSIReportViewController.swift */; };
-		A880FAA2299E006300D23F6E /* VSIReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */; };
-		A880FAA3299E006300D23F6E /* VSIReportHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */; };
-		A880FAA4299E006300D23F6E /* VSIReportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */; };
-		A880FAA5299E006300D23F6E /* DeltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */; };
-		A880FAA6299E006300D23F6E /* DeviationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */; };
-		A880FAA7299E006300D23F6E /* VSIReportFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */; };
-		A880FAA8299E006300D23F6E /* VSIReportFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */; };
-		A880FAA9299E006300D23F6E /* VSIReportTopHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */; };
-		A880FAAA299E006300D23F6E /* VSIReportTopHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */; };
-		A880FAAB299E006300D23F6E /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9A299E006300D23F6E /* DataTableViewCell.swift */; };
-		A880FAAC299E006300D23F6E /* VSIReportViewModel.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */; };
-		A880FAAD299E006300D23F6E /* VSIReportInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */; };
-		A880FAAE299E006300D23F6E /* VSIReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9E299E006300D23F6E /* VSIReportModel.swift */; };
-		A880FAAF299E006300D23F6E /* VSIReportCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */; };
+		A856B31629B1AADC005B3497 /* VSIReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B30029B1AADC005B3497 /* VSIReportController.swift */; };
+		A856B31729B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B30329B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift */; };
+		A856B31929B1AADC005B3497 /* VSIReportSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B30629B1AADC005B3497 /* VSIReportSectionHeaderView.swift */; };
+		A856B31A29B1AADC005B3497 /* VSIReportSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A856B30729B1AADC005B3497 /* VSIReportSectionHeaderView.xib */; };
+		A856B31B29B1AADC005B3497 /* VSIReportFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B30929B1AADC005B3497 /* VSIReportFooterCell.swift */; };
+		A856B31C29B1AADC005B3497 /* VSIReportFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A856B30A29B1AADC005B3497 /* VSIReportFooterCell.xib */; };
+		A856B31D29B1AADC005B3497 /* ReportFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A856B30B29B1AADC005B3497 /* ReportFooterCell.xib */; };
+		A856B31F29B1AADC005B3497 /* VSIReportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B30D29B1AADC005B3497 /* VSIReportHeaderView.swift */; };
+		A856B32229B1AADC005B3497 /* VSIReportInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B31229B1AADC005B3497 /* VSIReportInfoModel.swift */; };
+		A856B32329B1AADC005B3497 /* VSIReporDeltaCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B31329B1AADC005B3497 /* VSIReporDeltaCellModel.swift */; };
+		A856B32429B1AADC005B3497 /* VSIReportCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B31429B1AADC005B3497 /* VSIReportCellModel.swift */; };
+		A856B32529B1AADC005B3497 /* VSIReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856B31529B1AADC005B3497 /* VSIReportViewModel.swift */; };
+		A875AAF829B8576100E6D7C1 /* VSIReportTargetDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A875AAF729B8576100E6D7C1 /* VSIReportTargetDataCell.xib */; };
+		A875AAFA29B857B800E6D7C1 /* VSIReportTargetDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875AAF929B857B800E6D7C1 /* VSIReportTargetDataCell.swift */; };
+		A875AAFC29BAF12A00E6D7C1 /* VSIReportDeviationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875AAFB29BAF12A00E6D7C1 /* VSIReportDeviationCellModel.swift */; };
+		A875AAFE29BB2FDE00E6D7C1 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875AAFD29BB2FDE00E6D7C1 /* UIFont.swift */; };
 		A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882714E2993701C0059EF36 /* ImageViewExtension.swift */; };
 		A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF45298A790A00DD7B08 /* LaunchScreen.storyboard */; };
 		A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89EBF47298A790A00DD7B08 /* Main.storyboard */; };
+		A8A55E3629A5D5C20063498B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A55E3529A5D5C20063498B /* View.swift */; };
+		A8A55E3929A5DB600063498B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8A55E3829A5DB600063498B /* SnapKit */; };
+		A8A55E3D29A6301C0063498B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A55E3C29A6301C0063498B /* UITableView.swift */; };
+		A8A7FE1F299F9451003E57DA /* BaseCustomNibloadableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE19299F9451003E57DA /* BaseCustomNibloadableCollectionViewCell.swift */; };
+		A8A7FE20299F9451003E57DA /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE1A299F9451003E57DA /* NibLoadableView.swift */; };
+		A8A7FE21299F9451003E57DA /* BaseCustomNibloadableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE1B299F9451003E57DA /* BaseCustomNibloadableTableViewCell.swift */; };
+		A8A7FE22299F9451003E57DA /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE1C299F9451003E57DA /* ReusableView.swift */; };
+		A8A7FE23299F9451003E57DA /* BaseCustomNibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE1D299F9451003E57DA /* BaseCustomNibLoadableView.swift */; };
+		A8A7FE24299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE1E299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift */; };
+		A8A7FE42299F967A003E57DA /* ViewIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE3E299F967A003E57DA /* ViewIdentifiable.swift */; };
+		A8A7FE43299F967A003E57DA /* ViewControllerIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE3F299F967A003E57DA /* ViewControllerIdentifiable.swift */; };
+		A8A7FE44299F967A003E57DA /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE40299F967A003E57DA /* StoryboardIdentifiable.swift */; };
+		A8A7FE45299F967A003E57DA /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE41299F967A003E57DA /* NibLoadable.swift */; };
+		A8A7FE47299F96D0003E57DA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE46299F96D0003E57DA /* UIView.swift */; };
 		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
 		A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -176,28 +194,45 @@
 		A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantIds.swift; sourceTree = "<group>"; };
 		A2E318C22830272700D9DEE5 /* scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scan.swift; sourceTree = "<group>"; };
 		A2FF08A927E53EFB00E12F06 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		A81AF7C329AF73F90065BEA0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		A81AF7C529AF751E0065BEA0 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		A825278829BF3C950078F9B9 /* VSIReportSubHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportSubHeaderCell.xib; sourceTree = "<group>"; };
+		A825278929BF3C950078F9B9 /* VSIReportSubHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportSubHeaderCell.swift; sourceTree = "<group>"; };
 		A844DB7B298FC19C00133360 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A844DB7F298FC23900133360 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A844DB812990269200133360 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
-		A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VSIReportViewController.storyboard; sourceTree = "<group>"; };
-		A880FA8B299E006300D23F6E /* VSIReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportViewController.swift; sourceTree = "<group>"; };
-		A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportHeaderView.xib; sourceTree = "<group>"; };
-		A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportHeaderView.swift; sourceTree = "<group>"; };
-		A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeltaTableViewCell.swift; sourceTree = "<group>"; };
-		A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviationTableViewCell.swift; sourceTree = "<group>"; };
-		A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportFooterCell.swift; sourceTree = "<group>"; };
-		A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportFooterCell.xib; sourceTree = "<group>"; };
-		A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportTopHeaderViewCell.xib; sourceTree = "<group>"; };
-		A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportTopHeaderViewCell.swift; sourceTree = "<group>"; };
-		A880FA9A299E006300D23F6E /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
-		A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportViewModel.swift.swift; sourceTree = "<group>"; };
-		A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportInfoModel.swift; sourceTree = "<group>"; };
-		A880FA9E299E006300D23F6E /* VSIReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportModel.swift; sourceTree = "<group>"; };
-		A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportCellModel.swift; sourceTree = "<group>"; };
+		A856B30029B1AADC005B3497 /* VSIReportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportController.swift; sourceTree = "<group>"; };
+		A856B30329B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A856B30629B1AADC005B3497 /* VSIReportSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportSectionHeaderView.swift; sourceTree = "<group>"; };
+		A856B30729B1AADC005B3497 /* VSIReportSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportSectionHeaderView.xib; sourceTree = "<group>"; };
+		A856B30929B1AADC005B3497 /* VSIReportFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportFooterCell.swift; sourceTree = "<group>"; };
+		A856B30A29B1AADC005B3497 /* VSIReportFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSIReportFooterCell.xib; sourceTree = "<group>"; };
+		A856B30B29B1AADC005B3497 /* ReportFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportFooterCell.xib; sourceTree = "<group>"; };
+		A856B30D29B1AADC005B3497 /* VSIReportHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportHeaderView.swift; sourceTree = "<group>"; };
+		A856B31229B1AADC005B3497 /* VSIReportInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportInfoModel.swift; sourceTree = "<group>"; };
+		A856B31329B1AADC005B3497 /* VSIReporDeltaCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReporDeltaCellModel.swift; sourceTree = "<group>"; };
+		A856B31429B1AADC005B3497 /* VSIReportCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportCellModel.swift; sourceTree = "<group>"; };
+		A856B31529B1AADC005B3497 /* VSIReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSIReportViewModel.swift; sourceTree = "<group>"; };
+		A875AAF729B8576100E6D7C1 /* VSIReportTargetDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VSIReportTargetDataCell.xib; sourceTree = "<group>"; };
+		A875AAF929B857B800E6D7C1 /* VSIReportTargetDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportTargetDataCell.swift; sourceTree = "<group>"; };
+		A875AAFB29BAF12A00E6D7C1 /* VSIReportDeviationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSIReportDeviationCellModel.swift; sourceTree = "<group>"; };
+		A875AAFD29BB2FDE00E6D7C1 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A882714E2993701C0059EF36 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		A89EBF46298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89EBF48298A790A00DD7B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8A55E3529A5D5C20063498B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		A8A55E3C29A6301C0063498B /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		A8A7FE19299F9451003E57DA /* BaseCustomNibloadableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCustomNibloadableCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8A7FE1A299F9451003E57DA /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		A8A7FE1B299F9451003E57DA /* BaseCustomNibloadableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCustomNibloadableTableViewCell.swift; sourceTree = "<group>"; };
+		A8A7FE1C299F9451003E57DA /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		A8A7FE1D299F9451003E57DA /* BaseCustomNibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCustomNibLoadableView.swift; sourceTree = "<group>"; };
+		A8A7FE1E299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCustomNibLodableTVHeaderFooterView.swift; sourceTree = "<group>"; };
+		A8A7FE3E299F967A003E57DA /* ViewIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewIdentifiable.swift; sourceTree = "<group>"; };
+		A8A7FE3F299F967A003E57DA /* ViewControllerIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifiable.swift; sourceTree = "<group>"; };
+		A8A7FE40299F967A003E57DA /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
+		A8A7FE41299F967A003E57DA /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		A8A7FE46299F96D0003E57DA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
 		A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSupportVideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A55E3929A5DB600063498B /* SnapKit in Frameworks */,
 				A27E5DDE27C98DDA004C790D /* PostgresClientKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,9 +384,9 @@
 				A844DB79298FC13D00133360 /* Helpers */,
 				A28BA342287DED9900E291B6 /* Support */,
 				A26E1FFD287A2C7F007AAD07 /* Controllerr */,
-				A880FA88299E006300D23F6E /* VSIScoreReport */,
 				A26E1FFB287A2C4A007AAD07 /* Model */,
 				A2DC1F7B28643C4300ED9027 /* ConstantIds.swift */,
+				A856B2FE29B1AADC005B3497 /* VSIScoreReport */,
 				A2B5EA91284EFB4A00F8ADCB /* Organization */,
 				A20157AD2804A9AC007D9B37 /* DesignUI */,
 				A20157AC2804A90B007D9B37 /* Controller */,
@@ -454,7 +490,9 @@
 		A844DB79298FC13D00133360 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A8A7FE17299F9431003E57DA /* Styled Components */,
 				A844DB7A298FC16000133360 /* Constants */,
+				A8A55E3529A5D5C20063498B /* View.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -470,6 +508,7 @@
 		A844DB7D298FC1D700133360 /* Utillities */ = {
 			isa = PBXGroup;
 			children = (
+				A8A7FE3C299F9630003E57DA /* Identifiable */,
 				A844DB7E298FC20800133360 /* Extension */,
 			);
 			path = Utillities;
@@ -478,89 +517,151 @@
 		A844DB7E298FC20800133360 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A8A7FE46299F96D0003E57DA /* UIView.swift */,
 				A844DB7F298FC23900133360 /* ColorExtension.swift */,
 				A882714E2993701C0059EF36 /* ImageViewExtension.swift */,
+				A81AF7C529AF751E0065BEA0 /* UICollectionView.swift */,
+				A8A55E3C29A6301C0063498B /* UITableView.swift */,
+				A81AF7C329AF73F90065BEA0 /* IntExtension.swift */,
+				A875AAFD29BB2FDE00E6D7C1 /* UIFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		A880FA88299E006300D23F6E /* VSIScoreReport */ = {
+		A856B2FE29B1AADC005B3497 /* VSIScoreReport */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA89299E006300D23F6E /* VsiReportViewContoller */,
-				A880FA8C299E006300D23F6E /* Cell */,
-				A880FA9B299E006300D23F6E /* model */,
+				A856B2FF29B1AADC005B3497 /* VSiReport */,
+				A856B31129B1AADC005B3497 /* model */,
 			);
 			path = VSIScoreReport;
 			sourceTree = "<group>";
 		};
-		A880FA89299E006300D23F6E /* VsiReportViewContoller */ = {
+		A856B2FF29B1AADC005B3497 /* VSiReport */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA8A299E006300D23F6E /* VSIReportViewController.storyboard */,
-				A880FA8B299E006300D23F6E /* VSIReportViewController.swift */,
+				A856B30029B1AADC005B3497 /* VSIReportController.swift */,
+				A856B30129B1AADC005B3497 /* Cell */,
 			);
-			path = VsiReportViewContoller;
+			path = VSiReport;
 			sourceTree = "<group>";
 		};
-		A880FA8C299E006300D23F6E /* Cell */ = {
+		A856B30129B1AADC005B3497 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA97299E006300D23F6E /* TopHeaderViewCell */,
-				A880FA8F299E006300D23F6E /* HeaderCell */,
-				A880FA8D299E006300D23F6E /* VSIReportCollectionViewCell */,
-				A880FA94299E006300D23F6E /* FooterCell */,
-				A880FA93299E006300D23F6E /* DeviationTableViewCell.swift */,
-				A880FA92299E006300D23F6E /* DeltaTableViewCell.swift */,
-				A880FA9A299E006300D23F6E /* DataTableViewCell.swift */,
+				A8BC1DD729BF3BCE002D104D /* ReportDataCell */,
+				A875AAF629B856EE00E6D7C1 /* ReportTargetCell */,
+				A856B30229B1AADC005B3497 /* VSIReportCollectionViewCell */,
+				A856B30529B1AADC005B3497 /* HeaderCell */,
+				A856B30829B1AADC005B3497 /* FooterCell */,
+				A856B30E29B1AADC005B3497 /* VSIReportHeaderView */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A880FA8D299E006300D23F6E /* VSIReportCollectionViewCell */ = {
+		A856B30229B1AADC005B3497 /* VSIReportCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA8E299E006300D23F6E /* VSIReportImageCollectionViewCell.swift */,
+				A856B30329B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift */,
 			);
 			path = VSIReportCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		A880FA8F299E006300D23F6E /* HeaderCell */ = {
+		A856B30529B1AADC005B3497 /* HeaderCell */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA90299E006300D23F6E /* VSIReportHeaderView.xib */,
-				A880FA91299E006300D23F6E /* VSIReportHeaderView.swift */,
+				A856B30629B1AADC005B3497 /* VSIReportSectionHeaderView.swift */,
+				A856B30729B1AADC005B3497 /* VSIReportSectionHeaderView.xib */,
 			);
 			path = HeaderCell;
 			sourceTree = "<group>";
 		};
-		A880FA94299E006300D23F6E /* FooterCell */ = {
+		A856B30829B1AADC005B3497 /* FooterCell */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA95299E006300D23F6E /* VSIReportFooterCell.swift */,
-				A880FA96299E006300D23F6E /* VSIReportFooterCell.xib */,
+				A856B30929B1AADC005B3497 /* VSIReportFooterCell.swift */,
+				A856B30A29B1AADC005B3497 /* VSIReportFooterCell.xib */,
+				A856B30B29B1AADC005B3497 /* ReportFooterCell.xib */,
 			);
 			path = FooterCell;
 			sourceTree = "<group>";
 		};
-		A880FA97299E006300D23F6E /* TopHeaderViewCell */ = {
+		A856B30E29B1AADC005B3497 /* VSIReportHeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA98299E006300D23F6E /* VSIReportTopHeaderViewCell.xib */,
-				A880FA99299E006300D23F6E /* VSIReportTopHeaderViewCell.swift */,
+				A856B30D29B1AADC005B3497 /* VSIReportHeaderView.swift */,
 			);
-			path = TopHeaderViewCell;
+			path = VSIReportHeaderView;
 			sourceTree = "<group>";
 		};
-		A880FA9B299E006300D23F6E /* model */ = {
+		A856B31129B1AADC005B3497 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A880FA9C299E006300D23F6E /* VSIReportViewModel.swift.swift */,
-				A880FA9D299E006300D23F6E /* VSIReportInfoModel.swift */,
-				A880FA9E299E006300D23F6E /* VSIReportModel.swift */,
-				A880FA9F299E006300D23F6E /* VSIReportCellModel.swift */,
+				A856B31229B1AADC005B3497 /* VSIReportInfoModel.swift */,
+				A856B31329B1AADC005B3497 /* VSIReporDeltaCellModel.swift */,
+				A856B31429B1AADC005B3497 /* VSIReportCellModel.swift */,
+				A856B31529B1AADC005B3497 /* VSIReportViewModel.swift */,
+				A875AAFB29BAF12A00E6D7C1 /* VSIReportDeviationCellModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A875AAF629B856EE00E6D7C1 /* ReportTargetCell */ = {
+			isa = PBXGroup;
+			children = (
+				A875AAF729B8576100E6D7C1 /* VSIReportTargetDataCell.xib */,
+				A875AAF929B857B800E6D7C1 /* VSIReportTargetDataCell.swift */,
+			);
+			path = ReportTargetCell;
+			sourceTree = "<group>";
+		};
+		A8A7FE17299F9431003E57DA /* Styled Components */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7FE18299F9451003E57DA /* BaseCustomView */,
+			);
+			path = "Styled Components";
+			sourceTree = "<group>";
+		};
+		A8A7FE18299F9451003E57DA /* BaseCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7FE19299F9451003E57DA /* BaseCustomNibloadableCollectionViewCell.swift */,
+				A8A7FE1A299F9451003E57DA /* NibLoadableView.swift */,
+				A8A7FE1B299F9451003E57DA /* BaseCustomNibloadableTableViewCell.swift */,
+				A8A7FE1C299F9451003E57DA /* ReusableView.swift */,
+				A8A7FE1D299F9451003E57DA /* BaseCustomNibLoadableView.swift */,
+				A8A7FE1E299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift */,
+			);
+			path = BaseCustomView;
+			sourceTree = "<group>";
+		};
+		A8A7FE3C299F9630003E57DA /* Identifiable */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7FE3D299F9679003E57DA /* Identifiable */,
+			);
+			path = Identifiable;
+			sourceTree = "<group>";
+		};
+		A8A7FE3D299F9679003E57DA /* Identifiable */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7FE3E299F967A003E57DA /* ViewIdentifiable.swift */,
+				A8A7FE3F299F967A003E57DA /* ViewControllerIdentifiable.swift */,
+				A8A7FE40299F967A003E57DA /* StoryboardIdentifiable.swift */,
+				A8A7FE41299F967A003E57DA /* NibLoadable.swift */,
+			);
+			path = Identifiable;
+			sourceTree = "<group>";
+		};
+		A8BC1DD729BF3BCE002D104D /* ReportDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				A825278929BF3C950078F9B9 /* VSIReportSubHeaderCell.swift */,
+				A825278829BF3C950078F9B9 /* VSIReportSubHeaderCell.xib */,
+			);
+			path = ReportDataCell;
 			sourceTree = "<group>";
 		};
 		A8D53E5A298F9A9800692E2F /* AddSupportVideo */ = {
@@ -591,6 +692,7 @@
 			name = Upright;
 			packageProductDependencies = (
 				A27E5DDD27C98DDA004C790D /* PostgresClientKit */,
+				A8A55E3829A5DB600063498B /* SnapKit */,
 			);
 			productName = Upright;
 			productReference = A26B2E9927C6BF9E00938DB1 /* Upright.app */;
@@ -667,6 +769,7 @@
 			mainGroup = A26B2E9027C6BF9E00938DB1;
 			packageReferences = (
 				A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit" */,
+				A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = A26B2E9A27C6BF9E00938DB1 /* Products */;
 			projectDirPath = "";
@@ -684,13 +787,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A825278A29BF3C950078F9B9 /* VSIReportSubHeaderCell.xib in Resources */,
 				A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */,
-				A880FAA0299E006300D23F6E /* VSIReportViewController.storyboard in Resources */,
-				A880FAA3299E006300D23F6E /* VSIReportHeaderView.xib in Resources */,
-				A880FAA8299E006300D23F6E /* VSIReportFooterCell.xib in Resources */,
-				A880FAA9299E006300D23F6E /* VSIReportTopHeaderViewCell.xib in Resources */,
+				A856B31C29B1AADC005B3497 /* VSIReportFooterCell.xib in Resources */,
 				A89EBF49298A790A00DD7B08 /* LaunchScreen.storyboard in Resources */,
+				A856B31A29B1AADC005B3497 /* VSIReportSectionHeaderView.xib in Resources */,
 				A89EBF4A298A790A00DD7B08 /* Main.storyboard in Resources */,
+				A856B31D29B1AADC005B3497 /* ReportFooterCell.xib in Resources */,
+				A875AAF829B8576100E6D7C1 /* VSIReportTargetDataCell.xib in Resources */,
 				A26B2EA627C6BF9F00938DB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,7 +821,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A294CCF027EBC8B400E46414 /* BaseViewController.swift in Sources */,
-				A880FAA2299E006300D23F6E /* VSIReportImageCollectionViewCell.swift in Sources */,
+				A8A7FE42299F967A003E57DA /* ViewIdentifiable.swift in Sources */,
 				A2B63EF52880844B003BA799 /* LinkUILabel.swift in Sources */,
 				A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */,
 				A26B2EA127C6BF9E00938DB1 /* LoginViewController.swift in Sources */,
@@ -725,13 +829,17 @@
 				530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */,
 				A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */,
 				A240768C281DC4C100BBAE66 /* PatientScan.swift in Sources */,
+				A81AF7C629AF751E0065BEA0 /* UICollectionView.swift in Sources */,
 				A2ADE32A288873520050BCBB /* ControllerTableViewCell.swift in Sources */,
 				A2DC1F7C28643C4300ED9027 /* ConstantIds.swift in Sources */,
 				A294CCF427ECCA8C00E46414 /* ScanControllsViewController.swift in Sources */,
 				A28BA348287F46B900E291B6 /* NSAttributedString.swift in Sources */,
+				A856B31F29B1AADC005B3497 /* VSIReportHeaderView.swift in Sources */,
 				A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */,
+				A8A7FE45299F967A003E57DA /* NibLoadable.swift in Sources */,
+				A875AAFE29BB2FDE00E6D7C1 /* UIFont.swift in Sources */,
 				A22CA438284A9C35003CFF7D /* CreateProvider.swift in Sources */,
-				A880FAAC299E006300D23F6E /* VSIReportViewModel.swift.swift in Sources */,
+				A8A7FE20299F9451003E57DA /* NibLoadableView.swift in Sources */,
 				A2B6CC2F27CEE055001F9012 /* RoundImageView.swift in Sources */,
 				A2B4711A289C802600608CFD /* scanHistoryTableViewCell.swift in Sources */,
 				A280897A27D27DBD00C79920 /* Patient.swift in Sources */,
@@ -740,48 +848,60 @@
 				A2ADE32C28887DA60050BCBB /* Patients.swift in Sources */,
 				A280897E27D2AE8000C79920 /* AppViewController.swift in Sources */,
 				A245F9E72800CFAE002EBE23 /* ViewController.swift in Sources */,
+				A8A7FE22299F9451003E57DA /* ReusableView.swift in Sources */,
 				A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */,
-				A880FAA5299E006300D23F6E /* DeltaTableViewCell.swift in Sources */,
 				A246C7E927DA9068003D4D69 /* PatientProfile.swift in Sources */,
+				A856B32229B1AADC005B3497 /* VSIReportInfoModel.swift in Sources */,
+				A8A7FE21299F9451003E57DA /* BaseCustomNibloadableTableViewCell.swift in Sources */,
+				A856B32429B1AADC005B3497 /* VSIReportCellModel.swift in Sources */,
+				A8A7FE44299F967A003E57DA /* StoryboardIdentifiable.swift in Sources */,
 				A2679E992908717500E686B4 /* Calculations.swift in Sources */,
+				A856B31629B1AADC005B3497 /* VSIReportController.swift in Sources */,
 				A26B2ECD27C6DAFB00938DB1 /* GradientView.swift in Sources */,
 				A2B0C7EA27D1324F0020C14D /* Provider.swift in Sources */,
-				A880FAAD299E006300D23F6E /* VSIReportInfoModel.swift in Sources */,
 				A26B2E9F27C6BF9E00938DB1 /* SceneDelegate.swift in Sources */,
+				A8A55E3D29A6301C0063498B /* UITableView.swift in Sources */,
 				A23792772825706300C3A58B /* SupportViewController.swift in Sources */,
 				A28BA344287E03AA00E291B6 /* supportTableCell.swift in Sources */,
+				A856B31929B1AADC005B3497 /* VSIReportSectionHeaderView.swift in Sources */,
 				A28BA346287E1C4600E291B6 /* Support.swift in Sources */,
-				A880FAAE299E006300D23F6E /* VSIReportModel.swift in Sources */,
 				A280898427D6B31400C79920 /* PatientSearchViewCell.swift in Sources */,
+				A856B31B29B1AADC005B3497 /* VSIReportFooterCell.swift in Sources */,
 				A2B47116289C2DE100608CFD /* Scans.swift in Sources */,
 				A2FF08AA27E53EFB00E12F06 /* DropShadow.swift in Sources */,
 				530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */,
-				A880FAAB299E006300D23F6E /* DataTableViewCell.swift in Sources */,
+				A8A7FE23299F9451003E57DA /* BaseCustomNibLoadableView.swift in Sources */,
 				A882714F2993701C0059EF36 /* ImageViewExtension.swift in Sources */,
+				A8A7FE1F299F9451003E57DA /* BaseCustomNibloadableCollectionViewCell.swift in Sources */,
+				A8A7FE43299F967A003E57DA /* ViewControllerIdentifiable.swift in Sources */,
+				A8A7FE47299F96D0003E57DA /* UIView.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
-				A880FAA6299E006300D23F6E /* DeviationTableViewCell.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
+				A875AAFA29B857B800E6D7C1 /* VSIReportTargetDataCell.swift in Sources */,
 				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
+				A856B31729B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
+				A8A55E3629A5D5C20063498B /* View.swift in Sources */,
+				A8A7FE24299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift in Sources */,
+				A81AF7C429AF73F90065BEA0 /* IntExtension.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,
 				A280897C27D27E4000C79920 /* CreatePatient.swift in Sources */,
-				A880FAA7299E006300D23F6E /* VSIReportFooterCell.swift in Sources */,
-				A880FAAF299E006300D23F6E /* VSIReportCellModel.swift in Sources */,
 				A2E318C32830272700D9DEE5 /* scan.swift in Sources */,
 				A2DC1F7A2863C32700ED9027 /* ScanController.swift in Sources */,
 				A27E5DE027CEAE28004C790D /* HomeViewController.swift in Sources */,
+				A856B32529B1AADC005B3497 /* VSIReportViewModel.swift in Sources */,
 				A2407691281DCC5500BBAE66 /* ScansTableViewCell.swift in Sources */,
+				A875AAFC29BAF12A00E6D7C1 /* VSIReportDeviationCellModel.swift in Sources */,
+				A825278B29BF3C950078F9B9 /* VSIReportSubHeaderCell.swift in Sources */,
 				A2DAC7BD2847F8FF00938CC3 /* CreateProviderView.swift in Sources */,
 				A280898227D6B28A00C79920 /* PatientSearchViewController.swift in Sources */,
 				A28BA341287CA32F00E291B6 /* HomeViewModel.swift in Sources */,
 				A25706C827CFDDD400C4A319 /* db.swift in Sources */,
 				A2B5EA90284EC4EB00F8ADCB /* LoginView.swift in Sources */,
-				A880FAAA299E006300D23F6E /* VSIReportTopHeaderViewCell.swift in Sources */,
-				A880FAA4299E006300D23F6E /* VSIReportHeaderView.swift in Sources */,
 				A24F0EEA27DC1478004FD6B3 /* QuestionsViewController.swift in Sources */,
 				A225B8622880CC0C0074FFC4 /* Settings.swift in Sources */,
+				A856B32329B1AADC005B3497 /* VSIReporDeltaCellModel.swift in Sources */,
 				A844DB80298FC23900133360 /* ColorExtension.swift in Sources */,
-				A880FAA1299E006300D23F6E /* VSIReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,7 +1098,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.UprightSpine.Upright;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Upright.Spine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Upright-Bridging-Header.h";
@@ -1011,7 +1131,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.UprightSpine.Upright;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Upright.Spine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Upright-Bridging-Header.h";
@@ -1142,6 +1262,14 @@
 				kind = branch;
 			};
 		};
+		A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1149,6 +1277,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit" */;
 			productName = PostgresClientKit;
+		};
+		A8A55E3829A5DB600063498B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

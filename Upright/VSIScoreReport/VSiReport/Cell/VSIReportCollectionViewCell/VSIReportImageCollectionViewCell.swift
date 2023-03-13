@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VSIReportImageCollectionViewCel: UICollectionViewCell {
+class VSIReportImageCollectionViewCel: BaseCustomNibloadableCollectionViewCell {
     
     @IBOutlet weak var collectionWapperView: UIView!
     @IBOutlet weak var cellContainerView: UIView!

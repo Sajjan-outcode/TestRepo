@@ -7,10 +7,6 @@
 
 import UIKit
 
-class VSIReportHeaderView : UITableViewHeaderFooterView {
-    
-    
-    
-     
-     
+class VSIReportSectionHeaderView : BaseCustomNibLoadableView {
+  
 }
