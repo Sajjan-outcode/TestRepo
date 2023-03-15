@@ -601,14 +601,14 @@ class ScanControllsViewController: UIViewController {
         print("C " + String(absPC))
         let absPT = abs(0.50 - scanHistory.prop_T!) * 100
         
-        if((scanHistory.prop_T! * 100) >= 45){
+        if((scanHistory.prop_T! * 100) > 45){
             pt = (scanHistory.prop_T! * 100)
         }else {
             pt = 45
         }
         let scorePT = pt - 45
     print("t " + String(scorePT))
-        if((scanHistory.prop_L! * 100) <= 30){
+        if((scanHistory.prop_L! * 100) < 30){
             pl = (scanHistory.prop_L! * 100)
         }else{
             pl = 30
@@ -739,7 +739,7 @@ class ScanControllsViewController: UIViewController {
             self.sdsScore.text = String(Int(s_i_Score))
             
             
-        spinePic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(self.scanResults[index].id).png")
+            spinePic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(self.scanResults[index].id).png")
             
             self.refreshScan(refresh: false, process: "")
             

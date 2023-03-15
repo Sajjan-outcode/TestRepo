@@ -53,7 +53,7 @@ struct VSIReportDeviationCellModel {
      
             return VSIReportDeviationCellModel(date: "DEVIATION",
                                                statureValue: "n/a ",
-                                               leanValue: "\(targetValue.leanValue - calLeanValue)º",
+                                               leanValue: "\(abs(targetValue.leanValue - calLeanValue))º",
                                           sXfXValue: "n/a",
                                           proportionCervicalValue:
                                                 "\(targetValue.proportionCervicalValue - calProportionCervicalValue) %",
