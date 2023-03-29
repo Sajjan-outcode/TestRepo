@@ -77,7 +77,7 @@ class VSIReportSubHeaderCell: BaseCustomNibloadableTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        dateValue.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
+        dateValue.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
     }
     
     func setupView() {

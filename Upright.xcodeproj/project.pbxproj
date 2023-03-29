@@ -101,8 +101,11 @@
 		A8A7FE44299F967A003E57DA /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE40299F967A003E57DA /* StoryboardIdentifiable.swift */; };
 		A8A7FE45299F967A003E57DA /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE41299F967A003E57DA /* NibLoadable.swift */; };
 		A8A7FE47299F96D0003E57DA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FE46299F96D0003E57DA /* UIView.swift */; };
+		A8B236B029CD910800246087 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B236AF29CD910800246087 /* ScanViewController.swift */; };
 		A8D53E5E298F9BA300692E2F /* AddSuportVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */; };
 		A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */; };
+		A8FD4F5229D3FA87004AE52D /* UIVewPdfExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD4F5129D3FA87004AE52D /* UIVewPdfExtention.swift */; };
+		A8FD4F5429D43520004AE52D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD4F5329D43520004AE52D /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,8 +236,11 @@
 		A8A7FE40299F967A003E57DA /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
 		A8A7FE41299F967A003E57DA /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		A8A7FE46299F96D0003E57DA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A8B236AF29CD910800246087 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		A8D53E5D298F9BA300692E2F /* AddSuportVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSuportVideoViewController.storyboard; sourceTree = "<group>"; };
 		A8D53E5F298F9BC500692E2F /* AddSupportVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSupportVideoViewController.swift; sourceTree = "<group>"; };
+		A8FD4F5129D3FA87004AE52D /* UIVewPdfExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVewPdfExtention.swift; sourceTree = "<group>"; };
+		A8FD4F5329D43520004AE52D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +286,7 @@
 				A2DC1F792863C32700ED9027 /* ScanController.swift */,
 				A225B8612880CC0C0074FFC4 /* Settings.swift */,
 				A2ADE329288873520050BCBB /* ControllerTableViewCell.swift */,
+				A8B236AF29CD910800246087 /* ScanViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,6 +531,8 @@
 				A8A55E3C29A6301C0063498B /* UITableView.swift */,
 				A81AF7C329AF73F90065BEA0 /* IntExtension.swift */,
 				A875AAFD29BB2FDE00E6D7C1 /* UIFont.swift */,
+				A8FD4F5129D3FA87004AE52D /* UIVewPdfExtention.swift */,
+				A8FD4F5329D43520004AE52D /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -531,19 +540,19 @@
 		A856B2FE29B1AADC005B3497 /* VSIScoreReport */ = {
 			isa = PBXGroup;
 			children = (
-				A856B2FF29B1AADC005B3497 /* VSiReport */,
+				A856B2FF29B1AADC005B3497 /* VSiReportViewController */,
 				A856B31129B1AADC005B3497 /* model */,
 			);
 			path = VSIScoreReport;
 			sourceTree = "<group>";
 		};
-		A856B2FF29B1AADC005B3497 /* VSiReport */ = {
+		A856B2FF29B1AADC005B3497 /* VSiReportViewController */ = {
 			isa = PBXGroup;
 			children = (
 				A856B30029B1AADC005B3497 /* VSIReportController.swift */,
 				A856B30129B1AADC005B3497 /* Cell */,
 			);
-			path = VSiReport;
+			path = VSiReportViewController;
 			sourceTree = "<group>";
 		};
 		A856B30129B1AADC005B3497 /* Cell */ = {
@@ -826,6 +835,7 @@
 				A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */,
 				A26B2EA127C6BF9E00938DB1 /* LoginViewController.swift in Sources */,
 				A2B5EA93284EFB8C00F8ADCB /* Organization.swift in Sources */,
+				A8FD4F5429D43520004AE52D /* Date.swift in Sources */,
 				530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */,
 				A8D53E60298F9BC500692E2F /* AddSupportVideoViewController.swift in Sources */,
 				A240768C281DC4C100BBAE66 /* PatientScan.swift in Sources */,
@@ -846,6 +856,7 @@
 				A2BB2D7027FE45A9002F847E /* BLEManager.swift in Sources */,
 				A26B2E9D27C6BF9E00938DB1 /* AppDelegate.swift in Sources */,
 				A2ADE32C28887DA60050BCBB /* Patients.swift in Sources */,
+				A8FD4F5229D3FA87004AE52D /* UIVewPdfExtention.swift in Sources */,
 				A280897E27D2AE8000C79920 /* AppViewController.swift in Sources */,
 				A245F9E72800CFAE002EBE23 /* ViewController.swift in Sources */,
 				A8A7FE22299F9451003E57DA /* ReusableView.swift in Sources */,
@@ -882,6 +893,7 @@
 				A856B31729B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,
 				A8A55E3629A5D5C20063498B /* View.swift in Sources */,
+				A8B236B029CD910800246087 /* ScanViewController.swift in Sources */,
 				A8A7FE24299F9451003E57DA /* BaseCustomNibLodableTVHeaderFooterView.swift in Sources */,
 				A81AF7C429AF73F90065BEA0 /* IntExtension.swift in Sources */,
 				A280898627D7CC5B00C79920 /* PatientSearch.swift in Sources */,

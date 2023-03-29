@@ -390,7 +390,6 @@ class ScanControllsViewController: UIViewController {
         self.scanResults = []
         // Create URL
         let url = URL(string: "http://\(db.host!):8000?id=\(Organization.id!)")
-        var scanArray: [ScanController.ScanResults]
         guard let requestUrl = url else { fatalError() }
 
         // Create URL Request
@@ -501,7 +500,6 @@ class ScanControllsViewController: UIViewController {
         }
     }
     
-   
     
     func insertX_Y(){
         
@@ -632,7 +630,7 @@ class ScanControllsViewController: UIViewController {
         }
         
         let partTwo = abs(8 - (scanHistory.dl_L! * 100))
-    print(sumD)
+        print(sumD)
        
         guard let leanValue = scanHistory.lean else {return}
         // s_i_score = VSIScore , 
@@ -682,14 +680,14 @@ class ScanControllsViewController: UIViewController {
             let absPC = abs(0.25 - self.scanResults[index].p_c) * 100
         print("abs " + String(absPC))
              let absPT = abs(0.45 - self.scanResults[index].p_t) * 100
-            if((self.scanResults[index].p_t * 100) >= 45){
+            if((self.scanResults[index].p_t * 100) > 45){
                 pt = (self.scanResults[index].p_t * 100)
             }else {
                 pt = 45
             }
             let scorePT = pt - 45
         print("scorePT " + String(scorePT))
-            if((self.scanResults[index].p_l * 100) <= 30){
+            if((self.scanResults[index].p_l * 100) < 30){
                 pl = (self.scanResults[index].p_l * 100)
             }else{
                 pl = 30

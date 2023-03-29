@@ -291,10 +291,10 @@ class VSIReportHeaderView: View {
     
     
      func patientInfoData(viewModel: VSIReportInfoModel){
-          
+         print(viewModel.currentDate)
         patientName.text = viewModel.patientFirstName
         patientEmail.text = viewModel.patientEmail
-        generateDatelabel.text = viewModel.currentDate
+        generateDatelabel.text = viewModel.setCurrentDate()
         clinicEmailValueLabel.text = viewModel.clinicEmail
         clinicNameLabel.text = viewModel.clinicName
         clinicAddressValueLabel.text = viewModel.clinicAddress

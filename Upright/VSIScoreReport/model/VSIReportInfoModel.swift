@@ -25,21 +25,21 @@ struct VSIReportInfoModel {
         self.clinicPhone = clinicPhone
         self.clinicEmail = clinicEmail
         self.currentDate = ""
-        setCurrentDate()
     }
     
-    mutating private  func setCurrentDate()  {
+    func setCurrentDate() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        self.currentDate =  dateFormatter.string(from: date)
-        
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+          
+        return  dateFormatter.string(from: date)
        
     }
     
     static func getNewVSIReportInfoModel() -> VSIReportInfoModel {
-        print(Patient.email!)
-        return VSIReportInfoModel(patientFirstName: "\(Patient.first_name ?? " ")" + " " + "\(Patient.last_name ?? " ")",
+       return VSIReportInfoModel(patientFirstName: "\(Patient.first_name ?? " ")" + " " + "\(Patient.last_name ?? " ")",
                                   patientEmail: Patient.email ?? "",
                                   clinicName: Organization.name ?? "",
                                   clinicAddress: Organization.address ?? "",

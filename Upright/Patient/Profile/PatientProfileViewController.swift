@@ -164,7 +164,7 @@ class PatientProfileViewController: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT *, to_char(date_stamp, 'mm-dd-yyyy') as scan_date FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
+            let text = "SELECT *, to_char(date_stamp, 'mm/dd/yyyy') as scan_date FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -205,7 +205,7 @@ class PatientProfileViewController: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT score, to_char(time_stamp, 'mm-dd-yyyy') FROM survey WHERE patient_id = \(Patient.id!) ORDER BY id DESC"
+            let text = "SELECT score, to_char(time_stamp, 'mm/dd/yyyy') FROM survey WHERE patient_id = \(Patient.id!) ORDER BY id DESC"
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)

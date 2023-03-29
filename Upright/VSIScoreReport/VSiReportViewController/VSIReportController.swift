@@ -30,13 +30,24 @@ class VSIReportController: UIViewController {
     }()
     
     
+    private lazy var shareBtn: UIButton = {
+        let view = UIButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setImage(UIImage(named:"share"), for: .normal)
+        view.setTitleColor(Colors.white, for: .normal)
+        view.addCornerRadius(10)
+        view.addTarget(self, action: #selector(onShareBtnClick), for: .touchUpInside)
+        return view
+    }()
+    
     
     private lazy var closeBtn: UIButton = {
         let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.setImage(UIImage(named:"cross"), for: .normal)
-        view.setTitleColor(Colors.white, for: .normal)
-        view.addCornerRadius(10)
+        let btnImage = UIImage(named: "cross")
+        let tintImage = btnImage?.withRenderingMode(.alwaysTemplate)
+        view.setImage(tintImage, for: .normal)
+        view.tintColor =  Colors.appRedColor
         view.addTarget(self, action: #selector(onNoBtnClick), for: .touchUpInside)
         return view
     }()
@@ -75,7 +86,7 @@ class VSIReportController: UIViewController {
         }
         tableView.tableFooterView = footerView
         tableView.layoutIfNeeded()
-        attachCloseBtn()
+        attachCloseAndShareBtn()
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,20 +102,42 @@ class VSIReportController: UIViewController {
       }
     }
     
+    @objc func onShareBtnClick() {
+        self.shareBtn.isHidden = true
+        self.closeBtn.isHidden = true
+         let pdfFilePath = self.view.generatePDF(title: Patient.first_name ?? "")
+         let shareAll = [pdfFilePath]
+           let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+        if let popOver = activityViewController.popoverPresentationController {
+            popOver.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popOver.sourceView = self.view
+            popOver.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+         }
+        self.present(activityViewController, animated: true)
+        self.closeBtn.isHidden = false
+        self.shareBtn.isHidden = false
+ }
+    
     @objc func onNoBtnClick() {
         self.dismiss(animated: true)
     }
     
-    private func attachCloseBtn(){
+    private func attachCloseAndShareBtn(){
         self.view.addSubview(closeBtn)
+        self.view.addSubview(shareBtn)
         closeBtn.snp.makeConstraints { make in
             make.right.equalTo(self.view.snp.right).inset(16.0)
-            make.width.equalTo(25)
-            make.height.equalTo(25)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
             make.top.equalTo(self.view.snp.top).inset(30)
-            
         }
         
+        shareBtn.snp.makeConstraints { make in
+            make.right.equalTo(self.view.snp.right).inset(40)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view.snp.bottom).inset(40)
+        }
     }
 
 }
