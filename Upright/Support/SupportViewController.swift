@@ -130,7 +130,9 @@ extension SupportViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+         
+        return Organization.isOrganizationAdmin.isFalse ? false : true
+            
     }
     
     private func showDeleteAlert(forRowAt indexPath: IndexPath) {

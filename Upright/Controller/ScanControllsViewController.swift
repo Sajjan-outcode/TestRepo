@@ -547,23 +547,6 @@ class ScanControllsViewController: UIViewController {
         }
         
         
-      
-            
-//            let x_length = self.bleManager.getX_array().count
-//            let X_s = self.bleManager.getX_array()
-//            let Y_s = self.bleManager.getY_array()
-//
-//
-//            for x in 0...x_length - 1{
-//                if(X_s[x] != 0){
-//                self.X_YArray.append([X_s[x],Y_s[x]])
-//                }
-//            }
-//            self.insertX_Y()
-//            callHttp()
-        
-        
-        
     }
     
         
