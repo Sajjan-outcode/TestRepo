@@ -12,6 +12,7 @@ import SwiftUI
 class PatientProfileViewController: UIViewController {
     
     let submitEmail = false
+    let date  = Date()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var surveyTableView: UITableView!
@@ -164,7 +165,7 @@ class PatientProfileViewController: UIViewController {
         do {
             let db:db = db.init()
             defer {db.connection?.close()}
-            let text = "SELECT *, to_char(date_stamp, 'mm/dd/yyyy') as scan_date FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
+            let text = "SELECT *, to_char(date_stamp, 'mm/dd/yyyy') as scan_date, to_char(time_stamp, 'HH24:MI') as time_stamp FROM scans WHERE patient_id = \(Patient.id!) AND lean IS NOT NULL ORDER BY id DESC "
             defer {db.statment?.close()}
             
             let cursor = db.execute(text: text)
@@ -188,9 +189,11 @@ class PatientProfileViewController: UIViewController {
                 let pic_date = try columns[8].string()
                 
                 var scanDate:[String] = []
-                scanDate.append(date_stamp)
-                if(time_stamp != nil) {
-                    scanDate.append(time_stamp!)
+                if let timeStamp = time_stamp,
+                   let formattedTimeStamp = Date.getDateTimeString(from: timeStamp, with: "HH:mm:ss.SSS", to: "HH:mm") {
+                    scanDate.append("\(date_stamp) \(formattedTimeStamp)")
+                } else {
+                    scanDate.append(date_stamp)
                 }
                 scanslist += createArray(id: id, prop_C: prop_C, prop_T: prop_T, prop_L: prop_L, dl_C: dl_C, dl_T: dl_T, dl_L: dl_L, time_stamp: scanDate.joined(separator: " "), lean: lean, height: height, pic_date: pic_date)
                 // print(id)

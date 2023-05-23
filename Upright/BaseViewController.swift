@@ -6,19 +6,21 @@
 //
 import SwiftUI
 import UIKit
+import WebKit
+import SnapKit
 
 class BaseViewController: UIViewController {
     
     static var firstLogin: Bool = false
     static var childView:String!
-     
+    
     static var child: UIViewController!{
         willSet{
             prevChild = child
         }
     }
     static var prevChild: UIViewController!
-
+    
     @IBOutlet weak var providerInfo: UILabel!
     @IBOutlet weak var providerdetails: UILabel!
     
@@ -27,11 +29,11 @@ class BaseViewController: UIViewController {
     
     @IBAction func Home_View(_ sender: Any) {
         displayContentController(content: homeViewController)
-            
+        
     }
     @IBAction func Patient_View(_ sender: Any) {
         displayContentController(content: patientSearchViewController)
-       
+        
     }
     @IBAction func Scans_View(_ sender: Any) {
         displayContentController(content: scanControllsViewController)
@@ -39,10 +41,10 @@ class BaseViewController: UIViewController {
     @IBAction func Surveys_View(_ sender: Any) {
         displayContentController(content: supportViewController)
     }
-   
+    
     @IBAction func loginButton(_ sender: Any) {
         if(bleManager.isConnected() == true) {
-        bleManager.disconnect()
+            bleManager.disconnect()
         }
         print(bleManager.isConnected())
     }
@@ -74,21 +76,31 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var Scans: UIButton!
     @IBOutlet weak var Support: UIButton!
     
+    
+    private lazy var webView: WKWebView = {
+        let view = WKWebView()
+        view.navigationDelegate = self
+        return view
+    }()
+    
+    
     var timer = Timer()
     
     private var screenSize: CGRect = UIScreen.main.bounds
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  setUpWebView()
+        
         //bleManager =  BLEManager.init()
         
-//        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(userIsInactive), userInfo: nil, repeats: true)
-//            let timerGesture = UITapGestureRecognizer(target: self, action: #selector(resetTimer))
-//            self.view.isUserInteractionEnabled = true
-//            self.view.addGestureRecognizer(timerGesture)
+        //        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(userIsInactive), userInfo: nil, repeats: true)
+        //            let timerGesture = UITapGestureRecognizer(target: self, action: #selector(resetTimer))
+        //            self.view.isUserInteractionEnabled = true
+        //            self.view.addGestureRecognizer(timerGesture)
         
         if(Organization.id != nil && qScan == false){
-        setProviderInfo(name: Organization.name!, address: Organization.address!, city: Organization.city!, state: Organization.state!, zip: Organization.zip!)
+            setProviderInfo(name: Organization.name!, address: Organization.address!, city: Organization.city!, state: Organization.state!, zip: Organization.zip!)
         }else{
             let name = defualts.string(forKey: "orgName")!
             let address = defualts.string(forKey: "orgAddress")!
@@ -101,15 +113,15 @@ class BaseViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-
+        
         self.scanControllsViewController = storyboard.instantiateViewController(withIdentifier: "ScanControllsViewController") as? ScanControllsViewController
         self.homeViewController =  storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
         self.patientSearchViewController = storyboard.instantiateViewController(withIdentifier: "PatientSearchViewController") as? PatientSearchViewController
         self.questionsViewController = storyboard.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController
         self.patientProfileViewController = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         self.supportViewController = storyboard.instantiateViewController(withIdentifier: "SupportViewController") as? SupportViewController
-
-      
+        
+        
         //if(BaseViewController.child == nil || qScan == true) {
         if(BaseViewController.firstLogin){
             displayContentController(content: homeViewController)
@@ -117,7 +129,7 @@ class BaseViewController: UIViewController {
             qScanTxt.isHidden = true
             qScanLoginB.isHidden = true
             BaseViewController.firstLogin = false
-            }
+        }
         
         else if(qScan == true) {
             Home.isEnabled = false
@@ -131,26 +143,24 @@ class BaseViewController: UIViewController {
             displayContentController(content: scanControllsViewController)
         }
         
-      
+        
     }
     
     
-//    @objc func userIsInactive() {
-//        // Alert user
-//        let alert = UIAlertController(title: "You have been inactive for 5 minutes. We're going to log you off for security reasons.", message: nil, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (UIAlertAction) in
-//            self.present(self.loginView, animated: true, completion: nil)
-//        }))
-//        present(alert, animated: true)
-//
-//        timer.invalidate()
-//     }
-//
-//    @objc func resetTimer() {
-//        print("Reset")
-//        timer.invalidate()
-//        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(userIsInactive), userInfo: nil, repeats: true)
-//     }
+    func setUpWebView(){
+        self.view.addSubview(webView)
+        webView.snp.makeConstraints{make in
+            make.right.top.bottom.left.equalToSuperview().inset(50)
+        }
+        callWixApi()
+        
+    }
+    
+    
+    private func callWixApi() {
+        guard let url =   WixOAuthUtilities.getUrl(with: WixConstants.appId, and: WixConstants.redirectURl) else {return}
+        let request = webView.load(URLRequest(url: url))
+    }
     
     func displayContentController(content: UIViewController) {
         if(BaseViewController.child != content){
@@ -182,9 +192,9 @@ class BaseViewController: UIViewController {
         let viewClass:Any
         
         if(ViewController.viewer != nil){
-        var test = ViewController.viewer!
-        ViewController.viewer.removeFromSuperview()
-    
+            var test = ViewController.viewer!
+            ViewController.viewer.removeFromSuperview()
+            
         }
         
         ViewController.viewer = currentView
@@ -192,6 +202,28 @@ class BaseViewController: UIViewController {
         self.CurrentView.addSubview(currentView)
     }
     
+    
+}
+
+
+extension BaseViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if let url = webView.url,
+            WixOAuthUtilities.hasCallBackPrefix(url.absoluteString,
+                                                redirectUrl: WixConstants.redirectURl),
+            let code = WixOAuthUtilities.getAccessTokenAndState(from: url) {
+            WixOAuthNetworkCaller.getTokenUrlReguest(with: code, clientId: WixConstants.appId, secretKey: WixConstants.appSecretKey, redirectUrl: WixConstants.redirectURl) { token, error in
+                
+            }
+            self.webView.isHidden = true
+            decisionHandler(.cancel)
+            return
+        }
+        decisionHandler(.allow)
+    }
     
 }
 

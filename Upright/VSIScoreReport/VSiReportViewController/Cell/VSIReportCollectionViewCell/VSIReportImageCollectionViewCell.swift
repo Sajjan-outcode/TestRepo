@@ -11,6 +11,7 @@ class VSIReportImageCollectionViewCel: BaseCustomNibloadableCollectionViewCell {
     
     @IBOutlet weak var collectionWapperView: UIView!
     @IBOutlet weak var cellContainerView: UIView!
+    @IBOutlet weak var spineImageDate: UILabel!
     @IBOutlet weak var spineImage: UIImageView!
     
     override func awakeFromNib() {

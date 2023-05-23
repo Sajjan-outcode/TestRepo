@@ -250,33 +250,18 @@ class ScanControllsViewController: UIViewController {
         ScanHistoryTable.delegate = self
         ScanHistoryTable.dataSource = self
         
-        // Status.text = String(bleManager.getX())
-        // refreshScan(refresh: true)
- 
         self.scans = ScanController()
-        // BaseViewController = storyboard!.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
-        
+       
         mainView = storyboard?.instantiateViewController(withIdentifier: "BaseViewController") as? BaseViewController
         patientView = storyboard?.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController
         
         
         if((self.defualts.value(forKey: "set")) == nil) {
             setLocalData(value: true, key: "set", type: "String")
-//            self.settings = Settings(probType: 0, deviceHeight: Int32(279.4), probPressure: 1, deviceSpeed: 1)
-//            setLocalData(value: 0, key: "probType")
             setLocalData(value: UInt32(101.6), key: "deviceHeight", type: "Int")
-//            setLocalData(value: 1, key: "probPressure")
-//            setLocalData(value: 1, key: "deviceSpeed")
-//            setDefualtSettings(pressure: 1, type: 1, height: Int32(279.4), speed: 1)
+
         } else {
-//            self.settings = Settings(probType: defualts.value(forKey: "probType") as! Int8, deviceHeight: defualts.value(forKey: "deviceHeight") as! Int32, probPressure: defualts.value(forKey: "probPressure") as! Int8, deviceSpeed: defualts.value(forKey: "deviceSpeed") as! Int8)
-//            let pressure = settings?.getProbPressure()
-//            let type = settings?.getProbType()
-//            let height =  settings?.getDeviceHeight()
-//            let speed = settings?.getDeviceSpeed()
-//
-//            setDefualtSettings(pressure: pressure!, type: type!, height: height!, speed: speed!)
-        }
+   }
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
         self.HomeVsi.addGestureRecognizer(longPress)
@@ -286,24 +271,6 @@ class ScanControllsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         refreshScan(refresh: true, process: "bluetooth")
         
-//        self.bleManager.connect()
-//        self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
-//            self.getLastScan()
-//        })
-//        if(self.scanResults.count != 0){
-//        self.setNumbers()
- //       }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//            if(self.bleManager.isConnected()){
-//                self.connect_B.isEnabled = false
-//                self.connect_B.setTitle("Connected", for: .normal)
-//                let pressure = self.bleManager.getScanPressure()
-//                let speed = self.bleManager.getScanSpeed()
-//                let probType = self.bleManager.getProbeType()
-//                let height = self.defualts.integer(forKey: "deviceHeight")
-//                self.setDefualtSettings(pressure: Int(pressure), type: Int(probType), height: height, speed: Int(speed))
-//            }
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -541,12 +508,8 @@ class ScanControllsViewController: UIViewController {
                 
             }
         }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){ [self] in
-                
         }
-        
-        
     }
     
         
@@ -579,7 +542,6 @@ class ScanControllsViewController: UIViewController {
         nt_l.text = "12%"
         
         let absPC = abs(0.25 - scanHistory.prop_C!) * 100
-        print("C " + String(absPC))
         let absPT = abs(0.50 - scanHistory.prop_T!) * 100
         
         if((scanHistory.prop_T! * 100) > 45){
@@ -588,16 +550,13 @@ class ScanControllsViewController: UIViewController {
             pt = 45
         }
         let scorePT = pt - 45
-    print("t " + String(scorePT))
-        if((scanHistory.prop_L! * 100) < 30){
+      if((scanHistory.prop_L! * 100) < 30){
             pl = (scanHistory.prop_L! * 100)
         }else{
             pl = 30
         }
         
         let scorePL = 30 - pl
-        print(pl)
-        print("l " + String(scorePL))
         let absPL = abs(0.30 - scanHistory.prop_L!) * 100
         let sumP = absPC + absPT + absPL
         
@@ -613,7 +572,6 @@ class ScanControllsViewController: UIViewController {
         }
         
         let partTwo = abs(8 - (scanHistory.dl_L! * 100))
-        print(sumD)
        
         guard let leanValue = scanHistory.lean else {return}
         // s_i_score = VSIScore , 

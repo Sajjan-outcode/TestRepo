@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="VSIReportImageCollectionViewCel" reuseIdentifier="VSIReportImageCollectionViewCel" id="f8D-H8-6lJ" customClass="VSIReportImageCollectionViewCel" customModule="Upright" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="171" height="321"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="fQq-Ed-WY1">
+                <rect key="frame" x="0.0" y="0.0" width="171" height="321"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-fa-qRT">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="320"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmP-uU-cYy">
+                                <rect key="frame" x="8" y="2" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z1d-pf-azT">
+                                <rect key="frame" x="0.0" y="18" width="168" height="302"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dmP-uU-cYy" firstAttribute="top" secondItem="7eb-fa-qRT" secondAttribute="top" constant="2" id="1ml-lZ-yjD"/>
+                            <constraint firstItem="z1d-pf-azT" firstAttribute="leading" secondItem="7eb-fa-qRT" secondAttribute="leading" id="DDS-4g-o1A"/>
+                            <constraint firstAttribute="bottom" secondItem="z1d-pf-azT" secondAttribute="bottom" id="PHh-h0-l4q"/>
+                            <constraint firstItem="z1d-pf-azT" firstAttribute="top" secondItem="dmP-uU-cYy" secondAttribute="bottom" constant="-1" id="SPY-c2-I1G"/>
+                            <constraint firstAttribute="trailing" secondItem="z1d-pf-azT" secondAttribute="trailing" id="VZ8-0b-ZCe"/>
+                            <constraint firstAttribute="height" constant="320" id="epy-qr-FC2"/>
+                            <constraint firstAttribute="width" constant="168" id="f40-pX-Aam"/>
+                            <constraint firstItem="z1d-pf-azT" firstAttribute="width" secondItem="7eb-fa-qRT" secondAttribute="width" id="sat-Zm-1Zm"/>
+                            <constraint firstItem="dmP-uU-cYy" firstAttribute="leading" secondItem="7eb-fa-qRT" secondAttribute="leading" constant="8" id="wal-kx-QpB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="7eb-fa-qRT" secondAttribute="bottom" id="5dX-Ru-XOY"/>
+                    <constraint firstAttribute="trailing" secondItem="7eb-fa-qRT" secondAttribute="trailing" id="LLx-Jt-eUD"/>
+                    <constraint firstItem="7eb-fa-qRT" firstAttribute="top" secondItem="fQq-Ed-WY1" secondAttribute="top" id="bqb-ZK-NHy"/>
+                    <constraint firstItem="7eb-fa-qRT" firstAttribute="leading" secondItem="fQq-Ed-WY1" secondAttribute="leading" id="wu1-XY-5G9"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="171" height="321"/>
+            <connections>
+                <outlet property="cellContainerView" destination="7eb-fa-qRT" id="oox-R4-mRk"/>
+                <outlet property="collectionWapperView" destination="7eb-fa-qRT" id="Qgd-1m-iiP"/>
+                <outlet property="spineImage" destination="z1d-pf-azT" id="4zv-Vd-LtV"/>
+                <outlet property="spineImageDate" destination="dmP-uU-cYy" id="mH9-gx-xZr"/>
+            </connections>
+            <point key="canvasLocation" x="99.878048780487802" y="-20.084745762711865"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

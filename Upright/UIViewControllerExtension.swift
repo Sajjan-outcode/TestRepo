@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 extension UIViewController {
     
@@ -25,6 +26,8 @@ extension UIViewController {
 }
 
 struct Utilities {
+    
+    
     
     static func decodeJson<ResponseType: Decodable>(_ json: [String: Any],
                                                     toType: ResponseType.Type) -> ResponseType? {
@@ -64,4 +67,19 @@ struct Utilities {
             return nil
         }
     }
+    static func printMessage(_ message: Any) {
+        #if DEBUG
+            print(message)
+        #endif
+    }
+//    
+//    static func getId() -> String {
+//        if let retrievedString: String = KeychainWrapper.standard.string(forKey: AppConstants.Keys.appType) {
+//            return retrievedString
+//        } else {
+//            let uuid = "\(UIDevice.current.identifierForVendor?.uuidString ?? "\(Date().timeIntervalSince1970)")"
+//            KeychainWrapper.standard.set(uuid, forKey: AppConstants.Keys.appType)
+//            return uuid
+//        }
+//    }
 }

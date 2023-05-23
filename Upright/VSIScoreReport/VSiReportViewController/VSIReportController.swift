@@ -194,7 +194,8 @@ extension VSIReportController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "VSIReportSubHeaderCell", for: indexPath) as? VSIReportSubHeaderCell else {
                 return UITableViewCell()
             }
-            cell.dataModel = viewModel.patientScanVSICellModel[indexPath.row]
+            let data = viewModel.patientScanVSICellModel.sorted {$0.date < $1.date}
+            cell.dataModel = data[indexPath.row]
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "VSIReportSubHeaderCell", for: indexPath) as? VSIReportSubHeaderCell else {
