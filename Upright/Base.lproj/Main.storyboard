@@ -1040,12 +1040,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnq-qN-O1x">
-                                <rect key="frame" x="253" y="24" width="198" height="56"/>
+                                <rect key="frame" x="253" y="23" width="120" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SCHEDULE">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.13098269700000001" green="0.5631559491" blue="0.75906485319999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -1272,12 +1272,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5Q-FG-XBb">
-                                <rect key="frame" x="254" y="166" width="197" height="54"/>
+                                <rect key="frame" x="250" y="91" width="120" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="View Report">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.13098269700000001" green="0.5631559491" blue="0.75906485319999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -1285,13 +1285,24 @@
                                     <action selector="viewReport:" destination="Slu-3J-YIu" eventType="touchUpInside" id="yJx-zh-Ays"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-LZ-RIw">
+                                <rect key="frame" x="378" y="91" width="120" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Attachments">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.13098269700000001" green="0.5631559491" blue="0.75906485319999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i92-fl-eIq">
-                                <rect key="frame" x="253" y="95" width="198" height="56"/>
+                                <rect key="frame" x="378" y="23" width="120" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="INVITE">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.13098269700000001" green="0.5631559491" blue="0.75906485319999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -2686,6 +2697,26 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvy-9n-eCg">
+                                <rect key="frame" x="148" y="20" width="121" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" subtitle="">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Profile">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseBackgroundColor" red="0.16078431369999999" green="0.66666666669999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onClickPatientProfile:" destination="TIt-7l-Qef" eventType="touchUpInside" id="34x-Qw-sI6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QI8-gg-39Q"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2725,6 +2756,7 @@
                         <outlet property="p_c" destination="Qsw-RH-MeK" id="6do-kC-OQW"/>
                         <outlet property="p_l" destination="4cv-0N-sIa" id="OMp-QR-TEN"/>
                         <outlet property="p_t" destination="6Wg-kP-y5q" id="KJE-BU-3lM"/>
+                        <outlet property="patienProfileButton" destination="gvy-9n-eCg" id="rpS-LA-qIZ"/>
                         <outlet property="previous_B" destination="kUf-jL-cbZ" id="9Ny-0t-Fwy"/>
                         <outlet property="profileName" destination="m6S-0H-KFG" id="EOu-io-ysn"/>
                         <outlet property="profileText" destination="9fd-AV-UaY" id="ffo-Iz-BVY"/>
@@ -3059,14 +3091,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UprightlyLogoMain " translatesAutoresizingMaskIntoConstraints="NO" id="V0d-JS-kWP">
-                                <rect key="frame" x="214" y="74" width="382" height="140"/>
+                                <rect key="frame" x="214" y="74" width="382" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="382" id="bLS-8K-MgZ"/>
-                                    <constraint firstAttribute="width" secondItem="V0d-JS-kWP" secondAttribute="height" multiplier="191:70" id="xA1-eE-0gM"/>
+                                    <constraint firstAttribute="width" secondItem="V0d-JS-kWP" secondAttribute="height" multiplier="2:1" id="xA1-eE-0gM"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-we-195" customClass="RoundImageView" customModule="Upright" customModuleProvider="target">
-                                <rect key="frame" x="101.5" y="240" width="607.5" height="473"/>
+                                <rect key="frame" x="101.5" y="291" width="607.5" height="473"/>
                                 <color key="backgroundColor" red="0.97075689369999996" green="0.97416904969999996" blue="0.98440551759999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="round" value="NO"/>
@@ -3082,7 +3115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUp-wA-1u5">
-                                <rect key="frame" x="344.5" y="270" width="121" height="56"/>
+                                <rect key="frame" x="344.5" y="321" width="121" height="56"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Login">
                                         <attributes>
@@ -3094,7 +3127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="bezel" placeholder="UserName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ALX-i2-xha">
-                                <rect key="frame" x="162" y="355" width="486" height="50"/>
+                                <rect key="frame" x="162" y="406" width="486" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userName">
                                     <accessibilityTraits key="traits" none="YES"/>
@@ -3107,13 +3140,13 @@
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOE-zH-u8T">
-                                <rect key="frame" x="162" y="432" width="486" height="50"/>
+                                <rect key="frame" x="162" y="483" width="486" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-Dl-4Je">
-                                <rect key="frame" x="162" y="533" width="486" height="60"/>
+                                <rect key="frame" x="162" y="584" width="486" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
@@ -3124,7 +3157,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-KM-W6h">
-                                <rect key="frame" x="329" y="768" width="152" height="34"/>
+                                <rect key="frame" x="329" y="819" width="152" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -3137,7 +3170,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sad-z0-2wi">
-                                <rect key="frame" x="324.5" y="648" width="161" height="35"/>
+                                <rect key="frame" x="324.5" y="699" width="161" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="x4G-wJ-2Tm"/>
                                 </constraints>
@@ -3154,7 +3187,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mo-YZ-KMi">
-                                <rect key="frame" x="325" y="840" width="160.5" height="43"/>
+                                <rect key="frame" x="325" y="891" width="160.5" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Quick Scan">
                                     <fontDescription key="titleFontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="25"/>
@@ -3233,7 +3266,7 @@
         <image name="Scan Icon" width="37" height="40"/>
         <image name="Support Icon" width="40" height="40"/>
         <image name="Uprightly Logo Main White-05 copy" width="3697" height="937"/>
-        <image name="UprightlyLogoMain " width="3697" height="937"/>
+        <image name="UprightlyLogoMain " width="500" height="127"/>
         <image name="arrow_left" width="235" height="421"/>
         <image name="arrow_right" width="229" height="418"/>
         <image name="qbutton" width="57" height="88"/>
@@ -3241,6 +3274,9 @@
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

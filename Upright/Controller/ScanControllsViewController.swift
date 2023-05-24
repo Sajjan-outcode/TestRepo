@@ -102,6 +102,8 @@ class ScanControllsViewController: UIViewController {
     
     @IBOutlet weak var next_B: UIButton!
     
+    @IBOutlet weak var patienProfileButton: UIButton!
+    
     @IBAction func errorButton(_ sender: Any) {
         errorView.isHidden = true
     }
@@ -156,8 +158,9 @@ class ScanControllsViewController: UIViewController {
         getX_Y()
         start_b.isHidden = false
         stop_b.isHidden = true
+        patienProfileButton.isEnabled = true
         self.getHeight()
-        //print(bleManager.getLength())
+        
     }
     
     @IBAction func Detect_Patient(_ sender: Any) {
@@ -270,11 +273,18 @@ class ScanControllsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         refreshScan(refresh: true, process: "bluetooth")
-        
+        getScanHistory()
+        getPatientList()
+        setProfileName()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: AppConstants.NotificationNames.didUpdateScan, object: nil)
     }
     
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
@@ -282,7 +292,14 @@ class ScanControllsViewController: UIViewController {
             bleManager.sendCommand(newCommand: 1)
         }
     }
+    @IBAction func onClickPatientProfile(_ sender: Any) {
+            present(mainView!, animated: false)
+            mainView!.setView(currentView: patientView!.view)
+            mainView.displayContentController(content: patientView)
+        
+    }
     
+
     func checkBlueConnectionStatus(){
         
         
@@ -319,10 +336,15 @@ class ScanControllsViewController: UIViewController {
     
     func setProfileName(){
         if(Patient.id != nil){
+            patienProfileButton.isHidden = false
+            patienProfileButton.isEnabled = false
             profileText.isHidden = false
             profileName.isHidden = false
             clearProfileButton.isHidden = false
             profileName.text = Patient.first_name! + " " + Patient.last_name!
+        } else {
+            
+            patienProfileButton.isHidden = true
         }
     }
     
@@ -331,6 +353,7 @@ class ScanControllsViewController: UIViewController {
         profileText.isHidden = true
         profileName.isHidden = true
         clearProfileButton.isHidden = true
+        patienProfileButton.isHidden = true
         
     }
     
@@ -393,7 +416,8 @@ class ScanControllsViewController: UIViewController {
                     for result in scan{
                         let tempScanArray = ScanController.ScanResults(id: result["id"] as! String ,p_c: result["p_c"]! as! Double, p_t: result["p_t"]! as! Double, p_l: result["p_l"]! as! Double, d_c: result["d_c"]! as! Double, d_t: result["d_t"]! as! Double, d_l: result["d_l"]! as! Double, lean: result["lean"]! as! Double)
                         self.scanResults.append(tempScanArray)
-                     
+                        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan,
+                                                        object: nil)
                     }
                     } catch {
                         print(error)
@@ -433,8 +457,6 @@ class ScanControllsViewController: UIViewController {
                         }
                     case "submitscan":
                         if(self.sendIndexComplete && x_array == vsiArrayCount){
-                            print(x_array)
-                            print(vsiArrayCount)
                             
                             let X_s = bleManager.getX_array()
                             let Y_s = bleManager.getY_array()
@@ -489,6 +511,7 @@ class ScanControllsViewController: UIViewController {
             } catch {
             print(error)
             }
+//        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan, object: nil)
     }
     
     func getX_Y() {
@@ -692,6 +715,7 @@ class ScanControllsViewController: UIViewController {
         defer {database.connection?.close()}
         let text = "UPDATE scans SET patient_id = \(patient_Id) WHERE id = \(scan_Id)"
         let result = database.execute(text: text)
+        
     }
     
     

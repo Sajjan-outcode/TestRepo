@@ -39,7 +39,6 @@ class ScanController {
         let text = "UPDATE scans SET patient_id = \(patient_id) WHERE id = \(scan_id)"
         let result = database.execute(text: text)
 
-        print(result)
     }
     
     func getScans() {
@@ -68,7 +67,6 @@ class ScanController {
                 let lean = try columns[7].double()
                 //let pic_date = try columns[10].string()
                 patientScans += createScanArray(id: id, p_c: p_c, p_t: p_t, p_l: p_l, dl_c: dl_c, dl_t: dl_t, dl_l: dl_l, time_stamp: time_stamp, lean: lean, height: height, pic_date: time_stamp)
-                print(patientScans[7])
             }
             
         } catch {
@@ -84,19 +82,7 @@ class ScanController {
         return tempList
     }
     
-//    func linkScan(){
-//        if(scanId != nil){
-//            var id = scanId.components(separatedBy: "-")
-//            
-//                let database: db = db()
-//                let value = "INSERT INTO survey (patient_id,score,time_stamp) VALUES (\(Patient.id!),\(questionTotal),current_timestamp);"
-//    
-//    
-//                    let result = database.execute(text: value)
-//    
-//                    print(result)
-//        }
-//    }
+
     
     func isConnected(){
        // bleManager.isConnected()

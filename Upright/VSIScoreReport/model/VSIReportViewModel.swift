@@ -41,8 +41,8 @@ class VSIReportViewModel {
                                                                        patientScan: item, surveyData: index < surveyListLength ? surveyList[index] : surveyList.first  , scanController: scanController))
         }
     }
-    private func downloadScanImage(forItemAt index: Int) {
-        let scan = patientScanslist[index]
+    private func downloadScanImage(sortedPatietScansList:[PatientScan] ,forItemAt index: Int) {
+        let scan = sortedPatietScansList[index]
         guard let host = db.host,
               let scanId = scan.id,
               let picDate = scan.pic_date,
@@ -106,7 +106,10 @@ extension VSIReportViewModel {
     }
     
     func getImageForScan(at index: Int) -> UIImage? {
-        if let scanImage = scanImages[patientScanslist[index].id] {
+        
+        let sortedSpineImage = patientScanslist.sorted{$0.pic_date < $1.pic_date}
+        let sortedImageLatesFirst = scanImages[sortedSpineImage[index].id]
+        if let scanImage = sortedImageLatesFirst {
             switch scanImage.state {
             case .downloaded:
                 return scanImage.image
@@ -116,7 +119,7 @@ extension VSIReportViewModel {
                 return nil
             }
         }
-        downloadScanImage(forItemAt: index)
+        downloadScanImage(sortedPatietScansList: sortedSpineImage,forItemAt: index)
         return nil
     }
     

@@ -45,8 +45,8 @@ struct VSIReporDeltaCellModel {
             let lastCalcuation = Calculations(patient_id: patientId, prop_c: last.patientScan.prop_C, prop_t: last.patientScan.prop_T, prop_l: last.patientScan.prop_L, norm_c: last.patientScan.dl_C, norm_t: last.patientScan.dl_T, norm_l: last.patientScan.dl_L, lean: last.patientScan.lean)
             let lastVSISocre = lastCalcuation.getVsiScore()
             let calcHeight = scanController.getHeight(height: last.patientScan.height - first.patientScan.height)
-         guard let calLastLeanValue = Int(scanController.formatLean(lean: abs(last.patientScan.lean))) ,
-               let calFirstLeanValue = Int(scanController.formatLean(lean: abs(first.patientScan.lean))) else {return nil}
+            guard let calLastLeanValue = Int(scanController.formatLean(lean: abs(last.patientScan.lean))) ,
+                  let calFirstLeanValue = Int(scanController.formatLean(lean: abs(first.patientScan.lean))) else {return nil}
             guard let firstDeviationSurveyScore = questionSurvey.first?.score,
                   let lastDeviationSurveyScore = questionSurvey.last?.score
                   else { return nil }

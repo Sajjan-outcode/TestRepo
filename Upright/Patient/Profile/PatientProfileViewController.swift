@@ -130,6 +130,10 @@ class PatientProfileViewController: UIViewController {
         getScansList()
         getSurveyList()
         self.vsiReportBtn.isHidden = false
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateScanObserver),
+                                               name: AppConstants.NotificationNames.didUpdateScan,
+                                               object: nil)
         
     }
     
@@ -159,6 +163,11 @@ class PatientProfileViewController: UIViewController {
         
     }
     
+    @objc private func updateScanObserver() {
+        getScansList()
+        getSurveyList()
+        tableView.reloadData()
+    }
     
     
     func getScansList(){

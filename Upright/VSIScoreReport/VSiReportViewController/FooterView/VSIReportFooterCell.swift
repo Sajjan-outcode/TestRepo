@@ -43,8 +43,9 @@ extension VSIReportFooterCell: UICollectionViewDelegate , UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VSIReportImageCollectionViewCel", for: indexPath) as? VSIReportImageCollectionViewCel else {
             return UICollectionViewCell()
         }
-        let picDateAndTimeStamp  =  viewModel.patientScanslist[indexPath.row].time_stamp
-        cell.spineImageDate.text = picDateAndTimeStamp
+        let picDateAndTimeStamp  =  viewModel.patientScanslist.sorted {$0.time_stamp < $1.time_stamp}
+        let sortedDateAndTime = picDateAndTimeStamp[indexPath.row].time_stamp
+        cell.spineImageDate.text = sortedDateAndTime
         cell.spineImage.image = viewModel.getImageForScan(at: indexPath.row)
         return cell
     }
