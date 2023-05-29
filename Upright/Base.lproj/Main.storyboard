@@ -3091,15 +3091,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UprightlyLogoMain " translatesAutoresizingMaskIntoConstraints="NO" id="V0d-JS-kWP">
-                                <rect key="frame" x="214" y="74" width="382" height="191"/>
+                                <rect key="frame" x="155" y="74" width="500" height="127"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="382" id="bLS-8K-MgZ"/>
-                                    <constraint firstAttribute="width" secondItem="V0d-JS-kWP" secondAttribute="height" multiplier="2:1" id="xA1-eE-0gM"/>
+                                    <constraint firstAttribute="width" secondItem="V0d-JS-kWP" secondAttribute="height" multiplier="500:127" id="PLX-fN-Ta3"/>
+                                    <constraint firstAttribute="height" constant="127" id="z80-iz-0tF"/>
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-we-195" customClass="RoundImageView" customModule="Upright" customModuleProvider="target">
-                                <rect key="frame" x="101.5" y="291" width="607.5" height="473"/>
+                                <rect key="frame" x="101.5" y="227" width="607.5" height="473"/>
                                 <color key="backgroundColor" red="0.97075689369999996" green="0.97416904969999996" blue="0.98440551759999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="round" value="NO"/>
@@ -3115,7 +3115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUp-wA-1u5">
-                                <rect key="frame" x="344.5" y="321" width="121" height="56"/>
+                                <rect key="frame" x="344.5" y="257" width="121" height="56"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Login">
                                         <attributes>
@@ -3127,7 +3127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="bezel" placeholder="UserName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ALX-i2-xha">
-                                <rect key="frame" x="162" y="406" width="486" height="50"/>
+                                <rect key="frame" x="162" y="342" width="486" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <accessibility key="accessibilityConfiguration" identifier="userName">
                                     <accessibilityTraits key="traits" none="YES"/>
@@ -3140,13 +3140,13 @@
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOE-zH-u8T">
-                                <rect key="frame" x="162" y="483" width="486" height="50"/>
+                                <rect key="frame" x="162" y="419" width="486" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-Dl-4Je">
-                                <rect key="frame" x="162" y="584" width="486" height="60"/>
+                                <rect key="frame" x="162" y="520" width="486" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
@@ -3157,7 +3157,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-KM-W6h">
-                                <rect key="frame" x="329" y="819" width="152" height="34"/>
+                                <rect key="frame" x="329" y="755" width="152" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -3170,7 +3170,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sad-z0-2wi">
-                                <rect key="frame" x="324.5" y="699" width="161" height="35"/>
+                                <rect key="frame" x="324.5" y="635" width="161" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="x4G-wJ-2Tm"/>
                                 </constraints>
@@ -3187,7 +3187,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mo-YZ-KMi">
-                                <rect key="frame" x="325" y="891" width="160.5" height="43"/>
+                                <rect key="frame" x="325" y="827" width="160.5" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Quick Scan">
                                     <fontDescription key="titleFontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="25"/>

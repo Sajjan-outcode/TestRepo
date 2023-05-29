@@ -180,7 +180,6 @@ class PatientProfileViewController: UIViewController {
             let cursor = db.execute(text: text)
             
             defer {cursor.close()}
-            print(cursor)
             for (row) in cursor {
                 let columns = try row.get().columns
                 let prop_C = try columns[2].double()

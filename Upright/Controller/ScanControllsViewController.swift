@@ -160,7 +160,8 @@ class ScanControllsViewController: UIViewController {
         stop_b.isHidden = true
         patienProfileButton.isEnabled = true
         self.getHeight()
-        
+        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan,
+                                        object: nil)
     }
     
     @IBAction func Detect_Patient(_ sender: Any) {
@@ -416,8 +417,7 @@ class ScanControllsViewController: UIViewController {
                     for result in scan{
                         let tempScanArray = ScanController.ScanResults(id: result["id"] as! String ,p_c: result["p_c"]! as! Double, p_t: result["p_t"]! as! Double, p_l: result["p_l"]! as! Double, d_c: result["d_c"]! as! Double, d_t: result["d_t"]! as! Double, d_l: result["d_l"]! as! Double, lean: result["lean"]! as! Double)
                         self.scanResults.append(tempScanArray)
-                        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan,
-                                                        object: nil)
+                                                 
                     }
                     } catch {
                         print(error)
