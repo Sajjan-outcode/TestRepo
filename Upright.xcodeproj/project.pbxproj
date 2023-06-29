@@ -39,6 +39,7 @@
 		7C8318AA2A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318A92A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift */; };
 		7C8318AD2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */; };
 		7CDDCB402A1CA24900BAA8FB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */; };
+		7CDE3C1F2A29C646003CAD9A /* PatientProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */; };
 		98CFF866BB9628C8153CFAC8 /* Pods_Upright.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6355E5957508B1D6F04D769C /* Pods_Upright.framework */; };
 		9D6ED51A3D508DE6487E3E35 /* Pods_UprightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDDADA3690E3B8E92704985 /* Pods_UprightTests.framework */; };
 		A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2312853EE9C00636378 /* QuestionsScore.swift */; };
@@ -208,6 +209,7 @@
 		7C8318A92A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixOAuthNetworkCaller.swift; sourceTree = "<group>"; };
 		7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixAccessTokenResponse.swift; sourceTree = "<group>"; };
 		7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewcontroller.swift; sourceTree = "<group>"; };
 		92D167D65AF6DD581CFEBB6C /* Pods_Upright_UprightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upright_UprightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC1E382ABF710ECB6B42084 /* Pods-Upright-UprightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upright-UprightUITests.release.xcconfig"; path = "Target Support Files/Pods-Upright-UprightUITests/Pods-Upright-UprightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A200C2312853EE9C00636378 /* QuestionsScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScore.swift; sourceTree = "<group>"; };
@@ -466,6 +468,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7CDE3C1B2A29C5E7003CAD9A /* PateintProfile */ = {
+			isa = PBXGroup;
+			children = (
+				7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */,
+			);
+			path = PateintProfile;
+			sourceTree = "<group>";
+		};
 		9259A1589AB9B61892D1BB0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +608,7 @@
 		A26B2E9B27C6BF9E00938DB1 /* Upright */ = {
 			isa = PBXGroup;
 			children = (
+				7CDE3C1B2A29C5E7003CAD9A /* PateintProfile */,
 				7C8318742A121AF700ADC1F9 /* Wix */,
 				A844DB7D298FC1D700133360 /* Utillities */,
 				A844DB79298FC13D00133360 /* Helpers */,
@@ -1174,6 +1185,7 @@
 				7CDDCB402A1CA24900BAA8FB /* AppConstants.swift in Sources */,
 				7C81C9102A0DE7750011A96C /* NetworkResponseProtocols.swift in Sources */,
 				A856B31F29B1AADC005B3497 /* VSIReportHeaderView.swift in Sources */,
+				7CDE3C1F2A29C646003CAD9A /* PatientProfileViewcontroller.swift in Sources */,
 				A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */,
 				A8A7FE45299F967A003E57DA /* NibLoadable.swift in Sources */,
 				7C81C9142A0DE7750011A96C /* Token.swift in Sources */,
@@ -1447,7 +1459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
@@ -1484,7 +1496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;

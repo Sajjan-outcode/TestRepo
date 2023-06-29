@@ -49,6 +49,7 @@ class VSIReportViewModel {
             let url = URL(string: "http://\(host):8000/media/\(scanId)-\(picDate).png")else {
             return
         }
+      
         scanImages[scanId] = (nil, .downloading)
         getData(from: url) { [weak self] (data, response, error) in
             guard let strongSelf = self else { return }

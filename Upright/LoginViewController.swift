@@ -18,8 +18,8 @@ class LoginViewController: UIViewController {
         setDbConnections()
         if(self.defualts.integer(forKey: "orgId") != nil){
             Organization.id = self.defualts.integer(forKey: "orgId")
-        qScan = true
-        present(mainView!, animated: true, completion: nil)
+            qScan = true
+            present(mainView!, animated: true, completion: nil)
         }else{
             
         }
@@ -30,13 +30,13 @@ class LoginViewController: UIViewController {
     private let defualts = UserDefaults.standard
     
     var mainView: BaseViewController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         password_field?.borderStyle = UITextField.BorderStyle.roundedRect
         userName?.borderStyle = UITextField.BorderStyle.roundedRect
         setUpBaseViewController()
-       // autoLoginIfPossible()
+        // autoLoginIfPossible()
         
     }
     
@@ -84,13 +84,7 @@ class LoginViewController: UIViewController {
     }
     
     func setDbConnections(){
-        if(userName.text! == "upright"){
-            db.host =  "44.211.192.6"
-            db.dev =  true
-        }else{
-            db.host = "50.16.61.116" // test host
+            db.host = "54.160.216.20" // test host
             db.dev = false
-        }
     }
 }
-

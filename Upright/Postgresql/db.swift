@@ -17,8 +17,8 @@ class db {
     
     static var host: String!
     static var dev: Bool!
-    let database: String = "myproject"
-    let user: String = "myprojectuser"
+    let database: String =  "myproject" // "unity"//  "myproject"  -> old db name reference
+    let user: String =  "myprojectuser" //"myprojectuser" -> -> old  username reference
     let ssl: Bool = false
     // var credential: Credential =
     var configuration: ConnectionConfiguration = ConnectionConfiguration()
@@ -38,11 +38,11 @@ class db {
     func connect(){
         do{
         configuration = PostgresClientKit.ConnectionConfiguration()
-            configuration.host = db.host!
+        configuration.host = db.host!
         configuration.database = database
         configuration.user = user
         configuration.ssl = ssl
-        configuration.credential = !db.dev! ? .scramSHA256(password: "crI4viaf") : .scramSHA256(password: "t3stus3r")
+        configuration.credential = !db.dev! ? .scramSHA256(password: "crI4viaf") : .scramSHA256(password:"t3stus3r" )//"t3stus3r" "crI4viaf")
         connection = try PostgresClientKit.Connection(configuration: configuration)
     
         // defer {connection!.close()}
