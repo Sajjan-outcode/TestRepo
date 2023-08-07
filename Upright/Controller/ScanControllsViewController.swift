@@ -160,8 +160,7 @@ class ScanControllsViewController: UIViewController {
         stop_b.isHidden = true
         patienProfileButton.isEnabled = true
         self.getHeight()
-        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan,
-                                        object: nil)
+        
     }
     
     @IBAction func Detect_Patient(_ sender: Any) {
@@ -380,7 +379,7 @@ class ScanControllsViewController: UIViewController {
         // clear scanresults
         self.scanResults = []
         // Create URL
-        let url = URL(string: "http://\(db.host!):8000?id=\(Organization.id!)")
+        let url = URL(string: "http://\(db.host!)?id=\(Organization.id!)")
         guard let requestUrl = url else { fatalError() }
 
         // Create URL Request
@@ -417,6 +416,8 @@ class ScanControllsViewController: UIViewController {
                     for result in scan{
                         let tempScanArray = ScanController.ScanResults(id: result["id"] as! String ,p_c: result["p_c"]! as! Double, p_t: result["p_t"]! as! Double, p_l: result["p_l"]! as! Double, d_c: result["d_c"]! as! Double, d_t: result["d_t"]! as! Double, d_l: result["d_l"]! as! Double, lean: result["lean"]! as! Double)
                         self.scanResults.append(tempScanArray)
+                        NotificationCenter.default.post(name: AppConstants.NotificationNames.didUpdateScan,
+                                                        object: nil)
                                                  
                     }
                     } catch {
@@ -621,7 +622,7 @@ class ScanControllsViewController: UIViewController {
         
         
         
-        spinePic.loadFrom(URLAddress:"http://\(db.host!):8000/media/\(scanHistory.id!)-\(scanHistory.time_stamp!).png")
+        spinePic.loadFrom(URLAddress:"http://\(db.host!)/media/\(scanHistory.id!)-\(scanHistory.time_stamp!).png")
         
         
         
@@ -701,7 +702,7 @@ class ScanControllsViewController: UIViewController {
             self.sdsScore.text = String(Int(s_i_Score))
             
             
-            spinePic.loadFrom(URLAddress: "http://\(db.host!):8000/media/\(self.scanResults[index].id).png")
+            spinePic.loadFrom(URLAddress: "http://\(db.host!)/media/\(self.scanResults[index].id).png")
             
             self.refreshScan(refresh: false, process: "")
             

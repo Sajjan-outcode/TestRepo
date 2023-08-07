@@ -46,7 +46,7 @@ class VSIReportViewModel {
         guard let host = db.host,
               let scanId = scan.id,
               let picDate = scan.pic_date,
-            let url = URL(string: "http://\(host):8000/media/\(scanId)-\(picDate).png")else {
+            let url = URL(string: "http://\(host)/media/\(scanId)-\(picDate).png")else {
             return
         }
       

@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
     }
     
     func setDbConnections(){
-            db.host = "54.160.216.20" // test host
-            db.dev = false
+        db.host = "3.220.67.185"//"54.160.216.20" // test host
+        db.dev = false
     }
 }

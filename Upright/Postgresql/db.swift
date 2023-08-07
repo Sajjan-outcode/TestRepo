@@ -17,8 +17,8 @@ class db {
     
     static var host: String!
     static var dev: Bool!
-    let database: String =  "myproject" // "unity"//  "myproject"  -> old db name reference
-    let user: String =  "myprojectuser" //"myprojectuser" -> -> old  username reference
+    let database: String =  "unity"//  "myproject"  -> old db name reference
+    let user: String =  "root" //"myprojectuser" -> -> old  username reference
     let ssl: Bool = false
     // var credential: Credential =
     var configuration: ConnectionConfiguration = ConnectionConfiguration()
@@ -42,7 +42,7 @@ class db {
         configuration.database = database
         configuration.user = user
         configuration.ssl = ssl
-        configuration.credential = !db.dev! ? .scramSHA256(password: "crI4viaf") : .scramSHA256(password:"t3stus3r" )//"t3stus3r" "crI4viaf")
+        configuration.credential = !db.dev! ? .scramSHA256(password: "Nep@l1234") : .scramSHA256(password:"Nep@l1234" )//"t3stus3r" "crI4viaf")
         connection = try PostgresClientKit.Connection(configuration: configuration)
     
         // defer {connection!.close()}
