@@ -40,6 +40,7 @@
 		7C8318AD2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */; };
 		7CDDCB402A1CA24900BAA8FB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */; };
 		7CDE3C1F2A29C646003CAD9A /* PatientProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */; };
+		7CF16CA42A8B6F580052E3BA /* PatientAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */; };
 		A200C2322853EE9C00636378 /* QuestionsScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2312853EE9C00636378 /* QuestionsScore.swift */; };
 		A200C235285424EB00636378 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C234285424EB00636378 /* SurveyTableViewCell.swift */; };
 		A200C239285427C600636378 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C238285427C600636378 /* PatientProfileViewController.swift */; };
@@ -202,6 +203,7 @@
 		7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixAccessTokenResponse.swift; sourceTree = "<group>"; };
 		7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewcontroller.swift; sourceTree = "<group>"; };
+		7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAttachmentViewController.swift; sourceTree = "<group>"; };
 		7F85FC3C85BEFF4D65DE5437 /* Pods-Upright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upright.debug.xcconfig"; path = "Target Support Files/Pods-Upright/Pods-Upright.debug.xcconfig"; sourceTree = "<group>"; };
 		A200C2312853EE9C00636378 /* QuestionsScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScore.swift; sourceTree = "<group>"; };
 		A200C234285424EB00636378 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
@@ -456,6 +458,14 @@
 			path = PateintProfile;
 			sourceTree = "<group>";
 		};
+		7CF16CA22A8B6F1E0052E3BA /* PatientAttachment */ = {
+			isa = PBXGroup;
+			children = (
+				7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */,
+			);
+			path = PatientAttachment;
+			sourceTree = "<group>";
+		};
 		9259A1589AB9B61892D1BB0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +665,7 @@
 		A280897827D27D9E00C79920 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
+				7CF16CA22A8B6F1E0052E3BA /* PatientAttachment */,
 				A200C233285424A500636378 /* survey */,
 				A240768D281DCBBF00BBAE66 /* Scan */,
 				A24F0EE627DC13A2004FD6B3 /* Questions */,
@@ -989,8 +1000,8 @@
 			);
 			mainGroup = A26B2E9027C6BF9E00938DB1;
 			packageReferences = (
-				A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit.git" */,
-				A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit" */,
+				A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = A26B2E9A27C6BF9E00938DB1 /* Products */;
 			projectDirPath = "";
@@ -1164,6 +1175,7 @@
 				A8A7FE47299F96D0003E57DA /* UIView.swift in Sources */,
 				A24F0EF027DC1526004FD6B3 /* Questions.swift in Sources */,
 				7C81C9152A0DE7750011A96C /* NetworkAdapter.swift in Sources */,
+				7CF16CA42A8B6F580052E3BA /* PatientAttachmentViewController.swift in Sources */,
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
 				A875AAFA29B857B800E6D7C1 /* VSIReportTargetDataCell.swift in Sources */,
 				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
@@ -1379,7 +1391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
@@ -1416,7 +1428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = MHGBW7XB38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Upright/Info.plist;
@@ -1558,7 +1570,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit.git" */ = {
+		A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/codewinsdotcom/PostgresClientKit.git";
 			requirement = {
@@ -1566,7 +1578,7 @@
 				kind = branch;
 			};
 		};
-		A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1579,12 +1591,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		A27E5DDD27C98DDA004C790D /* PostgresClientKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit.git" */;
+			package = A27E5DDB27C98BF5004C790D /* XCRemoteSwiftPackageReference "PostgresClientKit" */;
 			productName = PostgresClientKit;
 		};
 		A8A55E3829A5DB600063498B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = A8A55E3729A5DB600063498B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

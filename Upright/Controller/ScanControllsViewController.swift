@@ -189,6 +189,8 @@ class ScanControllsViewController: UIViewController {
         print(bleManager.isConnected())
     }
     
+    
+    
 
     @IBAction func nextscan(_ sender: Any) {
         moveScanResultsIndex(move_index: "minus")
@@ -618,6 +620,7 @@ class ScanControllsViewController: UIViewController {
         self.n_l.text = "\(scans.formatString(number: scanHistory.dl_L!))%"
         self.lean_value.text = scans.formatLean(lean: leanValue)  + "º"
         self.sagittal_score.text = sdsrisk
+        self.height.text = "\(scans.getHeight(height: scanHistory.height!))"
         self.sdsScore.text = String(Int(s_i_Score))
         
         

@@ -125,6 +125,7 @@ class VSIReportController: UIViewController {
     private func attachCloseAndShareBtn(){
         self.view.addSubview(closeBtn)
         self.view.addSubview(shareBtn)
+        
         closeBtn.snp.makeConstraints { make in
             make.right.equalTo(self.view.snp.right).inset(16.0)
             make.width.equalTo(40)

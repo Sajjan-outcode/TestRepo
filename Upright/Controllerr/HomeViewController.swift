@@ -43,10 +43,7 @@ class HomeViewController: UIViewController {
             defer {db.connection?.close()}
             let text = "select (SELECT COUNT(id) as \"patientTotal\" FROM scans WHERE organization_id = \(Organization.id!)) patientTotal, (SELECT COUNT(id) as \"scanTotal\" FROM patient WHERE provider_id = \(Organization.id!)) scanTotal"
             defer {db.statment?.close()}
-            
             let cursor = db.execute(text: text)
-            
-            
             defer {cursor.close()}
             
             for (row) in cursor {

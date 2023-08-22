@@ -19,6 +19,7 @@ class scanHistoryTableViewCell: UITableViewCell {
         self.scanTime.text = ScanTime
         self.scanId.text = String(ScanId)
         self.scanPatientName.text = ScanPatientName
+        
     }
 
 }

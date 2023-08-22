@@ -38,6 +38,11 @@ class LoginViewController: UIViewController {
         setUpBaseViewController()
         // autoLoginIfPossible()
         
+        userName.text! = "doc"
+        password_field.text! = "123"
+        
+        
+       
     }
     
     private func autoLoginIfPossible() {
@@ -59,8 +64,6 @@ class LoginViewController: UIViewController {
         qScan = false
         BaseViewController.firstLogin = true
         setDbConnections()
-        
-        
         let login = LoginView()
         login.getUserInfo(userName: userName.text!)
         if(login.validateUser(password: password_field.text!)){

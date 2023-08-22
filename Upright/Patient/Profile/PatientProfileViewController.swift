@@ -151,6 +151,15 @@ class PatientProfileViewController: UIViewController {
         
     }
     
+    
+    @IBAction func onAttachmentBtnPress(_ sender: Any) {
+        let patientAttachmentController = PatientAttachmentViewController()
+        patientAttachmentController.modalPresentationStyle = .fullScreen
+        self.present(patientAttachmentController, animated: true)
+        
+    }
+    
+    
     func initVSIReportViewcontroller() {
         let vsiReportViewModel = VSIReportViewModel(patientId: Patient.id!,
                                                     vsiReportInfoModel: VSIReportInfoModel.getNewVSIReportInfoModel(),
