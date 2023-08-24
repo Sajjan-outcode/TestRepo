@@ -38,6 +38,7 @@
 		7C8318A82A13984B00ADC1F9 /* WixConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318A72A13984B00ADC1F9 /* WixConstants.swift */; };
 		7C8318AA2A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318A92A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift */; };
 		7C8318AD2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */; };
+		7CC305862A973A9F00DB436A /* PatientAttachmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC305852A973A9E00DB436A /* PatientAttachmentCollectionViewCell.swift */; };
 		7CDDCB402A1CA24900BAA8FB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */; };
 		7CDE3C1F2A29C646003CAD9A /* PatientProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */; };
 		7CF16CA42A8B6F580052E3BA /* PatientAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */; };
@@ -201,6 +202,7 @@
 		7C8318A72A13984B00ADC1F9 /* WixConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixConstants.swift; sourceTree = "<group>"; };
 		7C8318A92A13A17100ADC1F9 /* WixOAuthNetworkCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixOAuthNetworkCaller.swift; sourceTree = "<group>"; };
 		7C8318AC2A13A35C00ADC1F9 /* WixAccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WixAccessTokenResponse.swift; sourceTree = "<group>"; };
+		7CC305852A973A9E00DB436A /* PatientAttachmentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAttachmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CDDCB3F2A1CA24900BAA8FB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		7CDE3C1E2A29C646003CAD9A /* PatientProfileViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewcontroller.swift; sourceTree = "<group>"; };
 		7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAttachmentViewController.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 		7CF16CA22A8B6F1E0052E3BA /* PatientAttachment */ = {
 			isa = PBXGroup;
 			children = (
+				7CC305852A973A9E00DB436A /* PatientAttachmentCollectionViewCell.swift */,
 				7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */,
 			);
 			path = PatientAttachment;
@@ -1179,6 +1182,7 @@
 				A24F0EEE27DC150D004FD6B3 /* QuestionsViewCell.swift in Sources */,
 				A875AAFA29B857B800E6D7C1 /* VSIReportTargetDataCell.swift in Sources */,
 				A844DB822990269200133360 /* RoundUIView.swift in Sources */,
+				7CC305862A973A9F00DB436A /* PatientAttachmentCollectionViewCell.swift in Sources */,
 				7C81C91E2A0DE7750011A96C /* EndPointProtocol.swift in Sources */,
 				A856B31729B1AADC005B3497 /* VSIReportImageCollectionViewCell.swift in Sources */,
 				A844DB7C298FC19C00133360 /* Colors.swift in Sources */,

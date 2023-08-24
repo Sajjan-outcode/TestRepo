@@ -10,35 +10,45 @@ import SnapKit
 
 class PatientAttachmentViewController: UIViewController {
     
+    var imagePicker: UIImagePickerController!
+    
     private lazy var wrapperView: UIView  = {
        let view = UIView()
         view.backgroundColor = Colors.white
         return view
     }()
     
-    private lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let btnImage = UIImage(named: "cross")
-        let tintImage = btnImage?.withRenderingMode(.alwaysTemplate)
-        button.setImage(tintImage, for: .normal)
-        button.tintColor =  Colors.appRedColor
-        button.addTarget(self, action: #selector(onNoBtnClick), for:.touchUpInside)
-        return button
-        
+    private lazy var horizontalStackView: UIStackView = {
+        return UIView.getHorizontalStackView(withPadding: 8.0, distribution: .fillEqually)
     }()
+    
+    private lazy var verticalStackView: UIStackView = {
+        return UIView.getVerticalStackView(withPadding: 8.0)
+    }()
+    
     
     private lazy var patientInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = Colors.blueColor
+        view.backgroundColor = Colors.blueColor.withAlphaComponent(0.9)
         view.addCornerRadius(10)
+        view.setRadiusWithShadow(10.0, color: Colors.appColor)
         return view
         
     }()
         
+    private lazy var patientInfoTextLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.textColor = Colors.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Patient Information"
+        
+    return label
+    }()
+    
     private lazy var patientNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Patient Name :"
+        label.text = "Name"
         label.textColor = Colors.white
         return label
         
@@ -52,9 +62,20 @@ class PatientAttachmentViewController: UIViewController {
         
     }()
     
+  
+    private lazy var patientNameHorizontalStackView: UIStackView = {
+        let designView : [UILabel] = [patientNameLabel,patientName]
+        let view = UIStackView(arrangedSubviews: designView)
+        view.axis = .horizontal
+        view.spacing = 4.0
+        view.distribution = .equalSpacing
+        return view
+        
+    }()
+    
     private lazy var patientEmailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Patient Email :"
+        label.text = "Email"
         label.textColor = Colors.white
         return label
         
@@ -68,9 +89,19 @@ class PatientAttachmentViewController: UIViewController {
         
     }()
     
+    private lazy var patientEmailHorizontalStackView: UIStackView = {
+        let designView : [UILabel] = [patientEmailLabel,patientEmail]
+        let view = UIStackView(arrangedSubviews: designView)
+        view.axis = .horizontal
+        view.spacing = 8
+        view.distribution = .equalSpacing
+        return view
+        
+    }()
+    
     private lazy var patientAddressLabel: UILabel = {
         let label = UILabel()
-        label.text = "Patient Address :"
+        label.text = "Address"
         label.textColor = Colors.white
         return label
         
@@ -84,9 +115,19 @@ class PatientAttachmentViewController: UIViewController {
         
     }()
     
+    private lazy var patientAddressHorizontalStackView: UIStackView = {
+        let designView : [UILabel] = [patientAddressLabel,patientAddress]
+        let view = UIStackView(arrangedSubviews: designView)
+        view.axis = .horizontal
+        view.spacing = 8
+        view.distribution = .equalSpacing
+        return view
+        
+    }()
+    
     private lazy var patientPhoneLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phone  :"
+        label.text = "Phone"
         label.textColor = Colors.white
         return label
         
@@ -100,11 +141,49 @@ class PatientAttachmentViewController: UIViewController {
         
     }()
     
+    private lazy var patientPhoneHorizontalStackView: UIStackView = {
+        let designView : [UILabel] = [patientPhoneLabel,patientPhone]
+        let view = UIStackView(arrangedSubviews: designView)
+        view.axis = .horizontal
+        view.spacing = 8
+        view.distribution = .equalSpacing
+    
+        return view
+        
+    }()
+    
+    private lazy var topImageView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "navLogo"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFill
+        return view
+        
+    }()
+    
+    private lazy var topLogoBannerView: UIView = {
+       let view = UIView()
+        view.backgroundColor = Colors.appWhiteColor.withAlphaComponent(1)
+        return view
+        
+    }()
+    
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let btnImage = UIImage(named: "cross")
+        let tintImage = btnImage?.withRenderingMode(.alwaysTemplate)
+        button.setImage(tintImage, for: .normal)
+        button.tintColor =  Colors.darkGrayColor
+        button.addTarget(self, action: #selector(onNoBtnClick), for:.touchUpInside)
+        return button
+        
+    }()
+    
     private lazy var fileAttachmentButton: UIButton = {
         let button = UIButton()
         button.setTitle("Choose File", for: .normal)
-        button.addCornerRadius(2)
-        button.setTitleColor(Colors.blackColor, for: .normal)
+        button.addCornerRadius(10)
+        button.setTitleColor(Colors.darkGrayColor, for: .normal)
         button.backgroundColor = Colors.white
         button.addTarget(self, action: #selector(openAtttachmentOption), for:.touchUpInside)
         return button
@@ -129,118 +208,100 @@ class PatientAttachmentViewController: UIViewController {
     
     private func collectionViewSetup() {
         let layout = UICollectionViewFlowLayout()
-        collectionView.layer.borderColor = Colors.grayColor.cgColor
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellIdentifier")
+        collectionView.register(PatientAttachmentCollectionViewCell.self, forCellWithReuseIdentifier: "PatientAttachmentCollectionViewCell")
         collectionView.backgroundColor = UIColor.white
         self.wrapperView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(self.patientInfoView.snp.bottom).offset(10)
-            make.right.equalTo(self.patientInfoView.snp.right)
-            make.left.equalTo(self.patientInfoView.snp.left)
+            make.right.equalTo(self.patientInfoView.snp.right).inset(10)
+            make.left.equalTo(self.patientInfoView.snp.left).inset(10)
             make.bottom.equalToSuperview()
         }
- 
     }
     
     private func attachmentView() {
-        
+
         self.view.addSubview(wrapperView)
-        self.wrapperView.addSubview(closeButton)
         self.wrapperView.addSubview(patientInfoView)
         
         wrapperView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalToSuperview()
         }
-        
-        closeButton.snp.makeConstraints { make in
-            make.right.equalTo(self.wrapperView.snp.right).inset(16.0)
-            make.width.equalTo(40)
-            make.height.equalTo(40)
-            make.top.equalTo(self.wrapperView.snp.top).inset(30)
-        }
-        
-       
     }
     
     private func attchmentTopView() {
         self.wrapperView.addSubview(patientInfoView)
-        self.patientInfoView.addSubview(patientNameLabel)
-        self.patientInfoView.addSubview(patientName)
-        self.patientInfoView.addSubview(patientEmailLabel)
-        self.patientInfoView.addSubview(patientEmail)
-        self.patientInfoView.addSubview(patientAddressLabel)
-        self.patientInfoView.addSubview(patientAddress)
-        self.patientInfoView.addSubview(patientPhoneLabel)
-        self.patientInfoView.addSubview(patientPhone)
         self.patientInfoView.addSubview(fileAttachmentButton)
-                
+        self.wrapperView.addSubview(verticalStackView)
+        self.wrapperView.addSubview(patientInfoTextLabel)
+        self.wrapperView.addSubview(topLogoBannerView)
+        self.topLogoBannerView.addSubview(topImageView)
+        self.topLogoBannerView.addSubview(closeButton)
+        
+        topLogoBannerView.snp.makeConstraints { make in
+            make.top.equalTo(self.wrapperView.snp.top).inset(20)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.patientInfoView.snp.top).offset(-20)
+            make.height.equalTo(80)
+            
+        }
+        
+        topImageView.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(self.topLogoBannerView)
+            make.height.equalTo(70)
+            make.width.equalTo(140)
+        }
+        
+        
+        closeButton.snp.makeConstraints { make in
+            make.right.equalTo(self.topLogoBannerView.snp.right).inset(16.0)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
+            make.centerY.equalTo(self.topLogoBannerView)
+        }
+        
         patientInfoView.snp.makeConstraints { make in
-            make.top.equalTo(100)
             make.right.equalTo(self.wrapperView.snp.right).inset(10)
             make.left.equalTo(self.wrapperView.snp.left).inset(10)
             make.height.equalTo(200)
         }
         
-        patientNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.patientInfoView.snp.top).inset(25)
-            make.left.equalTo(self.patientInfoView.snp.left).inset(16)
+        patientInfoTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.patientInfoView.snp.top).inset(12)
+            make.left.equalTo(self.patientInfoView.snp.left).inset(20)
         }
         
-        patientName.snp.makeConstraints { make in
-            make.top.equalTo(self.patientInfoView.snp.top).inset(25)
-            make.left.equalTo(self.patientNameLabel.snp.right).offset(16)
-        }
+        verticalStackView.snp.makeConstraints { make in
+            make.left.equalTo(self.patientInfoView.snp.left).inset(20)
+            make.centerY.equalTo(self.patientInfoView)
+            }
         
-        patientEmailLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.patientNameLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.patientInfoView.snp.left).inset(16)
-        }
-        patientEmail.snp.makeConstraints { make in
-            make.top.equalTo(self.patientName.snp.bottom).offset(8)
-            make.left.equalTo(self.patientEmailLabel.snp.right).offset(16)
-        }
-        
-        patientAddressLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.patientEmailLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.patientInfoView.snp.left).inset(16)
-        }
-        
-        patientAddress.snp.makeConstraints { make in
-            make.top.equalTo(self.patientEmail.snp.bottom).offset(8)
-            make.left.equalTo(self.patientAddressLabel.snp.right).offset(16)
-        }
-        
-        patientPhoneLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.patientAddressLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.patientInfoView.snp.left).offset(16)
-        }
-        
-        patientPhone.snp.makeConstraints { make in
-            make.top.equalTo(self.patientAddressLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.patientPhoneLabel.snp.right).offset(16)
-        }
+        verticalStackView.addArrangedSubview(patientNameHorizontalStackView)
+        verticalStackView.addArrangedSubview(patientEmailHorizontalStackView)
+        verticalStackView.addArrangedSubview(patientAddressHorizontalStackView)
+        verticalStackView.addArrangedSubview(patientPhoneHorizontalStackView)
         
         fileAttachmentButton.snp.makeConstraints { make in
-            make.top.equalTo(self.patientInfoView.snp.top).inset(30)
-            make.right.equalTo(self.patientInfoView.snp.right).inset(16)
-            make.height.equalTo(40)
-            make.width.equalTo(120)
+            make.centerY.equalTo(self.patientInfoView)
+            make.right.equalTo(self.patientInfoView.snp.right).inset(20)
+            make.height.equalTo(60)
+            make.width.equalTo(200)
         }
-        
-        
     }
     
+ 
     @objc private func openAtttachmentOption() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
            alertController.addAction(UIAlertAction(title: "Take Photo", style: .default) {  _ in
-              //  self.openCamera()
+                self.openCamera()
             })
 
             alertController.addAction(UIAlertAction(title: "Photo library", style: .default) {  _ in
-             ///   self.openGallery()
+               self.openGallery()
             })
 
             alertController.addAction(UIAlertAction(title: "Document", style: .default) { _ in
@@ -250,35 +311,78 @@ class PatientAttachmentViewController: UIViewController {
              alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
             if UIDevice.current.userInterfaceIdiom == .pad {
-                alertController.popoverPresentationController?.sourceView = self.view
-                alertController.popoverPresentationController?.sourceRect = self.view.bounds
-                alertController.popoverPresentationController?.permittedArrowDirections = [.down, .up]
+                
+                if let popOver = alertController.popoverPresentationController {
+                    popOver.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+                    popOver.sourceView = self.view
+                    popOver.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+                 }
 
             }
-
-            self.present(alertController, animated: true)
+        
+        self.present(alertController, animated: true)
     }
     
 }
 
-extension PatientAttachmentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
+extension PatientAttachmentViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Return the number of items in your collection view
-        return 10 // Change this value according to your data
+        return 40 // Change this value according to your data
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellIdentifier", for: indexPath)
-        
-        // Customize the cell's appearance and content
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PatientAttachmentCollectionViewCell", for: indexPath) as! PatientAttachmentCollectionViewCell
+        cell.imageView.image = UIImage(named: "SxFx_Background")
         return cell
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 4.25
+        let widthOfCell = width
+        return CGSize(width: widthOfCell, height: widthOfCell)
+     }
+     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+           return 12.0
+       }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+           return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+
+extension PatientAttachmentViewController: UIImagePickerControllerDelegate , UINavigationControllerDelegate  {
+    
+    
+    func openCamera() {
+   
+            let mediaTypes = ["public.image", "public.movie"]
+        
+            self.imagePicker =  UIImagePickerController()
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.videoMaximumDuration = TimeInterval(300)
+            self.imagePicker.mediaTypes = mediaTypes
+            present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+
 }

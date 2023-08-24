@@ -18,6 +18,8 @@ struct Colors {
     static let grayTextColor = UIColor(hex6String: "#777777")
     static let grayTitleColor = UIColor(hex6String: "#6F6F6F")
 
+    static let appWhiteColor = UIColor(hex6String: "F6F6F7")
+    static let appColor = UIColor(hex6String: "29AAE2")
     static let appRedColor = UIColor(hex6String: "#EF7981")
     static let textfieldBorderColor = UIColor(hex6String: "#DFDFE0")
     static let white = UIColor(hex6String: "#ffffff")

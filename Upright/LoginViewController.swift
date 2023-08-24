@@ -36,18 +36,23 @@ class LoginViewController: UIViewController {
         password_field?.borderStyle = UITextField.BorderStyle.roundedRect
         userName?.borderStyle = UITextField.BorderStyle.roundedRect
         setUpBaseViewController()
-        // autoLoginIfPossible()
         
         userName.text! = "doc"
         password_field.text! = "123"
-        
+       // autoLoginIfPossible()
         
        
     }
     
     private func autoLoginIfPossible() {
-        if defualts.value(forKey: "orgId") != nil {
+        qScan = false
+        BaseViewController.firstLogin = true
+        setDbConnections()
+        let login = LoginView()
+        login.getUserInfo(userName: userName.text!)
+        if(login.validateUser(password: password_field.text!)){
             transitionToHome()
+            setOrganizationValues()
         }
     }
     
