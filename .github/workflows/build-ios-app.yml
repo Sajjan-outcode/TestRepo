@@ -8,11 +8,11 @@ on:
     branches: [main]
 
 jobs:
-  build_with_signing:
+  deploy:
     runs-on: macos-latest
     steps:
       # this was more debug as was curious what came pre-installed
-      # GitHub shares this online, e.g. https://github.com/actions/runner-images/blob/macOS-12/20230224.1/images/macos/macos-12-Readme.md
+    
       - name: check Xcode version
         run: /usr/bin/xcodebuild -version
 
@@ -54,7 +54,7 @@ jobs:
     - name: Run tests
       run: |
         
-        xcodebuild test -workspace Upright.xcworkspace -scheme Upright clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
+        xcodebuild test -workspace Upright.xcworkspace -scheme GitHubActions clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
 
       - name: build archive
         run: |
