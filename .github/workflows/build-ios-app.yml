@@ -103,7 +103,7 @@ jobs:
 
         run: |
 
-          xcodebuild test -workspace Upright.xcworkspace -scheme GitHubActions clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
+          xcodebuild test -workspace Upright.xcworkspace -scheme Upright clean build -sdk iphoneos -destination "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max" CODE_SIGNING_ALLOWED=No
 
       - name: build archive
 
