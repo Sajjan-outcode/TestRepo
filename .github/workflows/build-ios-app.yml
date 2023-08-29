@@ -33,7 +33,7 @@ jobs:
       - name: Upload to App Store Connect
         uses: wzieba/Fastlane-Deliver@2
         with:
-          username: ${{ secrets.APPLEID }}
+          username: ${{ secrets.APPLE_ID }}
           password: ${{ secrets.APPLE_PASSWORD }}
           app_identifier: "com.uprightspine"
           ipa: "build/Upright.ipa"
