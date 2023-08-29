@@ -5,15 +5,22 @@
 //  Created by outcode  on 15/08/2023.
 //
 
+import MobileCoreServices
 import UIKit
+import Foundation
+import AVKit
 import SnapKit
+import Photos
+import UniformTypeIdentifiers
 
 class PatientAttachmentViewController: UIViewController {
     
-    var imagePicker: UIImagePickerController!
+    var imagePicker = UIImagePickerController()
+    public var tempImageAray = [UIImage]()
+    //  public var imageAray = [ImageData]()
     
     private lazy var wrapperView: UIView  = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = Colors.white
         return view
     }()
@@ -35,7 +42,7 @@ class PatientAttachmentViewController: UIViewController {
         return view
         
     }()
-        
+    
     private lazy var patientInfoTextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 20)
@@ -67,8 +74,9 @@ class PatientAttachmentViewController: UIViewController {
         let designView : [UILabel] = [patientNameLabel,patientName]
         let view = UIStackView(arrangedSubviews: designView)
         view.axis = .horizontal
-        view.spacing = 4.0
-        view.distribution = .equalSpacing
+        view.alignment = .leading
+        view.spacing = 8
+        view.distribution = .fillEqually
         return view
         
     }()
@@ -84,8 +92,8 @@ class PatientAttachmentViewController: UIViewController {
     private lazy var patientEmail: UILabel = {
         let label = UILabel()
         label.textColor = Colors.white
-        label.text = "Jhon"
-       return label
+        label.text = "Jhon@upright.com"
+        return label
         
     }()
     
@@ -93,8 +101,9 @@ class PatientAttachmentViewController: UIViewController {
         let designView : [UILabel] = [patientEmailLabel,patientEmail]
         let view = UIStackView(arrangedSubviews: designView)
         view.axis = .horizontal
-        view.spacing = 8
-        view.distribution = .equalSpacing
+        view.alignment = .leading
+        view.spacing = 8.0
+        view.distribution = .fillEqually
         return view
         
     }()
@@ -119,8 +128,9 @@ class PatientAttachmentViewController: UIViewController {
         let designView : [UILabel] = [patientAddressLabel,patientAddress]
         let view = UIStackView(arrangedSubviews: designView)
         view.axis = .horizontal
-        view.spacing = 8
-        view.distribution = .equalSpacing
+        view.alignment = .leading
+        view.spacing = 8.0
+        view.distribution = .fillEqually
         return view
         
     }()
@@ -145,24 +155,24 @@ class PatientAttachmentViewController: UIViewController {
         let designView : [UILabel] = [patientPhoneLabel,patientPhone]
         let view = UIStackView(arrangedSubviews: designView)
         view.axis = .horizontal
-        view.spacing = 8
-        view.distribution = .equalSpacing
-    
-        return view
+        view.spacing = 8.0
+        view.alignment = .leading
+        view.distribution = .fillEqually
+       return view
         
     }()
     
     private lazy var topImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "navLogo"))
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
         return view
         
     }()
     
     private lazy var topLogoBannerView: UIView = {
        let view = UIView()
-        view.backgroundColor = Colors.appWhiteColor.withAlphaComponent(1)
+        view.backgroundColor = Colors.white
         return view
         
     }()
@@ -223,7 +233,7 @@ class PatientAttachmentViewController: UIViewController {
     }
     
     private func attachmentView() {
-
+        
         self.view.addSubview(wrapperView)
         self.wrapperView.addSubview(patientInfoView)
         
@@ -244,15 +254,15 @@ class PatientAttachmentViewController: UIViewController {
         topLogoBannerView.snp.makeConstraints { make in
             make.top.equalTo(self.wrapperView.snp.top).inset(20)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.patientInfoView.snp.top).offset(-20)
+            make.bottom.equalTo(self.patientInfoView.snp.top).offset(-15)
             make.height.equalTo(80)
             
         }
         
         topImageView.snp.makeConstraints { make in
             make.centerX.centerY.equalTo(self.topLogoBannerView)
-            make.height.equalTo(70)
-            make.width.equalTo(140)
+            make.height.equalTo(80)
+            make.width.equalTo(160)
         }
         
         
@@ -277,7 +287,7 @@ class PatientAttachmentViewController: UIViewController {
         verticalStackView.snp.makeConstraints { make in
             make.left.equalTo(self.patientInfoView.snp.left).inset(20)
             make.centerY.equalTo(self.patientInfoView)
-            }
+        }
         
         verticalStackView.addArrangedSubview(patientNameHorizontalStackView)
         verticalStackView.addArrangedSubview(patientEmailHorizontalStackView)
@@ -292,35 +302,38 @@ class PatientAttachmentViewController: UIViewController {
         }
     }
     
- 
     @objc private func openAtttachmentOption() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-           alertController.addAction(UIAlertAction(title: "Take Photo", style: .default) {  _ in
-                self.openCamera()
-            })
-
-            alertController.addAction(UIAlertAction(title: "Photo library", style: .default) {  _ in
-               self.openGallery()
-            })
-
-            alertController.addAction(UIAlertAction(title: "Document", style: .default) { _ in
-               // self.openDocument()
-            })
-
-             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                
-                if let popOver = alertController.popoverPresentationController {
-                    popOver.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-                    popOver.sourceView = self.view
-                    popOver.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-                 }
-
+        alertController.addAction(UIAlertAction(title: "Take Photo", style: .default) {  _ in
+            self.openCamera()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Photo library", style: .default) {  _ in
+            self.openGallery()
+        })
+        
+        //            alertController.addAction(UIAlertAction(title: "Document", style: .default) { _ in
+        //               self.openDocument()
+        //            })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            
+            if let popOver = alertController.popoverPresentationController {
+                popOver.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+                popOver.sourceView = self.view
+                popOver.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
             }
+            
+        }
         
         self.present(alertController, animated: true)
+    }
+    
+    func convertImageToBase64String (img: UIImage) -> String {
+        return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
     }
     
 }
@@ -330,33 +343,44 @@ extension PatientAttachmentViewController: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Return the number of items in your collection view
-        return 40 // Change this value according to your data
+        return tempImageAray.count // Change this value according to your data
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PatientAttachmentCollectionViewCell", for: indexPath) as! PatientAttachmentCollectionViewCell
-        cell.imageView.image = UIImage(named: "SxFx_Background")
+        let image = tempImageAray[indexPath.row]
+        cell.imageView.image =  image
         return cell
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let image = tempImageAray[indexPath.item]
+        let previewViewController =  PreviewViewController()
+        previewViewController.imageUrl =  image
+        previewViewController.modalPresentationStyle = .fullScreen
+        self.present(previewViewController, animated: true)
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 4.25
         let widthOfCell = width
         return CGSize(width: widthOfCell, height: widthOfCell)
-     }
-     
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-           return 12.0
-       }
-
+        return 12.0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-           return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+    
 }
 
 
@@ -364,25 +388,61 @@ extension PatientAttachmentViewController: UIImagePickerControllerDelegate , UIN
     
     
     func openCamera() {
-   
-            let mediaTypes = ["public.image", "public.movie"]
         
-            self.imagePicker =  UIImagePickerController()
-            self.imagePicker.delegate = self
-            self.imagePicker.sourceType = .camera
-            self.imagePicker.videoMaximumDuration = TimeInterval(300)
-            self.imagePicker.mediaTypes = mediaTypes
-            present(self.imagePicker, animated: true, completion: nil)
+        let mediaTypes = ["public.image", "public.movie"]
+        
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = .camera
+        self.imagePicker.videoMaximumDuration = TimeInterval(300)
+        self.imagePicker.mediaTypes = mediaTypes
+        present(self.imagePicker, animated: true, completion: nil)
     }
     
     func openGallery() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            var imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = true
             present(imagePicker, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+        tempImageAray.append(selectedImage)
+        collectionView.reloadData()
+        imagePicker.dismiss(animated: true)
+    }
+}
 
+
+
+
+extension PatientAttachmentViewController: UIDocumentPickerDelegate {
+    
+    func openDocument() {
+        let documentsSupportedTypes = [UTType.jpeg, UTType.png ,
+                                       UTType.rtf, UTType.plainText ,
+                                       UTType.pdf, UTType.mp3 ,
+                                       UTType.pdf, UTType.text,]
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes:documentsSupportedTypes ,asCopy: true)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL){
+        print("documentPicker opened")
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("documentPickerWasCancelled opened")
+    }
+    
 }

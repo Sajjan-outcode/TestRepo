@@ -24,7 +24,7 @@ class  PatientAttachmentCollectionViewCell: UICollectionViewCell {
         setupView()
     }
      func setupView() {
-        self.addSubview(imageView)
+        self.addSubview(imageView) 
          
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

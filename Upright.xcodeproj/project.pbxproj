@@ -10,6 +10,7 @@
 		29CAAB31B54FAA7A9C210EB6 /* Pods_Upright.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11CAB6938420C4E48BE5B53 /* Pods_Upright.framework */; };
 		530D29C8298CFD2800295600 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D29C7298CFD2800295600 /* DatabaseManager.swift */; };
 		530D29CA298D054600295600 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D29C9298D054600295600 /* UIViewControllerExtension.swift */; };
+		7C1EF7DE2A9C9B8000E5CA5C /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF7DD2A9C9B8000E5CA5C /* PreviewViewController.swift */; };
 		7C81C8EB2A0CF1350011A96C /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81C8EA2A0CF1350011A96C /* AppUrls.swift */; };
 		7C81C90F2A0DE7750011A96C /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81C8F22A0DE7750011A96C /* ApiClientProtocol.swift */; };
 		7C81C9102A0DE7750011A96C /* NetworkResponseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81C8F32A0DE7750011A96C /* NetworkResponseProtocols.swift */; };
@@ -174,6 +175,7 @@
 /* Begin PBXFileReference section */
 		530D29C7298CFD2800295600 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		530D29C9298D054600295600 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		7C1EF7DD2A9C9B8000E5CA5C /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		7C81C8EA2A0CF1350011A96C /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
 		7C81C8F22A0DE7750011A96C /* ApiClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
 		7C81C8F32A0DE7750011A96C /* NetworkResponseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseProtocols.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			children = (
 				7CC305852A973A9E00DB436A /* PatientAttachmentCollectionViewCell.swift */,
 				7CF16CA32A8B6F580052E3BA /* PatientAttachmentViewController.swift */,
+				7C1EF7DD2A9C9B8000E5CA5C /* PreviewViewController.swift */,
 			);
 			path = PatientAttachment;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				7C81C9162A0DE7750011A96C /* NetworkRetrier.swift in Sources */,
 				A8A7FE20299F9451003E57DA /* NibLoadableView.swift in Sources */,
 				A2B6CC2F27CEE055001F9012 /* RoundImageView.swift in Sources */,
+				7C1EF7DE2A9C9B8000E5CA5C /* PreviewViewController.swift in Sources */,
 				7C81C9172A0DE7750011A96C /* RequestManager.swift in Sources */,
 				A2B4711A289C802600608CFD /* scanHistoryTableViewCell.swift in Sources */,
 				A280897A27D27DBD00C79920 /* Patient.swift in Sources */,

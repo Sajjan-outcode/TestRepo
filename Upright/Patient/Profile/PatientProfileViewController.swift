@@ -154,7 +154,7 @@ class PatientProfileViewController: UIViewController {
     
     @IBAction func onAttachmentBtnPress(_ sender: Any) {
         let patientAttachmentController = PatientAttachmentViewController()
-        patientAttachmentController.modalPresentationStyle = .fullScreen
+        patientAttachmentController.modalPresentationStyle = .overFullScreen
         self.present(patientAttachmentController, animated: true)
         
     }
@@ -296,8 +296,6 @@ class PatientProfileViewController: UIViewController {
             
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                
-                
                 
             }
             
