@@ -11,7 +11,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        let signingIdentity = ProcessInfo.processInfo.environment["CODE_SIGN_IDENTITY"]
+        let provisioningProfile = ProcessInfo.processInfo.environment["PROVISIONING_PROFILE"]
+        print("Signing Identity: \(signingIdentity ?? "Unknown")")
+        print("Provisioning Profile: \(provisioningProfile ?? "Unknown")")
         return true
     }
 
